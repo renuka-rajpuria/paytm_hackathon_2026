@@ -1,16 +1,7 @@
 import { TweetAnalysis } from "@/lib/analyzeTweets";
 
-interface MediaUrl {
-  type: string;
-  url: string;
-  display_url: string;
-}
-
-interface Mention {
-  screen_name: string;
-  name: string;
-}
-
+interface MediaUrl { type: string; url: string }
+interface Mention  { screen_name: string; name: string }
 interface TweetUser {
   name: string;
   screen_name: string;
@@ -36,110 +27,91 @@ export interface Tweet {
   user: TweetUser;
 }
 
-const SEVERITY_COLORS = {
-  critical: { bg: "bg-red-100", text: "text-red-700", bar: "bg-red-500", label: "🔴 Critical" },
-  high:     { bg: "bg-orange-100", text: "text-orange-700", bar: "bg-orange-400", label: "🟠 High" },
-  medium:   { bg: "bg-yellow-100", text: "text-yellow-700", bar: "bg-yellow-400", label: "🟡 Medium" },
-  low:      { bg: "bg-green-100", text: "text-green-700", bar: "bg-green-400", label: "🟢 Low" },
+const SEV = {
+  critical: { border: "border-l-red-500",    dot: "bg-red-500",     label: "Critical",  text: "text-red-600",    badge: "bg-red-50 text-red-600" },
+  high:     { border: "border-l-orange-400", dot: "bg-orange-400",  label: "High",      text: "text-orange-600", badge: "bg-orange-50 text-orange-600" },
+  medium:   { border: "border-l-amber-400",  dot: "bg-amber-400",   label: "Medium",    text: "text-amber-600",  badge: "bg-amber-50 text-amber-600" },
+  low:      { border: "border-l-emerald-400",dot: "bg-emerald-400", label: "Low",       text: "text-emerald-600",badge: "bg-emerald-50 text-emerald-600" },
 };
 
-const SENTIMENT_COLORS = {
-  negative: "bg-red-50 text-red-600 border-red-200",
-  neutral:  "bg-gray-100 text-gray-600 border-gray-200",
-  positive: "bg-green-50 text-green-600 border-green-200",
+const SENT_COLOR = {
+  negative: "text-red-500",
+  neutral:  "text-gray-400",
+  positive: "text-emerald-500",
 };
 
-export default function TweetCard({
-  tweet,
-  analysis,
-}: {
-  tweet: Tweet;
-  analysis: TweetAnalysis;
-}) {
+function fmt(n: number): string {
+  if (n >= 1000) return `${(n / 1000).toFixed(1)}k`;
+  return String(n);
+}
+
+export default function TweetCard({ tweet, analysis }: { tweet: Tweet; analysis: TweetAnalysis }) {
   const { user, full_text, created_at, likes, retweets, replies, views, hashtags, media_urls, tweet_id } = tweet;
+  const s = SEV[analysis.severity];
   const tweetUrl = `https://x.com/${user.screen_name}/status/${tweet_id}`;
 
   const date = created_at
-    ? new Date(created_at).toLocaleString("en-IN", {
-        day: "numeric", month: "short", year: "numeric",
-        hour: "2-digit", minute: "2-digit",
-      })
+    ? new Date(created_at).toLocaleString("en-IN", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })
     : "";
 
   const photo = media_urls?.find((m) => m.type === "photo");
-  const sev = SEVERITY_COLORS[analysis.severity];
 
   return (
-    <div className="bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow flex flex-col overflow-hidden">
-      {/* Severity score bar */}
-      <div className="h-1.5 bg-gray-100 w-full">
-        <div
-          className={`h-full ${sev.bar} transition-all`}
-          style={{ width: `${analysis.total_severity_score}%` }}
-        />
-      </div>
-
-      {/* Media image */}
-      {photo && (
-        <img src={photo.url} alt="tweet media" className="w-full h-36 object-cover" />
-      )}
+    <article className={`bg-white rounded-xl border border-gray-200 border-l-4 ${s.border} flex flex-col overflow-hidden hover:shadow-md transition-shadow`}>
+      {photo && <img src={photo.url} alt="" className="w-full h-32 object-cover" />}
 
       <div className="p-4 flex flex-col gap-3 flex-1">
-        {/* Severity + Sentiment badges */}
-        <div className="flex items-center gap-2 flex-wrap">
-          <span className={`text-xs font-semibold rounded-full px-2.5 py-0.5 ${sev.bg} ${sev.text}`}>
-            {sev.label}
-          </span>
-          <span className={`text-xs border rounded-full px-2.5 py-0.5 ${SENTIMENT_COLORS[analysis.sentiment]}`}>
-            {analysis.sentiment}
-          </span>
-          <span className="text-xs bg-gray-100 text-gray-500 rounded-full px-2.5 py-0.5">
-            {analysis.category.replace(/_/g, " ")}
-          </span>
-        </div>
-
-        {/* Severity score breakdown */}
-        <div className="flex items-center gap-2 text-xs text-gray-400 flex-wrap">
-          <span className="font-semibold text-gray-700 text-sm">Score: {analysis.total_severity_score}/100</span>
-          <span>·</span>
-          <span>AI {analysis.ai_base_score}</span>
-          <span>+</span>
-          <span>Engagement {analysis.engagement_score}</span>
-          <span>+</span>
-          <span>Reach {analysis.follower_score}</span>
-        </div>
-
-        {/* User row */}
+        {/* Severity row */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            {user.avatar_url ? (
-              <img src={user.avatar_url} alt={user.name} className="w-9 h-9 rounded-full object-cover" />
-            ) : (
-              <div className="w-9 h-9 rounded-full bg-black flex items-center justify-center text-white text-sm font-bold">
-                {user.name?.[0]?.toUpperCase()}
-              </div>
-            )}
-            <div>
-              <div className="flex items-center gap-1">
-                <p className="font-semibold text-gray-900 text-sm leading-tight">{user.name}</p>
-                {(user.is_verified || user.is_blue_verified) && (
-                  <span className="text-sky-500 text-xs">✓</span>
-                )}
-              </div>
-              <p className="text-xs text-gray-400">@{user.screen_name}</p>
+            <span className={`w-1.5 h-1.5 rounded-full ${s.dot}`} />
+            <span className={`text-xs font-semibold ${s.text}`}>{s.label}</span>
+            <span className="text-gray-200">·</span>
+            <span className="text-xs text-gray-400">{analysis.category.replace(/_/g, " ")}</span>
+          </div>
+          <span className="text-xs font-mono font-medium text-gray-500">{analysis.total_severity_score}/100</span>
+        </div>
+
+        {/* Score bar */}
+        <div className="h-0.5 bg-gray-100 rounded-full">
+          <div className={`h-full rounded-full ${s.dot}`} style={{ width: `${analysis.total_severity_score}%` }} />
+        </div>
+
+        {/* User */}
+        <div className="flex items-center gap-2.5">
+          {user.avatar_url ? (
+            <img src={user.avatar_url} alt={user.name} className="w-8 h-8 rounded-full object-cover flex-shrink-0" />
+          ) : (
+            <div className="w-8 h-8 rounded-full bg-gray-900 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+              {user.name?.[0]?.toUpperCase()}
+            </div>
+          )}
+          <div className="min-w-0">
+            <div className="flex items-center gap-1">
+              <span className="text-sm font-medium text-gray-900 truncate">{user.name}</span>
+              {(user.is_verified || user.is_blue_verified) && (
+                <span className="text-sky-500 text-xs flex-shrink-0">✓</span>
+              )}
+            </div>
+            <div className="flex items-center gap-1.5 text-xs text-gray-400">
+              <span>@{user.screen_name}</span>
+              {user.followers != null && (
+                <>
+                  <span>·</span>
+                  <span>{fmt(user.followers)} followers</span>
+                </>
+              )}
             </div>
           </div>
-          <span className="text-xs font-medium bg-sky-50 text-sky-600 border border-sky-200 rounded-full px-2 py-0.5">
-            X / Twitter
-          </span>
+          <span className="ml-auto text-xs text-gray-400 flex-shrink-0">{date}</span>
         </div>
 
         {/* Tweet text */}
-        <p className="text-gray-800 text-sm leading-relaxed flex-1">{full_text}</p>
+        <p className="text-sm text-gray-700 leading-relaxed line-clamp-4">{full_text}</p>
 
         {/* AI reason */}
         {analysis.reason && (
-          <p className="text-xs text-gray-400 italic border-l-2 border-gray-200 pl-2">
+          <p className="text-xs text-gray-400 italic border-l-2 border-gray-100 pl-2 leading-relaxed">
             {analysis.reason}
           </p>
         )}
@@ -148,37 +120,28 @@ export default function TweetCard({
         {hashtags?.length > 0 && (
           <div className="flex flex-wrap gap-1">
             {hashtags.map((tag, i) => (
-              <span key={`${tag}-${i}`} className="text-xs text-sky-500 bg-sky-50 rounded px-1.5 py-0.5">
+              <span key={`${tag}-${i}`} className="text-xs text-gray-400 bg-gray-50 rounded px-1.5 py-0.5">
                 #{tag}
               </span>
             ))}
           </div>
         )}
 
-        {/* Stats + date */}
-        <div className="pt-2 border-t border-gray-100">
-          <div className="flex items-center justify-between text-xs text-gray-500 mb-2">
-            <span>{date}</span>
-            {user.location && <span>📍 {user.location}</span>}
+        {/* Footer */}
+        <div className="pt-2 border-t border-gray-100 flex items-center justify-between mt-auto">
+          <div className="flex items-center gap-3 text-xs text-gray-400">
+            <span className={`font-medium ${SENT_COLOR[analysis.sentiment]}`}>{analysis.sentiment}</span>
+            <span>{fmt(views ?? 0)} views</span>
+            <span>{likes} likes</span>
+            <span>{retweets} RT</span>
+            <span>{replies} replies</span>
           </div>
-          <div className="flex items-center justify-between">
-            <div className="flex gap-3 text-xs text-gray-500">
-              <span>👁 {(views ?? 0).toLocaleString()}</span>
-              <span>❤️ {likes}</span>
-              <span>🔁 {retweets}</span>
-              <span>💬 {replies}</span>
-            </div>
-            <a
-              href={tweetUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-sky-500 hover:underline"
-            >
-              View →
-            </a>
-          </div>
+          <a href={tweetUrl} target="_blank" rel="noopener noreferrer"
+            className="text-xs text-gray-400 hover:text-gray-700 transition-colors flex-shrink-0">
+            View →
+          </a>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
