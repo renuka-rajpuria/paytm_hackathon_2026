@@ -24,6 +24,7 @@ export interface Tweet {
   mentions: { screen_name: string; name: string }[];
   media_urls: MediaUrl[];
   user: TweetUser;
+  brand?: string;
 }
 
 const SEV = {
@@ -37,6 +38,11 @@ const SENT_COLOR = {
   negative: "text-red-500",
   neutral:  "text-gray-400",
   positive: "text-emerald-500",
+};
+
+const BRAND_STYLE: Record<string, { bg: string; text: string; label: string }> = {
+  razorpay: { bg: "#EEF2FF", text: "#3730A3", label: "Razorpay" },
+  phonepe:  { bg: "#F5F3FF", text: "#6D28D9", label: "PhonePe" },
 };
 
 const SEGMENT_STYLE: Record<string, string> = {
@@ -80,6 +86,7 @@ export default function TweetCard({
   const severity = ai?.severity ?? "low";
   const s = SEV[severity];
   const tweetUrl = `https://x.com/${tweet.user.screen_name}/status/${tweet.tweet_id}`;
+  const brandStyle = tweet.brand ? BRAND_STYLE[tweet.brand] : null;
   const photo = tweet.media_urls?.find((m) => m.type === "photo");
 
   const date = tweet.created_at
@@ -105,6 +112,14 @@ export default function TweetCard({
               <span className={`text-xs font-semibold ${s.text}`}>{s.label}</span>
             </div>
             <span className={`text-xs rounded-full px-2 py-0.5 font-medium ${segStyle}`}>{segLabel}</span>
+            {brandStyle && (
+              <span
+                className="text-xs rounded-full px-2 py-0.5 font-semibold"
+                style={{ backgroundColor: brandStyle.bg, color: brandStyle.text }}
+              >
+                {brandStyle.label}
+              </span>
+            )}
           </div>
           <span className="text-xs font-mono text-gray-400">{totalScore}/100</span>
         </div>

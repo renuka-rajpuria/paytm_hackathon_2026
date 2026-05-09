@@ -4,26 +4,30 @@ import { Tweet } from "@/components/TweetCard";
 import { analyzeTweets } from "@/lib/analyzeTweets";
 import Dashboard from "@/components/Dashboard";
 
-function loadTweets(): Tweet[] {
-  const filePath = path.join(process.cwd(), "tweets_output.json");
+function loadJSON(filename: string): Tweet[] {
+  const filePath = path.join(process.cwd(), filename);
   const raw = fs.readFileSync(filePath, "utf8");
   const data = JSON.parse(raw);
   return Array.isArray(data.tweets) ? data.tweets : [];
 }
 
 export default async function Home() {
-  const tweets = loadTweets();
-  const { map, aiAvailable, aiError } = await analyzeTweets(tweets);
+  const tweets           = loadJSON("tweets_output.json");
+  const competitorTweets = loadJSON("competitor_tweets.json");
 
-  // Convert Map to plain object for client component serialization
-  const aiRecord = Object.fromEntries(map.entries());
+  const [paytmResult, competitorResult] = await Promise.all([
+    analyzeTweets(tweets),
+    analyzeTweets(competitorTweets),
+  ]);
 
   return (
     <Dashboard
       tweets={tweets}
-      aiRecord={aiRecord}
-      aiAvailable={aiAvailable}
-      aiError={aiError}
+      aiRecord={Object.fromEntries(paytmResult.map.entries())}
+      competitorTweets={competitorTweets}
+      competitorAiRecord={Object.fromEntries(competitorResult.map.entries())}
+      aiAvailable={paytmResult.aiAvailable}
+      aiError={paytmResult.aiError}
     />
   );
 }

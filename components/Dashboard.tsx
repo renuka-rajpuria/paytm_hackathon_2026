@@ -42,6 +42,11 @@ const DEFAULT_WEIGHTS: Weights = {
   followerMultiplier: 5,
 };
 
+const BRAND_META: Record<string, { label: string; color: string; bg: string }> = {
+  razorpay: { label: "Razorpay", color: "#3730A3", bg: "#EEF2FF" },
+  phonepe:  { label: "PhonePe",  color: "#6D28D9", bg: "#F5F3FF" },
+};
+
 function XIcon() {
   return (
     <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
@@ -49,7 +54,6 @@ function XIcon() {
     </svg>
   );
 }
-
 function RedditIcon() {
   return (
     <svg width="12" height="12" viewBox="0 0 24 24" fill="#FF4500">
@@ -57,7 +61,6 @@ function RedditIcon() {
     </svg>
   );
 }
-
 function LinkedInIcon() {
   return (
     <svg width="12" height="12" viewBox="0 0 24 24" fill="#0A66C2">
@@ -67,9 +70,9 @@ function LinkedInIcon() {
 }
 
 const PLATFORM_OPTIONS: DropdownOption[] = [
-  { id: "twitter", label: "X / Twitter", icon: <XIcon /> },
-  { id: "reddit",  label: "Reddit",      icon: <RedditIcon />,  disabled: true, comingSoon: true },
-  { id: "linkedin",label: "LinkedIn",    icon: <LinkedInIcon />,disabled: true, comingSoon: true },
+  { id: "twitter",  label: "X / Twitter", icon: <XIcon /> },
+  { id: "reddit",   label: "Reddit",      icon: <RedditIcon />,   disabled: true, comingSoon: true },
+  { id: "linkedin", label: "LinkedIn",    icon: <LinkedInIcon />, disabled: true, comingSoon: true },
 ];
 
 const SEGMENT_OPTIONS: DropdownOption[] = [
@@ -115,6 +118,41 @@ function calcFollower(tweet: Tweet, w: Weights): number {
   return Math.min(15, Math.round(Math.log10(f + 1) * w.followerMultiplier));
 }
 
+function scoreAndSort(
+  tweets: Tweet[],
+  aiRecord: Record<string, AIAnalysis>,
+  weights: Weights
+) {
+  return tweets
+    .map((tweet) => {
+      const ai         = aiRecord[tweet.tweet_id] ?? null;
+      const aiBase     = AI_BASE_SCORES[ai?.severity ?? "low"] ?? 5;
+      const engagement = calcEngagement(tweet, weights);
+      const follower   = calcFollower(tweet, weights);
+      const total      = Math.min(100, aiBase + engagement + follower);
+      return { tweet, ai, aiBase, engagement, follower, total };
+    })
+    .sort((a, b) => b.total - a.total);
+}
+
+function applyFilters(
+  scored: ReturnType<typeof scoreAndSort>,
+  platforms: string[],
+  segments: string[],
+  severities: string[],
+  sentiments: string[],
+  search: string
+) {
+  return scored.filter(({ tweet, ai }) => {
+    if (platforms.length  > 0 && !platforms.includes("twitter"))                    return false;
+    if (segments.length   > 0 && !segments.includes(ai?.segment    ?? "general"))  return false;
+    if (severities.length > 0 && !severities.includes(ai?.severity ?? "low"))      return false;
+    if (sentiments.length > 0 && !sentiments.includes(ai?.sentiment ?? "neutral")) return false;
+    if (search && !tweet.full_text.toLowerCase().includes(search.toLowerCase()))   return false;
+    return true;
+  });
+}
+
 // ─── Micro-components ─────────────────────────────────────────────────────────
 
 function ChevronIcon({ open }: { open: boolean }) {
@@ -127,7 +165,6 @@ function ChevronIcon({ open }: { open: boolean }) {
     </svg>
   );
 }
-
 function CheckIcon() {
   return (
     <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
@@ -135,7 +172,6 @@ function CheckIcon() {
     </svg>
   );
 }
-
 function FilterIcon() {
   return (
     <svg width="13" height="13" viewBox="0 0 16 16" fill="none" className="flex-shrink-0">
@@ -147,11 +183,7 @@ function FilterIcon() {
 // ─── FilterDropdown ──────────────────────────────────────────────────────────
 
 function FilterDropdown({
-  label,
-  options,
-  selected,
-  onToggle,
-  onClear,
+  label, options, selected, onToggle, onClear,
 }: {
   label: string;
   options: DropdownOption[];
@@ -170,7 +202,7 @@ function FilterDropdown({
     return () => document.removeEventListener("mousedown", onDown);
   }, []);
 
-  const count = selected.length;
+  const count  = selected.length;
   const active = count > 0;
 
   return (
@@ -185,10 +217,7 @@ function FilterDropdown({
       >
         <span>{label}</span>
         {active && (
-          <span
-            className="text-white text-[9px] rounded-full w-4 h-4 flex items-center justify-center font-bold"
-            style={{ backgroundColor: "#00BAF2" }}
-          >
+          <span className="text-white text-[9px] rounded-full w-4 h-4 flex items-center justify-center font-bold" style={{ backgroundColor: "#00BAF2" }}>
             {count}
           </span>
         )}
@@ -206,14 +235,11 @@ function FilterDropdown({
                   onClick={() => { if (!opt.disabled) onToggle(opt.id); }}
                   disabled={opt.disabled}
                   className={`w-full flex items-center gap-2.5 px-3 py-1.5 text-xs transition-colors text-left ${
-                    opt.disabled
-                      ? "cursor-not-allowed text-gray-300"
-                      : checked
-                      ? "bg-[#F0FBFF] text-gray-800"
+                    opt.disabled ? "cursor-not-allowed text-gray-300"
+                      : checked ? "bg-[#F0FBFF] text-gray-800"
                       : "text-gray-600 hover:bg-gray-50 hover:text-gray-800"
                   }`}
                 >
-                  {/* checkbox */}
                   <span
                     className="w-3.5 h-3.5 rounded border flex-shrink-0 flex items-center justify-center"
                     style={
@@ -224,37 +250,22 @@ function FilterDropdown({
                   >
                     {checked && <CheckIcon />}
                   </span>
-
-                  {/* platform icon or severity dot */}
                   {opt.icon ? (
-                    <span className={`flex-shrink-0 ${opt.disabled ? "opacity-30" : "opacity-80"}`}>
-                      {opt.icon}
-                    </span>
+                    <span className={`flex-shrink-0 ${opt.disabled ? "opacity-30" : "opacity-80"}`}>{opt.icon}</span>
                   ) : opt.color ? (
-                    <span
-                      className="w-2 h-2 rounded-full flex-shrink-0"
-                      style={{ backgroundColor: opt.disabled ? "#D1D5DB" : opt.color }}
-                    />
+                    <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: opt.disabled ? "#D1D5DB" : opt.color }} />
                   ) : null}
-
                   <span className="flex-1">{opt.label}</span>
-
                   {opt.comingSoon && (
-                    <span className="text-[9px] bg-gray-100 text-gray-400 rounded px-1.5 py-0.5 font-semibold tracking-wide flex-shrink-0">
-                      SOON
-                    </span>
+                    <span className="text-[9px] bg-gray-100 text-gray-400 rounded px-1.5 py-0.5 font-semibold tracking-wide flex-shrink-0">SOON</span>
                   )}
                 </button>
               );
             })}
           </div>
-
           {selected.length > 0 && (
             <div className="border-t border-gray-100 px-3 py-1.5">
-              <button
-                onClick={() => { onClear(); setOpen(false); }}
-                className="text-xs text-gray-400 hover:text-gray-600 transition-colors"
-              >
+              <button onClick={() => { onClear(); setOpen(false); }} className="text-xs text-gray-400 hover:text-gray-600 transition-colors">
                 Clear selection
               </button>
             </div>
@@ -267,9 +278,7 @@ function FilterDropdown({
 
 // ─── WeightSlider ─────────────────────────────────────────────────────────────
 
-function WeightSlider({
-  label, value, min, max, step, onChange,
-}: {
+function WeightSlider({ label, value, min, max, step, onChange }: {
   label: string; value: number; min: number; max: number; step: number; onChange: (v: number) => void;
 }) {
   return (
@@ -302,25 +311,99 @@ function StatCard({ label, value, sub, color }: {
   );
 }
 
+// ─── BrandSummaryCard ────────────────────────────────────────────────────────
+
+function BrandSummaryCard({
+  brand, scored, paytmScored,
+}: {
+  brand: string;
+  scored: ReturnType<typeof scoreAndSort>;
+  paytmScored?: ReturnType<typeof scoreAndSort>;
+}) {
+  const meta      = BRAND_META[brand] ?? { label: brand, color: "#6B7280", bg: "#F3F4F6" };
+  const tweets    = scored.filter((e) => e.tweet.brand === brand);
+  const critical  = tweets.filter((e) => e.ai?.severity === "critical").length;
+  const high      = tweets.filter((e) => e.ai?.severity === "high").length;
+  const negative  = tweets.filter((e) => e.ai?.sentiment === "negative").length;
+  const negPct    = tweets.length ? Math.round((negative / tweets.length) * 100) : 0;
+  const avgScore  = tweets.length ? Math.round(tweets.reduce((s, e) => s + e.total, 0) / tweets.length) : 0;
+
+  let paytmContext: React.ReactNode = null;
+  if (paytmScored && paytmScored.length > 0) {
+    const paytmNeg    = paytmScored.filter((e) => e.ai?.sentiment === "negative").length;
+    const paytmNegPct = Math.round((paytmNeg / paytmScored.length) * 100);
+    const diff        = negPct - paytmNegPct;
+    const better      = diff < 0;
+    paytmContext = (
+      <p className="text-[10px] mt-2 pt-2 border-t border-gray-100 text-gray-400">
+        vs Paytm:{" "}
+        <span className={better ? "text-emerald-500 font-semibold" : "text-red-500 font-semibold"}>
+          {diff > 0 ? `+${diff}` : diff}% negative
+        </span>
+      </p>
+    );
+  }
+
+  return (
+    <div className="bg-white rounded-xl border border-gray-200 p-5 flex flex-col gap-3">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: meta.color }} />
+          <span className="text-sm font-semibold text-gray-900">{meta.label}</span>
+        </div>
+        <span className="text-xs text-gray-400">{tweets.length} tweet{tweets.length !== 1 ? "s" : ""}</span>
+      </div>
+
+      <div className="grid grid-cols-4 gap-3">
+        <div>
+          <div className="text-2xl font-semibold text-red-500">{critical}</div>
+          <div className="text-[10px] text-gray-400 uppercase tracking-wide mt-0.5">Critical</div>
+        </div>
+        <div>
+          <div className="text-2xl font-semibold text-orange-500">{high}</div>
+          <div className="text-[10px] text-gray-400 uppercase tracking-wide mt-0.5">High</div>
+        </div>
+        <div>
+          <div className="text-2xl font-semibold" style={{ color: negPct > 60 ? "#EF4444" : "#111827" }}>
+            {negPct}%
+          </div>
+          <div className="text-[10px] text-gray-400 uppercase tracking-wide mt-0.5">Negative</div>
+        </div>
+        <div>
+          <div className="text-2xl font-semibold text-gray-700">{avgScore}</div>
+          <div className="text-[10px] text-gray-400 uppercase tracking-wide mt-0.5">Avg score</div>
+        </div>
+      </div>
+
+      {paytmContext}
+    </div>
+  );
+}
+
 // ─── Dashboard ───────────────────────────────────────────────────────────────
 
 export default function Dashboard({
   tweets,
   aiRecord,
+  competitorTweets,
+  competitorAiRecord,
   aiAvailable,
   aiError,
 }: {
   tweets: Tweet[];
   aiRecord: Record<string, AIAnalysis>;
+  competitorTweets: Tweet[];
+  competitorAiRecord: Record<string, AIAnalysis>;
   aiAvailable: boolean;
   aiError?: string;
 }) {
-  const [weights, setWeights] = useState<Weights>(DEFAULT_WEIGHTS);
+  const [tab,        setTab]        = useState<"paytm" | "competitors">("paytm");
+  const [weights,    setWeights]    = useState<Weights>(DEFAULT_WEIGHTS);
   const [segments,   setSegments]   = useState<string[]>([]);
   const [severities, setSeverities] = useState<string[]>([]);
   const [sentiments, setSentiments] = useState<string[]>([]);
   const [platforms,  setPlatforms]  = useState<string[]>([]);
-  const [search, setSearch] = useState("");
+  const [search,     setSearch]     = useState("");
 
   const [savedFilters,  setSavedFilters]  = useState<SavedFilter[]>([]);
   const [saveModalOpen, setSaveModalOpen] = useState(false);
@@ -340,14 +423,11 @@ export default function Dashboard({
     setList(list.includes(id) ? list.filter((x) => x !== id) : [...list, id]);
   }
 
-  const hasActiveFilter =
-    segments.length > 0 || severities.length > 0 || sentiments.length > 0;
+  const hasActiveFilter = segments.length > 0 || severities.length > 0 || sentiments.length > 0;
+  const totalActiveFilters = platforms.length + segments.length + severities.length + sentiments.length;
 
   function clearAll() {
-    setSegments([]);
-    setSeverities([]);
-    setSentiments([]);
-    setPlatforms([]);
+    setSegments([]); setSeverities([]); setSentiments([]); setPlatforms([]);
   }
 
   function saveFilter() {
@@ -362,9 +442,7 @@ export default function Dashboard({
   }
 
   function applyFilter(f: SavedFilter) {
-    setSegments(f.segments);
-    setSeverities(f.severities);
-    setSentiments(f.sentiments);
+    setSegments(f.segments); setSeverities(f.severities); setSentiments(f.sentiments);
   }
 
   function deleteFilter(name: string) {
@@ -373,48 +451,32 @@ export default function Dashboard({
     localStorage.setItem("paytm_saved_filters", JSON.stringify(updated));
   }
 
-  const scored = useMemo(() => {
-    return tweets
-      .map((tweet) => {
-        const ai         = aiRecord[tweet.tweet_id] ?? null;
-        const aiBase     = AI_BASE_SCORES[ai?.severity ?? "low"] ?? 5;
-        const engagement = calcEngagement(tweet, weights);
-        const follower   = calcFollower(tweet, weights);
-        const total      = Math.min(100, aiBase + engagement + follower);
-        return { tweet, ai, aiBase, engagement, follower, total };
-      })
-      .sort((a, b) => b.total - a.total);
-  }, [tweets, aiRecord, weights]);
+  // ── Scoring ──
+  const paytmScored      = useMemo(() => scoreAndSort(tweets, aiRecord, weights), [tweets, aiRecord, weights]);
+  const competitorScored = useMemo(() => scoreAndSort(competitorTweets, competitorAiRecord, weights), [competitorTweets, competitorAiRecord, weights]);
 
-  const filtered = useMemo(() => {
-    return scored.filter(({ tweet, ai }) => {
-      // Platform: all current tweets are twitter; empty = show all
-      if (platforms.length > 0 && !platforms.includes("twitter")) return false;
-      if (segments.length   > 0 && !segments.includes(ai?.segment    ?? "general")) return false;
-      if (severities.length > 0 && !severities.includes(ai?.severity ?? "low"))     return false;
-      if (sentiments.length > 0 && !sentiments.includes(ai?.sentiment ?? "neutral")) return false;
-      if (search && !tweet.full_text.toLowerCase().includes(search.toLowerCase()))  return false;
-      return true;
-    });
-  }, [scored, platforms, segments, severities, sentiments, search]);
+  // ── Filtering ──
+  const paytmFiltered      = useMemo(() => applyFilters(paytmScored, platforms, segments, severities, sentiments, search), [paytmScored, platforms, segments, severities, sentiments, search]);
+  const competitorFiltered = useMemo(() => applyFilters(competitorScored, platforms, segments, severities, sentiments, search), [competitorScored, platforms, segments, severities, sentiments, search]);
 
-  const critical = filtered.filter((e) => e.ai?.severity === "critical").length;
-  const high     = filtered.filter((e) => e.ai?.severity === "high").length;
-  const negative = filtered.filter((e) => e.ai?.sentiment === "negative").length;
-  const negPct   = filtered.length ? Math.round((negative / filtered.length) * 100) : 0;
+  const activeFiltered = tab === "paytm" ? paytmFiltered : competitorFiltered;
+  const activeTweets   = tab === "paytm" ? tweets : competitorTweets;
+
+  // ── KPIs ──
+  const critical = activeFiltered.filter((e) => e.ai?.severity === "critical").length;
+  const high     = activeFiltered.filter((e) => e.ai?.severity === "high").length;
+  const negative = activeFiltered.filter((e) => e.ai?.sentiment === "negative").length;
+  const negPct   = activeFiltered.length ? Math.round((negative / activeFiltered.length) * 100) : 0;
 
   const now = new Date().toLocaleString("en-IN", {
     day: "numeric", month: "short", hour: "2-digit", minute: "2-digit",
   });
 
   const filterSummary = [
-    segments.length   > 0 && `${segments.length} segment${segments.length   > 1 ? "s" : ""}`,
+    segments.length   > 0 && `${segments.length} segment${segments.length > 1 ? "s" : ""}`,
     severities.length > 0 && `${severities.length} severit${severities.length > 1 ? "ies" : "y"}`,
     sentiments.length > 0 && `${sentiments.length} sentiment${sentiments.length > 1 ? "s" : ""}`,
   ].filter(Boolean).join(" · ");
-
-  const totalActiveFilters =
-    platforms.length + segments.length + severities.length + sentiments.length;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -427,6 +489,24 @@ export default function Dashboard({
             <span className="text-gray-300">·</span>
             <span className="text-sm text-gray-500 font-medium">Escalation Monitor</span>
           </div>
+
+          {/* Tab switcher */}
+          <div className="flex items-center gap-1 bg-gray-100 rounded-lg p-0.5">
+            {(["paytm", "competitors"] as const).map((t) => (
+              <button
+                key={t}
+                onClick={() => setTab(t)}
+                className={`text-xs px-4 py-1.5 rounded-md font-medium transition-all capitalize ${
+                  tab === t
+                    ? "bg-white text-gray-900 shadow-sm"
+                    : "text-gray-500 hover:text-gray-700"
+                }`}
+              >
+                {t === "paytm" ? "Paytm" : "Competitors"}
+              </button>
+            ))}
+          </div>
+
           <div className="flex items-center gap-2 text-xs">
             <span className={`w-1.5 h-1.5 rounded-full ${aiAvailable ? "bg-emerald-400" : "bg-amber-400"}`} />
             <span className={aiAvailable ? "text-gray-400" : "text-amber-600"}>
@@ -447,63 +527,26 @@ export default function Dashboard({
       {/* ── Filter bar ── */}
       <div className="bg-white border-b border-gray-200 sticky top-14 z-10">
         <div className="max-w-[1400px] mx-auto px-6 py-2.5 flex flex-col gap-2">
-
-          {/* dropdowns row */}
           <div className="flex items-center gap-2 flex-wrap">
             <div className="flex items-center gap-1.5 text-gray-400 mr-1 flex-shrink-0">
               <FilterIcon />
               <span className="text-[10px] font-semibold uppercase tracking-wider">Filters</span>
               {totalActiveFilters > 0 && (
-                <span
-                  className="text-white text-[9px] rounded-full w-4 h-4 flex items-center justify-center font-bold"
-                  style={{ backgroundColor: "#00BAF2" }}
-                >
+                <span className="text-white text-[9px] rounded-full w-4 h-4 flex items-center justify-center font-bold" style={{ backgroundColor: "#00BAF2" }}>
                   {totalActiveFilters}
                 </span>
               )}
             </div>
-
-            <FilterDropdown
-              label="Platform"
-              options={PLATFORM_OPTIONS}
-              selected={platforms}
-              onToggle={(id) => toggle(platforms, setPlatforms, id)}
-              onClear={() => setPlatforms([])}
-            />
-            <FilterDropdown
-              label="Segment"
-              options={SEGMENT_OPTIONS}
-              selected={segments}
-              onToggle={(id) => toggle(segments, setSegments, id)}
-              onClear={() => setSegments([])}
-            />
-            <FilterDropdown
-              label="Severity"
-              options={SEVERITY_OPTIONS}
-              selected={severities}
-              onToggle={(id) => toggle(severities, setSeverities, id)}
-              onClear={() => setSeverities([])}
-            />
-            <FilterDropdown
-              label="Sentiment"
-              options={SENTIMENT_OPTIONS}
-              selected={sentiments}
-              onToggle={(id) => toggle(sentiments, setSentiments, id)}
-              onClear={() => setSentiments([])}
-            />
-
+            <FilterDropdown label="Platform" options={PLATFORM_OPTIONS} selected={platforms}  onToggle={(id) => toggle(platforms,  setPlatforms,  id)} onClear={() => setPlatforms([])} />
+            <FilterDropdown label="Segment"  options={SEGMENT_OPTIONS}  selected={segments}   onToggle={(id) => toggle(segments,   setSegments,   id)} onClear={() => setSegments([])} />
+            <FilterDropdown label="Severity" options={SEVERITY_OPTIONS} selected={severities} onToggle={(id) => toggle(severities, setSeverities, id)} onClear={() => setSeverities([])} />
+            <FilterDropdown label="Sentiment" options={SENTIMENT_OPTIONS} selected={sentiments} onToggle={(id) => toggle(sentiments, setSentiments, id)} onClear={() => setSentiments([])} />
             {totalActiveFilters > 0 && (
               <>
                 <div className="w-px h-4 bg-gray-200 flex-shrink-0" />
-                <button
-                  onClick={clearAll}
-                  className="text-xs text-gray-400 hover:text-gray-600 transition-colors flex-shrink-0"
-                >
-                  Clear all
-                </button>
+                <button onClick={clearAll} className="text-xs text-gray-400 hover:text-gray-600 transition-colors flex-shrink-0">Clear all</button>
               </>
             )}
-
             {hasActiveFilter && (
               <button
                 onClick={() => setSaveModalOpen(true)}
@@ -513,30 +556,13 @@ export default function Dashboard({
               </button>
             )}
           </div>
-
-          {/* saved presets row */}
           {savedFilters.length > 0 && (
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider flex-shrink-0">
-                Saved:
-              </span>
+              <span className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider flex-shrink-0">Saved:</span>
               {savedFilters.map((f) => (
-                <span
-                  key={f.name}
-                  className="flex items-center gap-1 bg-gray-50 border border-gray-200 rounded-full pl-2.5 pr-1.5 py-0.5"
-                >
-                  <button
-                    onClick={() => applyFilter(f)}
-                    className="text-xs text-gray-600 font-medium hover:text-gray-900 transition-colors"
-                  >
-                    {f.name}
-                  </button>
-                  <button
-                    onClick={() => deleteFilter(f.name)}
-                    className="w-4 h-4 flex items-center justify-center rounded-full text-gray-300 hover:text-red-400 hover:bg-red-50 transition-colors leading-none"
-                  >
-                    ×
-                  </button>
+                <span key={f.name} className="flex items-center gap-1 bg-gray-50 border border-gray-200 rounded-full pl-2.5 pr-1.5 py-0.5">
+                  <button onClick={() => applyFilter(f)} className="text-xs text-gray-600 font-medium hover:text-gray-900 transition-colors">{f.name}</button>
+                  <button onClick={() => deleteFilter(f.name)} className="w-4 h-4 flex items-center justify-center rounded-full text-gray-300 hover:text-red-400 hover:bg-red-50 transition-colors leading-none">×</button>
                 </span>
               ))}
             </div>
@@ -565,17 +591,10 @@ export default function Dashboard({
               autoFocus
             />
             <div className="flex gap-2 mt-3">
-              <button
-                onClick={saveFilter}
-                className="flex-1 py-2 rounded-lg text-sm font-medium text-white hover:opacity-90 transition-opacity"
-                style={{ backgroundColor: "#00BAF2" }}
-              >
+              <button onClick={saveFilter} className="flex-1 py-2 rounded-lg text-sm font-medium text-white hover:opacity-90 transition-opacity" style={{ backgroundColor: "#00BAF2" }}>
                 Save
               </button>
-              <button
-                onClick={() => setSaveModalOpen(false)}
-                className="px-4 py-2 rounded-lg text-sm font-medium text-gray-500 border border-gray-200 hover:bg-gray-50 transition-colors"
-              >
+              <button onClick={() => setSaveModalOpen(false)} className="px-4 py-2 rounded-lg text-sm font-medium text-gray-500 border border-gray-200 hover:bg-gray-50 transition-colors">
                 Cancel
               </button>
             </div>
@@ -589,9 +608,10 @@ export default function Dashboard({
         {/* Main */}
         <div className="flex-1 flex flex-col gap-4 min-w-0">
 
+          {/* Search */}
           <input
             type="text"
-            placeholder="Search tweets, keywords, usernames..."
+            placeholder={`Search ${tab === "paytm" ? "Paytm" : "competitor"} tweets, keywords, usernames…`}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="w-full bg-white border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-800 placeholder-gray-400 outline-none transition-all"
@@ -599,21 +619,37 @@ export default function Dashboard({
             onBlur={(e)  => (e.target.style.borderColor = "#E5E7EB")}
           />
 
+          {/* ── Competitor comparison (only on competitor tab) ── */}
+          {tab === "competitors" && (
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center justify-between">
+                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Brand Comparison</p>
+                <p className="text-xs text-gray-400">Paytm negative% shown for context</p>
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <BrandSummaryCard brand="razorpay" scored={competitorFiltered} paytmScored={paytmFiltered} />
+                <BrandSummaryCard brand="phonepe"  scored={competitorFiltered} paytmScored={paytmFiltered} />
+              </div>
+            </div>
+          )}
+
+          {/* KPIs */}
           <div className="grid grid-cols-4 gap-3">
-            <StatCard label="Showing"  value={filtered.length} sub={`of ${tweets.length} total`} />
-            <StatCard label="Critical" value={critical}        sub="immediate action"   color="#EF4444" />
-            <StatCard label="High"     value={high}            sub="review within 1 hr" color="#F97316" />
+            <StatCard label="Showing"  value={activeFiltered.length} sub={`of ${activeTweets.length} total`} />
+            <StatCard label="Critical" value={critical}              sub="immediate action"   color="#EF4444" />
+            <StatCard label="High"     value={high}                  sub="review within 1 hr" color="#F97316" />
             <StatCard
               label="Negative"
               value={`${negPct}%`}
-              sub={`${negative} of ${filtered.length}`}
+              sub={`${negative} of ${activeFiltered.length}`}
               color={negPct > 50 ? "#EF4444" : "#111827"}
             />
           </div>
 
+          {/* Legend */}
           <div className="flex items-center justify-between">
             <p className="text-xs text-gray-400">
-              {filtered.length} result{filtered.length !== 1 ? "s" : ""} · sorted by severity score
+              {activeFiltered.length} result{activeFiltered.length !== 1 ? "s" : ""} · sorted by severity score
             </p>
             <div className="flex items-center gap-4 text-xs text-gray-400">
               {[
@@ -630,13 +666,14 @@ export default function Dashboard({
             </div>
           </div>
 
+          {/* Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pb-10">
-            {filtered.length === 0 ? (
+            {activeFiltered.length === 0 ? (
               <div className="col-span-3 py-24 text-center text-sm text-gray-400">
                 No tweets match the current filters.
               </div>
             ) : (
-              filtered.map(({ tweet, ai, engagement, follower, total }) => (
+              activeFiltered.map(({ tweet, ai, engagement, follower, total }) => (
                 <TweetCard
                   key={tweet.tweet_id}
                   tweet={tweet}
@@ -655,12 +692,12 @@ export default function Dashboard({
           <div className="bg-white rounded-xl border border-gray-200 p-4">
             <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Score Weights</p>
             <div className="flex flex-col gap-3.5">
-              <WeightSlider label="Retweets"         value={weights.retweets}           min={0} max={10}  step={0.5}   onChange={setWeight("retweets")} />
-              <WeightSlider label="Quotes"           value={weights.quotes}             min={0} max={10}  step={0.5}   onChange={setWeight("quotes")} />
-              <WeightSlider label="Replies"          value={weights.replies}            min={0} max={10}  step={0.5}   onChange={setWeight("replies")} />
-              <WeightSlider label="Likes"            value={weights.likes}              min={0} max={10}  step={0.5}   onChange={setWeight("likes")} />
-              <WeightSlider label="Views"            value={weights.views}              min={0} max={0.1} step={0.005} onChange={setWeight("views")} />
-              <WeightSlider label="Followers (log×)" value={weights.followerMultiplier} min={0} max={10}  step={0.5}   onChange={setWeight("followerMultiplier")} />
+              <WeightSlider label="Retweets"          value={weights.retweets}           min={0} max={10}  step={0.5}   onChange={setWeight("retweets")} />
+              <WeightSlider label="Quotes"            value={weights.quotes}             min={0} max={10}  step={0.5}   onChange={setWeight("quotes")} />
+              <WeightSlider label="Replies"           value={weights.replies}            min={0} max={10}  step={0.5}   onChange={setWeight("replies")} />
+              <WeightSlider label="Likes"             value={weights.likes}              min={0} max={10}  step={0.5}   onChange={setWeight("likes")} />
+              <WeightSlider label="Views"             value={weights.views}              min={0} max={0.1} step={0.005} onChange={setWeight("views")} />
+              <WeightSlider label="Followers (log×)"  value={weights.followerMultiplier} min={0} max={10}  step={0.5}   onChange={setWeight("followerMultiplier")} />
               <button
                 onClick={() => setWeights(DEFAULT_WEIGHTS)}
                 className="text-xs mt-1 py-1.5 px-3 rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-50 transition-colors"
