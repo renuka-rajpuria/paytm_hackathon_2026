@@ -423,12 +423,7 @@ export default function Dashboard({
       <header className="bg-white border-b border-gray-200 sticky top-0 z-20">
         <div className="max-w-[1400px] mx-auto px-6 h-14 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ backgroundColor: "#00BAF2" }}>
-                <span className="text-white text-xs font-bold">P</span>
-              </div>
-              <span className="text-sm font-bold text-gray-900">Paytm</span>
-            </div>
+            <img src="/paytm-logo.svg" alt="Paytm" className="h-7 w-auto" />
             <span className="text-gray-300">·</span>
             <span className="text-sm text-gray-500 font-medium">Escalation Monitor</span>
           </div>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148 36" fill="none">
+  <!-- icon badge -->
+  <rect width="36" height="36" rx="8" fill="#00BAF2"/>
+  <!-- P letterform -->
+  <rect x="10" y="8" width="4" height="20" rx="2" fill="white"/>
+  <rect x="10" y="8" width="13" height="4" rx="2" fill="white"/>
+  <rect x="10" y="16" width="12" height="4" rx="2" fill="white"/>
+  <rect x="21" y="8" width="4" height="12" rx="2" fill="white"/>
+  <!-- wordmark -->
+  <text x="46" y="27" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900" font-size="22" letter-spacing="-0.5" fill="#00BAF2">pay</text>
+  <text x="97" y="27" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900" font-size="22" letter-spacing="-0.5" fill="#002970">tm</text>
+</svg>
