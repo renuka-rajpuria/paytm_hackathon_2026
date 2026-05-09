@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useMemo, useEffect, useRef } from "react";
-import TweetCard, { Tweet } from "./TweetCard";
+import TweetCard, { Tweet, TicketResolution, ResolutionStatus, RESOLUTION_META } from "./TweetCard";
 import { AIAnalysis, AI_BASE_SCORES } from "@/lib/analyzeTweets";
+import ProfileModal, { UserProfile, ProfileBadge } from "./ProfileModal";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -146,6 +147,12 @@ const SENTIMENT_OPTIONS: DropdownOption[] = [
   { id: "neutral",  label: "Neutral" },
   { id: "positive", label: "Positive" },
 ];
+const STATUS_OPTIONS: DropdownOption[] = [
+  { id: "open",        label: "Open",        color: "#9CA3AF" },
+  { id: "in_progress", label: "In Progress", color: "#F59E0B" },
+  { id: "resolved",    label: "Resolved",    color: "#10B981" },
+  { id: "escalated",   label: "Escalated",   color: "#EF4444" },
+];
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -175,7 +182,8 @@ function scoreAndSort(tweets: Tweet[], aiRecord: Record<string, AIAnalysis>, wei
 function applyFilters(
   scored: ScoredEntry[],
   platforms: string[], segments: string[], severities: string[], sentiments: string[],
-  search: string, dateRange: [Date, Date] | null, translatedOnly: boolean
+  search: string, dateRange: [Date, Date] | null, translatedOnly: boolean,
+  statuses: string[], resolutions: Record<string, TicketResolution>
 ): ScoredEntry[] {
   return scored.filter(({ tweet, ai }) => {
     if (platforms.length  > 0 && !platforms.includes(tweet.platform ?? "twitter"))  return false;
@@ -183,6 +191,7 @@ function applyFilters(
     if (severities.length > 0 && !severities.includes(ai?.severity ?? "low"))      return false;
     if (sentiments.length > 0 && !sentiments.includes(ai?.sentiment ?? "neutral")) return false;
     if (translatedOnly && !ai?.is_translated)                                       return false;
+    if (statuses.length  > 0 && !statuses.includes(resolutions[tweet.tweet_id]?.status ?? "open")) return false;
     if (search && !tweet.full_text.toLowerCase().includes(search.toLowerCase()) &&
         !(ai?.translated_text ?? "").toLowerCase().includes(search.toLowerCase())) return false;
     if (dateRange) {
@@ -542,7 +551,7 @@ function BrandSummaryCard({ brand, scored, paytmScored }: {
 
 // ─── ListView ────────────────────────────────────────────────────────────────
 
-function ListView({ entries, showBrand }: { entries: ScoredEntry[]; showBrand: boolean }) {
+function ListView({ entries, showBrand, resolutions }: { entries: ScoredEntry[]; showBrand: boolean; resolutions: Record<string, TicketResolution> }) {
   if (entries.length === 0) {
     return <div className="py-24 text-center text-sm text-gray-400">No tweets match the current filters.</div>;
   }
@@ -552,7 +561,7 @@ function ListView({ entries, showBrand }: { entries: ScoredEntry[]; showBrand: b
         <table className="w-full">
           <thead>
             <tr className="border-b border-gray-100 bg-gray-50/70">
-              {["Score", ...(showBrand ? ["Brand"] : []), "Severity", "Segment", "Sentiment", "User", "Tweet", "Engagement", "Date", ""].map((h) => (
+              {["Score", ...(showBrand ? ["Brand"] : []), "Severity", "Segment", "Sentiment", "Status", "User", "Tweet", "Engagement", "Date", ""].map((h) => (
                 <th key={h} className="text-left px-3 py-2.5 text-[10px] font-semibold text-gray-400 uppercase tracking-wider whitespace-nowrap first:pl-4 last:pr-3">{h}</th>
               ))}
             </tr>
@@ -595,6 +604,18 @@ function ListView({ entries, showBrand }: { entries: ScoredEntry[]; showBrand: b
                     </span>
                   </td>
                   <td className="px-3 py-3 w-20"><span className={`text-xs font-medium capitalize ${SENT_COLOR[sent]}`}>{sent}</span></td>
+                  <td className="px-3 py-3 w-28">
+                    {(() => {
+                      const res  = resolutions[tweet.tweet_id];
+                      const st   = res?.status ?? "open";
+                      const meta = RESOLUTION_META[st];
+                      return (
+                        <span className={`text-[10px] font-semibold rounded-full px-2 py-0.5 border ${meta.bg} ${meta.text} ${meta.border}`}>
+                          {meta.label}
+                        </span>
+                      );
+                    })()}
+                  </td>
                   <td className="px-3 py-3 w-36">
                     <div className="flex flex-col gap-0.5">
                       <span className="text-xs font-medium text-gray-800 truncate max-w-[128px]">{tweet.user.name}</span>
@@ -990,6 +1011,13 @@ export default function Dashboard({
 
   const [watchKeywords, setWatchKeywords] = useState<WatchKeyword[]>([]);
 
+  // ── Profile & resolution state ──
+  const [profiles,        setProfiles]        = useState<UserProfile[]>([]);
+  const [activeProfileId, setActiveProfileId] = useState<string | null>(null);
+  const [showProfileModal,setShowProfileModal] = useState(false);
+  const [resolutions,     setResolutions]     = useState<Record<string, TicketResolution>>({});
+  const [ticketStatuses,  setTicketStatuses]  = useState<string[]>([]);
+
   useEffect(() => {
     try {
       const raw = localStorage.getItem("paytm_saved_filters");
@@ -999,7 +1027,46 @@ export default function Dashboard({
       const raw = localStorage.getItem("paytm_watch_keywords");
       if (raw) setWatchKeywords(JSON.parse(raw));
     } catch {}
+    try {
+      const raw = localStorage.getItem("paytm_profiles");
+      if (raw) setProfiles(JSON.parse(raw));
+    } catch {}
+    try {
+      const raw = localStorage.getItem("paytm_active_profile");
+      if (raw) setActiveProfileId(raw);
+    } catch {}
+    try {
+      const raw = localStorage.getItem("paytm_resolutions");
+      if (raw) setResolutions(JSON.parse(raw));
+    } catch {}
   }, []);
+
+  const activeProfile = profiles.find((p) => p.id === activeProfileId) ?? null;
+  const isEditor      = activeProfile?.role === "editor";
+
+  function addProfile(profile: UserProfile) {
+    const updated = [...profiles, profile];
+    setProfiles(updated);
+    localStorage.setItem("paytm_profiles", JSON.stringify(updated));
+    setActiveProfileId(profile.id);
+    localStorage.setItem("paytm_active_profile", profile.id);
+  }
+
+  function switchProfile(id: string) {
+    setActiveProfileId(id);
+    localStorage.setItem("paytm_active_profile", id);
+  }
+
+  function updateResolution(tweetId: string, status: ResolutionStatus, note: string) {
+    const entry: TicketResolution = {
+      status, note,
+      updatedBy:  activeProfile?.name ?? "Unknown",
+      updatedAt:  new Date().toISOString(),
+    };
+    const updated = { ...resolutions, [tweetId]: entry };
+    setResolutions(updated);
+    localStorage.setItem("paytm_resolutions", JSON.stringify(updated));
+  }
 
   const setWeight = (key: keyof Weights) => (v: number) => setWeights((w) => ({ ...w, [key]: v }));
 
@@ -1009,12 +1076,13 @@ export default function Dashboard({
 
   const dateRange = useMemo(() => getDateRange(datePreset, dateFrom, dateTo), [datePreset, dateFrom, dateTo]);
 
-  const hasActiveFilter    = segments.length > 0 || severities.length > 0 || sentiments.length > 0 || !!datePreset || translatedOnly;
-  const totalActiveFilters = platforms.length + segments.length + severities.length + sentiments.length + (datePreset ? 1 : 0) + (translatedOnly ? 1 : 0);
+  const hasActiveFilter    = segments.length > 0 || severities.length > 0 || sentiments.length > 0 || !!datePreset || translatedOnly || ticketStatuses.length > 0;
+  const totalActiveFilters = platforms.length + segments.length + severities.length + sentiments.length + (datePreset ? 1 : 0) + (translatedOnly ? 1 : 0) + ticketStatuses.length;
 
   function clearAll() {
     setSegments([]); setSeverities([]); setSentiments([]); setPlatforms([]);
     setDatePreset(null); setDateFrom(""); setDateTo(""); setTranslatedOnly(false);
+    setTicketStatuses([]);
   }
 
   function saveFilter() {
@@ -1088,8 +1156,8 @@ export default function Dashboard({
   const competitorScored = useMemo(() => scoreAndSort(competitorTweets, competitorAiRecord, weights), [competitorTweets, competitorAiRecord, weights]);
   const allScored        = useMemo(() => [...paytmScored, ...competitorScored], [paytmScored, competitorScored]);
 
-  const paytmFiltered      = useMemo(() => applyFilters(paytmScored, platforms, segments, severities, sentiments, search, dateRange, translatedOnly), [paytmScored, platforms, segments, severities, sentiments, search, dateRange, translatedOnly]);
-  const competitorFiltered = useMemo(() => applyFilters(competitorScored, platforms, segments, severities, sentiments, search, dateRange, translatedOnly), [competitorScored, platforms, segments, severities, sentiments, search, dateRange, translatedOnly]);
+  const paytmFiltered      = useMemo(() => applyFilters(paytmScored, platforms, segments, severities, sentiments, search, dateRange, translatedOnly, ticketStatuses, resolutions), [paytmScored, platforms, segments, severities, sentiments, search, dateRange, translatedOnly, ticketStatuses, resolutions]);
+  const competitorFiltered = useMemo(() => applyFilters(competitorScored, platforms, segments, severities, sentiments, search, dateRange, translatedOnly, ticketStatuses, resolutions), [competitorScored, platforms, segments, severities, sentiments, search, dateRange, translatedOnly, ticketStatuses, resolutions]);
 
   const activeFiltered = tab === "paytm" ? paytmFiltered : competitorFiltered;
   const activeTweets   = tab === "paytm" ? tweets : competitorTweets;
@@ -1145,11 +1213,21 @@ export default function Dashboard({
               </button>
             ))}
           </div>
-          <div className="flex items-center gap-2 text-xs">
-            <span className={`w-1.5 h-1.5 rounded-full ${aiAvailable ? "bg-emerald-400" : "bg-amber-400"}`} />
-            <span className={aiAvailable ? "text-gray-400" : "text-amber-600"}>
-              {aiAvailable ? `AI · Updated ${now}` : "AI unavailable · engagement scores only"}
-            </span>
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 text-xs">
+              <span className={`w-1.5 h-1.5 rounded-full ${aiAvailable ? "bg-emerald-400" : "bg-amber-400"}`} />
+              <span className={aiAvailable ? "text-gray-400" : "text-amber-600"}>
+                {aiAvailable ? `AI · Updated ${now}` : "AI unavailable"}
+              </span>
+            </div>
+            {activeProfile ? (
+              <ProfileBadge profile={activeProfile} onClick={() => setShowProfileModal(true)} />
+            ) : (
+              <button onClick={() => setShowProfileModal(true)}
+                className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg border border-dashed border-gray-300 text-gray-500 hover:border-[#00BAF2] hover:text-[#00BAF2] transition-all">
+                + Sign in
+              </button>
+            )}
           </div>
         </div>
       </header>
@@ -1206,6 +1284,9 @@ export default function Dashboard({
                 <TranslateIcon />
                 <span>Translated</span>
               </button>
+              <FilterDropdown label="Status" options={STATUS_OPTIONS} selected={ticketStatuses}
+                onToggle={(id) => toggle(ticketStatuses, setTicketStatuses, id)}
+                onClear={() => setTicketStatuses([])} />
               {totalActiveFilters > 0 && (
                 <>
                   <div className="w-px h-4 bg-gray-200 flex-shrink-0" />
@@ -1232,6 +1313,17 @@ export default function Dashboard({
             )}
           </div>
         </div>
+      )}
+
+      {/* ── Profile modal ── */}
+      {showProfileModal && (
+        <ProfileModal
+          profiles={profiles}
+          activeId={activeProfileId}
+          onSwitch={switchProfile}
+          onAdd={addProfile}
+          onClose={() => setShowProfileModal(false)}
+        />
       )}
 
       {/* ── Save modal ── */}
@@ -1335,13 +1427,19 @@ export default function Dashboard({
                     <div className="col-span-3 py-24 text-center text-sm text-gray-400">No tweets match the current filters.</div>
                   ) : (
                     activeFiltered.map(({ tweet, ai, engagement, follower, total }) => (
-                      <TweetCard key={tweet.tweet_id} tweet={tweet} ai={ai} engagementScore={engagement} followerScore={follower} totalScore={total} />
+                      <TweetCard key={tweet.tweet_id} tweet={tweet} ai={ai}
+                        engagementScore={engagement} followerScore={follower} totalScore={total}
+                        resolution={resolutions[tweet.tweet_id] ?? null}
+                        isEditor={isEditor}
+                        editorName={activeProfile?.name ?? ""}
+                        onUpdateResolution={updateResolution}
+                      />
                     ))
                   )}
                 </div>
               ) : (
                 <div className="pb-10">
-                  <ListView entries={activeFiltered} showBrand={tab === "competitors"} />
+                  <ListView entries={activeFiltered} showBrand={tab === "competitors"} resolutions={resolutions} />
                 </div>
               )}
             </>
