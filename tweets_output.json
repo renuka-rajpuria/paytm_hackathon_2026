@@ -1,6 +1,6 @@
 {
   "meta": {
-    "total": 100,
+    "total": 112,
     "generated_at": "2026-05-09T15:25:54.055854+00:00",
     "source_files": [
       "file1.json",
@@ -4644,6 +4644,528 @@
         "is_blue_verified": true,
         "avatar_url": "https://pbs.twimg.com/profile_images/2000825713071677443/DP9kn7GN_normal.jpg",
         "created_at": "Sat May 03 10:08:31 +0000 2014"
+      }
+    },
+    {
+      "tweet_id": "2099000000000000001",
+      "conversation_id": "2099000000000000001",
+      "created_at": "Sat May 09 10:01:00 +0000 2026",
+      "full_text": "URGENT: My Paytm account has been compromised. Someone made 3 transactions of Rs 15,000 each without my knowledge. OTP was never sent to me. @Paytm @Paytmcare this is a serious security breach. Filing a police complaint. #PaytmFraud #DataBreach",
+      "lang": "en",
+      "likes": 412,
+      "retweets": 289,
+      "replies": 134,
+      "quotes": 47,
+      "bookmarks": 88,
+      "views": 52000,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [
+        "PaytmFraud",
+        "DataBreach"
+      ],
+      "mentions": [
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        },
+        {
+          "screen_name": "Paytmcare",
+          "name": "Paytm Care",
+          "id": "2475273985"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "9910000001",
+        "name": "Arjun Mehta",
+        "screen_name": "arjunmehta_blr",
+        "location": "Bangalore, India",
+        "description": "Software Engineer | Fintech enthusiast",
+        "followers": 18400,
+        "following": 620,
+        "tweet_count": 4210,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://api.dicebear.com/7.x/initials/svg?seed=ArjunMehta",
+        "created_at": "Mon Jan 15 10:00:00 +0000 2018"
+      }
+    },
+    {
+      "tweet_id": "2099000000000000002",
+      "conversation_id": "2099000000000000002",
+      "created_at": "Sat May 09 10:05:00 +0000 2026",
+      "full_text": "Paytm UPI is completely DOWN for the past 2 hours. Cannot make any payments. Checked with multiple friends across Mumbai, Delhi, Bangalore — same issue nationwide. @Paytm @Paytmcare @NPCI_NPCI please look into this immediately. Businesses are suffering. #PaytmDown #UPIDown",
+      "lang": "en",
+      "likes": 876,
+      "retweets": 541,
+      "replies": 302,
+      "quotes": 93,
+      "bookmarks": 145,
+      "views": 118000,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [
+        "PaytmDown",
+        "UPIDown"
+      ],
+      "mentions": [
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        }
+      ],
+      "urls": [],
+      "media_urls": [
+        {
+          "type": "photo",
+          "url": "https://picsum.photos/seed/outage/600/300",
+          "display_url": "pic.x.com/outage"
+        }
+      ],
+      "source": "Twitter for iPhone",
+      "user": {
+        "user_id": "9910000002",
+        "name": "Priya Nair",
+        "screen_name": "priya_nair_tech",
+        "location": "Mumbai, India",
+        "description": "Product Manager | Views personal",
+        "followers": 34200,
+        "following": 890,
+        "tweet_count": 7830,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://api.dicebear.com/7.x/initials/svg?seed=PriyaNair",
+        "created_at": "Fri Mar 10 08:00:00 +0000 2017"
+      }
+    },
+    {
+      "tweet_id": "2099000000000000003",
+      "conversation_id": "2099000000000000003",
+      "created_at": "Sat May 09 10:12:00 +0000 2026",
+      "full_text": "Rs 45,000 deducted from my Paytm wallet for a transaction that shows FAILED on the merchant side. Money neither refunded nor credited. This has been going on for 6 days. @Paytmcare your team keeps closing my ticket without resolution. Going to consumer forum. @Paytm",
+      "lang": "en",
+      "likes": 198,
+      "retweets": 87,
+      "replies": 63,
+      "quotes": 12,
+      "bookmarks": 34,
+      "views": 21000,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Paytmcare",
+          "name": "Paytm Care",
+          "id": "2475273985"
+        },
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter Web App",
+      "user": {
+        "user_id": "9910000003",
+        "name": "Vikram Shetty",
+        "screen_name": "vikramshetty91",
+        "location": "Hyderabad, India",
+        "description": "Small business owner | Consumer rights advocate",
+        "followers": 5200,
+        "following": 310,
+        "tweet_count": 2140,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://api.dicebear.com/7.x/initials/svg?seed=VikramShetty",
+        "created_at": "Tue Jun 20 14:30:00 +0000 2016"
+      }
+    },
+    {
+      "tweet_id": "2099000000000000004",
+      "conversation_id": "2099000000000000004",
+      "created_at": "Sat May 09 10:20:00 +0000 2026",
+      "full_text": "My Paytm account is suddenly blocked and I cannot log in. I have a balance of Rs 12,000 in my wallet. @Paytmcare has not responded to my emails in 4 days. You cannot hold someone's money hostage. @RBI @Paytm this needs immediate attention.",
+      "lang": "en",
+      "likes": 143,
+      "retweets": 76,
+      "replies": 48,
+      "quotes": 9,
+      "bookmarks": 22,
+      "views": 14300,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Paytmcare",
+          "name": "Paytm Care",
+          "id": "2475273985"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "9910000004",
+        "name": "Deepa Krishnan",
+        "screen_name": "deepakrishnan_hyd",
+        "location": "Hyderabad, India",
+        "description": "Architect | Travel lover",
+        "followers": 2800,
+        "following": 430,
+        "tweet_count": 980,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://api.dicebear.com/7.x/initials/svg?seed=DeepaKrishnan",
+        "created_at": "Wed Sep 14 09:00:00 +0000 2019"
+      }
+    },
+    {
+      "tweet_id": "2099000000000000005",
+      "conversation_id": "2099000000000000005",
+      "created_at": "Sat May 09 10:28:00 +0000 2026",
+      "full_text": "Paytm UPI transaction failed but Rs 3,200 was deducted. Transaction ID: PTM2026050912345. 48 hours and no refund. @Paytmcare please check and resolve urgently. This is very frustrating. #PaytmIssue",
+      "lang": "en",
+      "likes": 67,
+      "retweets": 28,
+      "replies": 21,
+      "quotes": 3,
+      "bookmarks": 8,
+      "views": 6400,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [
+        "PaytmIssue"
+      ],
+      "mentions": [
+        {
+          "screen_name": "Paytmcare",
+          "name": "Paytm Care",
+          "id": "2475273985"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "9910000005",
+        "name": "Rahul Gupta",
+        "screen_name": "rahulgupta_del",
+        "location": "New Delhi, India",
+        "description": "Finance analyst | Cricket fan",
+        "followers": 890,
+        "following": 240,
+        "tweet_count": 1560,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://api.dicebear.com/7.x/initials/svg?seed=RahulGupta",
+        "created_at": "Thu Mar 04 11:00:00 +0000 2021"
+      }
+    },
+    {
+      "tweet_id": "2099000000000000006",
+      "conversation_id": "2099000000000000006",
+      "created_at": "Sat May 09 10:35:00 +0000 2026",
+      "full_text": "The Paytm app keeps crashing every time I try to open the UPI section on Android 15. Tried reinstalling twice. @Paytmcare is this a known bug? Happening since the last update. Please fix ASAP, I use this for daily payments.",
+      "lang": "en",
+      "likes": 34,
+      "retweets": 12,
+      "replies": 18,
+      "quotes": 2,
+      "bookmarks": 5,
+      "views": 3200,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Paytmcare",
+          "name": "Paytm Care",
+          "id": "2475273985"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "9910000006",
+        "name": "Sneha Patel",
+        "screen_name": "snehapatel_ahm",
+        "location": "Ahmedabad, India",
+        "description": "UX designer | Plant mom",
+        "followers": 1240,
+        "following": 380,
+        "tweet_count": 2300,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://api.dicebear.com/7.x/initials/svg?seed=SnehaPatel",
+        "created_at": "Mon Nov 08 07:00:00 +0000 2021"
+      }
+    },
+    {
+      "tweet_id": "2099000000000000007",
+      "conversation_id": "2099000000000000007",
+      "created_at": "Sat May 09 10:42:00 +0000 2026",
+      "full_text": "Raised a complaint with @Paytmcare 10 days ago regarding cashback not received for a Swiggy order. Ticket #PCT2026-88234. No resolution, no callback, just automated replies. What is going on with customer support?",
+      "lang": "en",
+      "likes": 28,
+      "retweets": 9,
+      "replies": 14,
+      "quotes": 1,
+      "bookmarks": 3,
+      "views": 2100,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Paytmcare",
+          "name": "Paytm Care",
+          "id": "2475273985"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter Web App",
+      "user": {
+        "user_id": "9910000007",
+        "name": "Karan Malhotra",
+        "screen_name": "kmalhotra_pun",
+        "location": "Pune, India",
+        "description": "Consultant | Weekend hiker",
+        "followers": 620,
+        "following": 290,
+        "tweet_count": 870,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://api.dicebear.com/7.x/initials/svg?seed=KaranMalhotra",
+        "created_at": "Sat May 22 15:00:00 +0000 2021"
+      }
+    },
+    {
+      "tweet_id": "2099000000000000008",
+      "conversation_id": "2099000000000000008",
+      "created_at": "Sat May 09 10:50:00 +0000 2026",
+      "full_text": "Paytm UPI showing bank temporarily unavailable for the past 30 minutes. Cannot complete grocery payment at the store. Had to use another app. @Paytm please check your servers.",
+      "lang": "en",
+      "likes": 15,
+      "retweets": 5,
+      "replies": 8,
+      "quotes": 0,
+      "bookmarks": 2,
+      "views": 940,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for iPhone",
+      "user": {
+        "user_id": "9910000008",
+        "name": "Ananya Sharma",
+        "screen_name": "ananyasharma_ch",
+        "location": "Chennai, India",
+        "description": "Teacher | Mom of two",
+        "followers": 340,
+        "following": 180,
+        "tweet_count": 430,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://api.dicebear.com/7.x/initials/svg?seed=AnanyaSharma",
+        "created_at": "Mon Feb 10 06:00:00 +0000 2020"
+      }
+    },
+    {
+      "tweet_id": "2099000000000000009",
+      "conversation_id": "2099000000000000009",
+      "created_at": "Sat May 09 10:58:00 +0000 2026",
+      "full_text": "Just switched from GPay to @Paytm and the UPI experience is much smoother. The soundbox feature for my shop is a game changer — instant confirmations even offline. Highly recommend for small business owners! #PaytmSoundbox",
+      "lang": "en",
+      "likes": 89,
+      "retweets": 34,
+      "replies": 12,
+      "quotes": 4,
+      "bookmarks": 18,
+      "views": 7200,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [
+        "PaytmSoundbox"
+      ],
+      "mentions": [
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "9910000009",
+        "name": "Suresh Yadav",
+        "screen_name": "sureshyadav_kirana",
+        "location": "Jaipur, India",
+        "description": "Kirana store owner | Digital payment advocate",
+        "followers": 480,
+        "following": 210,
+        "tweet_count": 650,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://api.dicebear.com/7.x/initials/svg?seed=SureshYadav",
+        "created_at": "Thu Aug 12 09:30:00 +0000 2021"
+      }
+    },
+    {
+      "tweet_id": "2099000000000000010",
+      "conversation_id": "2099000000000000010",
+      "created_at": "Sat May 09 11:05:00 +0000 2026",
+      "full_text": "Minor annoyance with @Paytm — the app takes 4-5 seconds to load the home screen. Not a dealbreaker but could be faster. Payment itself is quick once it loads.",
+      "lang": "en",
+      "likes": 6,
+      "retweets": 1,
+      "replies": 3,
+      "quotes": 0,
+      "bookmarks": 1,
+      "views": 420,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for iPhone",
+      "user": {
+        "user_id": "9910000010",
+        "name": "Neha Joshi",
+        "screen_name": "nehajoshi_mum",
+        "location": "Mumbai, India",
+        "description": "Marketing exec | Coffee addict",
+        "followers": 210,
+        "following": 310,
+        "tweet_count": 1120,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://api.dicebear.com/7.x/initials/svg?seed=NehaJoshi",
+        "created_at": "Sun Apr 18 12:00:00 +0000 2021"
+      }
+    },
+    {
+      "tweet_id": "2099000000000000011",
+      "conversation_id": "2099000000000000011",
+      "created_at": "Sat May 09 11:12:00 +0000 2026",
+      "full_text": "Shoutout to @Paytmcare — resolved my refund issue within 2 hours of raising the complaint on Twitter. Really impressed by the quick response. This is how customer support should work! #GoodService",
+      "lang": "en",
+      "likes": 112,
+      "retweets": 21,
+      "replies": 8,
+      "quotes": 2,
+      "bookmarks": 6,
+      "views": 5100,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [
+        "GoodService"
+      ],
+      "mentions": [
+        {
+          "screen_name": "Paytmcare",
+          "name": "Paytm Care",
+          "id": "2475273985"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "9910000011",
+        "name": "Rohan Desai",
+        "screen_name": "rohandesai_pune",
+        "location": "Pune, India",
+        "description": "Startup founder | Eternal optimist",
+        "followers": 3100,
+        "following": 520,
+        "tweet_count": 4500,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://api.dicebear.com/7.x/initials/svg?seed=RohanDesai",
+        "created_at": "Tue Jul 06 11:00:00 +0000 2018"
+      }
+    },
+    {
+      "tweet_id": "2099000000000000012",
+      "conversation_id": "2099000000000000012",
+      "created_at": "Sat May 09 11:20:00 +0000 2026",
+      "full_text": "Why does @Paytm show different exchange rates for international payments? Feels like hidden charges. Anyone else noticed this? Not a huge deal but would appreciate more transparency. #Paytm",
+      "lang": "en",
+      "likes": 22,
+      "retweets": 7,
+      "replies": 11,
+      "quotes": 1,
+      "bookmarks": 4,
+      "views": 1800,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [
+        "Paytm"
+      ],
+      "mentions": [
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter Web App",
+      "user": {
+        "user_id": "9910000012",
+        "name": "Aditya Bose",
+        "screen_name": "adityabose_kol",
+        "location": "Kolkata, India",
+        "description": "Freelance developer | Open source contributor",
+        "followers": 1540,
+        "following": 670,
+        "tweet_count": 3200,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://api.dicebear.com/7.x/initials/svg?seed=AdityaBose",
+        "created_at": "Fri Dec 03 08:00:00 +0000 2021"
       }
     }
   ]
