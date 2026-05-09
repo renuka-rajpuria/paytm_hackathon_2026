@@ -71,21 +71,18 @@ A real-time dashboard for **customer support teams and executives** to monitor s
 ```
 paytm_hackathon_2026/
 │
-├── frontend/                        # Next.js app — deployed to Vercel
-│   ├── app/
-│   │   ├── layout.tsx               # Root layout
-│   │   └── page.tsx                 # Main dashboard page
-│   ├── components/
-│   │   ├── EscalationCard.tsx       # Single escalation item
-│   │   ├── SeverityBadge.tsx        # Color-coded severity label
-│   │   ├── SentimentChart.tsx       # Trend chart
-│   │   └── PlatformFilter.tsx       # Platform toggle buttons
-│   ├── lib/
-│   │   ├── supabaseClient.ts        # Supabase browser client
-│   │   └── api.ts                   # Fetch helpers for FastAPI
-│   ├── .env.local                   # NEXT_PUBLIC_SUPABASE_URL etc. (gitignored)
-│   ├── next.config.js
-│   └── package.json
+├── app/                             # Next.js App Router
+│   ├── layout.tsx                   # Root layout
+│   └── page.tsx                     # Main dashboard page
+├── components/
+│   ├── EscalationCard.tsx           # Single escalation item
+│   ├── SeverityBadge.tsx            # Color-coded severity label
+│   ├── SentimentChart.tsx           # Trend chart
+│   └── PlatformFilter.tsx           # Platform toggle buttons
+├── lib/
+│   ├── supabaseClient.ts            # Supabase browser client
+│   └── api.ts                       # Fetch helpers for FastAPI
+├── public/                          # Static assets
 │
 ├── backend/                         # Python FastAPI backend
 │   ├── main.py                      # App entry point, mounts routers
@@ -108,8 +105,9 @@ paytm_hackathon_2026/
 ├── supabase/
 │   └── schema.sql                   # Table definitions and indexes
 │
-├── venv/                            # Python virtual env (gitignored)
+├── .env.local                       # Frontend env vars (gitignored)
 ├── .env.example                     # Template for required env vars
 ├── .gitignore
+├── vercel.json
 └── README.md
 ```
