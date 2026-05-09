@@ -30,6 +30,60 @@ A real-time dashboard for **customer support teams and executives** to monitor s
 
 ---
 
+## Severity Scoring Model
+
+Each post is scored **0–100** using three components:
+
+### 1. AI Base Score (max 60 pts)
+Assigned by the LLM based on issue criticality:
+
+| Severity Level | Score |
+|----------------|-------|
+| 🔴 Critical    | 60    |
+| 🟠 High        | 40    |
+| 🟡 Medium      | 20    |
+| 🟢 Low         | 5     |
+
+**Severity rules used in the prompt:**
+- **Critical** — security breach, money permanently lost, widespread service outage
+- **High** — payment failed, money stuck, UPI blocked, account inaccessible
+- **Medium** — app crash, slow service, customer support failure, cashback issue
+- **Low** — minor inconvenience, general feedback, positive mention
+
+### 2. Engagement Score (max 25 pts)
+Reflects the interaction volume and amplification potential of a post:
+
+| Signal    | Weight | Rationale                        |
+|-----------|--------|----------------------------------|
+| Retweets  | × 5    | Directly amplifies reach         |
+| Quotes    | × 4    | Reshared with commentary         |
+| Replies   | × 3    | Active complaints / discussion   |
+| Likes     | × 2    | Passive endorsement              |
+| Views     | × 0.01 | Raw impressions (low unit weight)|
+
+Raw score is capped at **25 pts**.
+
+### 3. Reach / Follower Score (max 15 pts)
+A post from a high-follower account has greater viral and reputational risk.
+Uses a **log₁₀ scale** to prevent large accounts from dominating:
+
+```
+follower_score = min(15, floor(log10(followers + 1) × 5))
+```
+
+| Followers  | Score |
+|------------|-------|
+| ~10        | ~5    |
+| ~100       | ~10   |
+| ~1,000+    | 15    |
+
+### Final Score
+```
+Total = AI Base Score + Engagement Score + Follower Score   (capped at 100)
+```
+
+---
+
 ## Features
 
 - [ ] Ingest and aggregate social media mentions in real time
