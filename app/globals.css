@@ -2,8 +2,16 @@
 
 :root {
   --font-sans: var(--font-geist);
+  --paytm-blue: #00BAF2;
+  --paytm-dark: #002970;
 }
 
 body {
   font-family: var(--font-geist), system-ui, sans-serif;
+  background: #F7F8FA;
+  color: #111827;
+}
+
+input[type="range"] {
+  accent-color: #00BAF2;
 }
