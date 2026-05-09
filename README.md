@@ -7,8 +7,8 @@ A real-time dashboard for **customer support teams and executives** to monitor s
 ## Build Roadmap (0 → 1)
 
 ### Phase 1 — Frontend on Vercel
-- [ ] Init Next.js app in `frontend/`, push to GitHub, deploy on Vercel → confirm "Hello World" live
-- [ ] Add a basic dashboard page layout (header, sidebar, empty main panel)
+- [x] Init Next.js app, push to GitHub, run locally → confirmed working on localhost:3000
+- [x] Add a basic dashboard page layout (header, tweet count, critical/high summary)
 
 ### Phase 2 — Supabase Connection
 - [ ] Create Supabase project, copy URL + anon key into `.env`
@@ -17,16 +17,16 @@ A real-time dashboard for **customer support teams and executives** to monitor s
 - [ ] Connect FastAPI to Supabase, write a test row → confirm it appears in Supabase dashboard
 
 ### Phase 3 — Scraper Spikes (test each independently)
-- [ ] Twitter — fetch 10 tweets for a keyword using Twitter API v2, print to console
+- [x] Twitter — 100 tweets fetched via Apify, parsed and displayed in UI
 - [ ] Reddit — fetch top posts from a subreddit using PRAW, print to console
 - [ ] LinkedIn — fetch posts via LinkedIn API or scraper, print to console
 
 ### Phase 4 — Data Pipeline
 - [ ] Define Supabase schema (`posts` table with platform, content, author, timestamp, url)
 - [ ] Run each scraper and insert results into Supabase
-- [ ] Add sentiment scoring (VADER) to each post and store the score
-- [ ] Add severity ranking logic, expose ranked results via `/escalations` API endpoint
-- [ ] Wire up the dashboard to display live ranked escalations from the API
+- [x] Add sentiment scoring — AI-powered via Paytm AI API (positive / neutral / negative)
+- [x] Add severity ranking logic — AI base + engagement + reach score (0–100), sorted by severity
+- [x] Wire up the dashboard to display live ranked escalations from the API
 
 ---
 
@@ -86,22 +86,22 @@ Total = AI Base Score + Engagement Score + Follower Score   (capped at 100)
 
 ## Features
 
-- [ ] Ingest and aggregate social media mentions in real time
-- [ ] Sentiment analysis on each post/thread (positive, neutral, negative)
-- [ ] Escalation detection — identify posts that signal customer frustration or viral risk
-- [ ] Severity scoring and ranking of escalations
-- [ ] Unified dashboard view across all connected platforms
+- [x] Ingest and aggregate social media mentions in real time
+- [x] Sentiment analysis on each post/thread (positive, neutral, negative)
+- [x] Escalation detection — identify posts that signal customer frustration or viral risk
+- [x] Severity scoring and ranking of escalations
+- [x] Unified dashboard view across all connected platforms
 - [ ] Filtering and search by platform, keyword, date range, or severity
 - [ ] Trend and volume charts over time
 - [ ] Alert system for high-severity escalations
-- [ ] Executive summary view with key metrics and highlights
+- [x] Executive summary view with key metrics and highlights (critical/high counts in header)
 - [ ] Export reports (CSV / PDF)
 
 ---
 
 ## Platforms Supported
 
-- [ ] Twitter / X
+- [x] Twitter / X
 - [ ] Reddit
 - [ ] LinkedIn
 
