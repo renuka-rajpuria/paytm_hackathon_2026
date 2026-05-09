@@ -1,0 +1,4650 @@
+{
+  "meta": {
+    "total": 100,
+    "generated_at": "2026-05-09T15:25:54.055854+00:00",
+    "source_files": [
+      "file1.json",
+      "file2.json",
+      "file3.json",
+      "file4.json",
+      "file5.json"
+    ]
+  },
+  "tweets": [
+    {
+      "tweet_id": "2053013395671232612",
+      "conversation_id": "2053013395671232612",
+      "created_at": "Sat May 09 07:25:11 +0000 2026",
+      "full_text": "@Paytmcare @Paytm Anyone else, who's not able to use Paytm due to this?? I know the apps that have accessibility enabled, and these are genuine apps. \n\nHow do I get past this error? Or, should I move to @PhonePe / Gpay and 100 other apps, that provide UPI? https://t.co/QR4WZVKUon",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 14,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": "Paytmcare",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Paytmcare",
+          "name": "Paytm Care",
+          "id": "2475273985"
+        },
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        },
+        {
+          "screen_name": "PhonePe",
+          "name": "PhonePe",
+          "id": "4910896514"
+        }
+      ],
+      "urls": [],
+      "media_urls": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HH3Ej9WbcAA-vfu.jpg",
+          "display_url": "pic.x.com/QR4WZVKUon"
+        }
+      ],
+      "source": "Twitter Web App",
+      "user": {
+        "user_id": "117976297",
+        "name": "Rishi Bhatia",
+        "screen_name": "ribhatia",
+        "location": "Bangalore",
+        "description": "",
+        "followers": 132,
+        "following": 59,
+        "tweet_count": 1325,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1230060345693110273/ICsysqfK_normal.jpg",
+        "created_at": "Sat Feb 27 06:12:11 +0000 2010"
+      }
+    },
+    {
+      "tweet_id": "2053017448002310435",
+      "conversation_id": "2053017448002310435",
+      "created_at": "Sat May 09 07:41:17 +0000 2026",
+      "full_text": "Payment done on 4th may via #bajajfinserve app UPI for #zomato. Deducted but payment failed. But no refund. Very #disappointing service by bajaj. #upi transaction 612374700659.\nVery bad and unpleasant experience from both bajaj ans zomato. @Bajaj_Finserv @zomato @UPI_NPCI https://t.co/vBYlngEmYM",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 32,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [
+        "bajajfinserve",
+        "zomato",
+        "disappointing",
+        "upi"
+      ],
+      "mentions": [
+        {
+          "screen_name": "Bajaj_Finserv",
+          "name": "Bajaj_Finserv",
+          "id": "168654282"
+        },
+        {
+          "screen_name": "zomato",
+          "name": "zomato",
+          "id": "23283603"
+        },
+        {
+          "screen_name": "UPI_NPCI",
+          "name": "UPI",
+          "id": "770213658840305665"
+        }
+      ],
+      "urls": [],
+      "media_urls": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HH3IfGBaMAEnGDM.jpg",
+          "display_url": "pic.x.com/vBYlngEmYM"
+        },
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HH3IfGCaYAEolD7.jpg",
+          "display_url": "pic.x.com/vBYlngEmYM"
+        }
+      ],
+      "source": "Twitter for iPhone",
+      "user": {
+        "user_id": "55450495",
+        "name": "Bhavesh Gajipara",
+        "screen_name": "BGaji7",
+        "location": "Mumbai",
+        "description": "",
+        "followers": 92,
+        "following": 136,
+        "tweet_count": 468,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1677222113445576706/tt5j26g3_normal.jpg",
+        "created_at": "Fri Jul 10 03:01:07 +0000 2009"
+      }
+    },
+    {
+      "tweet_id": "2051561650525028726",
+      "conversation_id": "2051561650525028726",
+      "created_at": "Tue May 05 07:16:28 +0000 2026",
+      "full_text": "URGENT ATTENTION @Paytmcare @Paytm \n\nSINCE 2 DAYS I AM NOT ABLE TO USE YOUR APP DUE TO ERROR 61009 FALSE DETECTION....\n\nI AM TOTALLY STUCK AND NEED YOUR URGENT IMMEDIATE FIXATION",
+      "lang": "en",
+      "likes": 2,
+      "retweets": 2,
+      "replies": 3,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 649,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Paytmcare",
+          "name": "Paytm Care",
+          "id": "2475273985"
+        },
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter Web App",
+      "user": {
+        "user_id": "257401866",
+        "name": "Neelesh Purohit 🇮🇳",
+        "screen_name": "aapkaneelesh",
+        "location": "In Low Orbit",
+        "description": "Cyber Intelligence, Defence & National Security Geek, Investigation Professional, Newsmaker, IT Consultant, RTs not endorsement.",
+        "followers": 1143,
+        "following": 2147,
+        "tweet_count": 7377,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1981606947179679744/7z0DhzXB_normal.jpg",
+        "created_at": "Fri Feb 25 10:15:03 +0000 2011"
+      }
+    },
+    {
+      "tweet_id": "2052310045678022706",
+      "conversation_id": "2050238014635556910",
+      "created_at": "Thu May 07 08:50:19 +0000 2026",
+      "full_text": "@AshishP60734377 Hi, we are pleased to inform you that your concern has been resolved. For any further assistance, our in-app support is at your service (https://t.co/bAR4POUWt0). We are grateful for your trust in us.",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 58,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2050238014635556910",
+      "in_reply_to_screen_name": "AshishP60734377",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "AshishP60734377",
+          "name": "Ashish Parab",
+          "id": "1483833629856141312"
+        }
+      ],
+      "urls": [
+        "https://bit.ly/paytm_care"
+      ],
+      "media_urls": [],
+      "source": "Sprinklr",
+      "user": {
+        "user_id": "144792607",
+        "name": "Paytm",
+        "screen_name": "Paytm",
+        "location": "India",
+        "description": "India’s leading AI-first payments and financial infrastructure platform for consumers, merchants and enterprises. #PaytmKaro 💙",
+        "followers": 1308688,
+        "following": 8,
+        "tweet_count": 43322,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2021525684003409920/XpKLIyFX_normal.jpg",
+        "created_at": "Mon May 17 09:23:32 +0000 2010"
+      }
+    },
+    {
+      "tweet_id": "2053022236794298841",
+      "conversation_id": "2053022236794298841",
+      "created_at": "Sat May 09 08:00:19 +0000 2026",
+      "full_text": "@in_tradingview Get up from your sleep  your payment portal is not working.\nHave some shame; you don’t even care about accepting payments.\nAt the “verify your number” stage, I am not receiving an OTP or a call.\n@tradingview @dgloba @StanBokov",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 12,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": "in_tradingview",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "in_tradingview",
+          "name": "TradingView India 🇮🇳",
+          "id": "760853978837942272"
+        },
+        {
+          "screen_name": "tradingview",
+          "name": "TradingView",
+          "id": "373457750"
+        },
+        {
+          "screen_name": "dgloba",
+          "name": "gloria Cecilia",
+          "id": "239426317"
+        },
+        {
+          "screen_name": "stanbokov",
+          "name": "Stan Bokov",
+          "id": "403433423"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "111606108",
+        "name": "Invincible",
+        "screen_name": "sha_sha786",
+        "location": "Delhi, India",
+        "description": "Road ahead is long , Keep moving",
+        "followers": 176,
+        "following": 304,
+        "tweet_count": 6720,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/666657089863847936/khj1hVbn_normal.jpg",
+        "created_at": "Fri Feb 05 14:31:16 +0000 2010"
+      }
+    },
+    {
+      "tweet_id": "2053018743601508799",
+      "conversation_id": "2052586345974173857",
+      "created_at": "Sat May 09 07:46:26 +0000 2026",
+      "full_text": "@dhaval589 @Sarthak4Alpha This is the only right answer. With limited inventory &amp; ever growing demand, it's hard to provide a stable service. Even retail websites go down when many customers compete for a single product that's on sale, inventory table locks leading to deadlocks &amp; so on.,",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 19,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2052760375956058539",
+      "in_reply_to_screen_name": "dhaval589",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "dhaval589",
+          "name": "Dhaval Thakkar",
+          "id": "156681257"
+        },
+        {
+          "screen_name": "Sarthak4Alpha",
+          "name": "Sarthak",
+          "id": "1332312421910810624"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "851019726",
+        "name": "Harshavardhan Musanalli",
+        "screen_name": "harshavmb",
+        "location": "",
+        "description": "Ich sehe was, Was du nicht siehst und das ist BUNT! https://t.co/q9IH46RbKE",
+        "followers": 186,
+        "following": 543,
+        "tweet_count": 5159,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1312828896367214599/gE8AoSgk_normal.jpg",
+        "created_at": "Fri Sep 28 13:00:51 +0000 2012"
+      }
+    },
+    {
+      "tweet_id": "2053018300133572888",
+      "conversation_id": "2052928584667275472",
+      "created_at": "Sat May 09 07:44:40 +0000 2026",
+      "full_text": "@fadisaaida @aave Sorry for the trouble you are experiencing @fadisaaida Large repayments don’t freeze assets. Likely liquidity or tx-state issue.\n\nCan you share the tx hash? What error message are you getting?",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 14,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2053005630961528959",
+      "in_reply_to_screen_name": "fadisaaida",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "fadisaaida",
+          "name": "fadi",
+          "id": "21637885"
+        },
+        {
+          "screen_name": "aave",
+          "name": "Aave",
+          "id": "867100084248469505"
+        },
+        {
+          "screen_name": "fadisaaida",
+          "name": "fadi",
+          "id": "21637885"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for iPhone",
+      "user": {
+        "user_id": "949991409083404288",
+        "name": "Claudia Ceni |Aave",
+        "screen_name": "MHusava",
+        "location": "",
+        "description": "Chief of Communications at Aave. Tech builder | Christian ✝️",
+        "followers": 3267,
+        "following": 513,
+        "tweet_count": 17618,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2046314048971849729/ZQ-L8Tkj_normal.jpg",
+        "created_at": "Sun Jan 07 13:09:36 +0000 2018"
+      }
+    },
+    {
+      "tweet_id": "2053019878643388640",
+      "conversation_id": "2053019878643388640",
+      "created_at": "Sat May 09 07:50:56 +0000 2026",
+      "full_text": "@PaytmCheckin @PaytmTravelCare \nIt is impossible for someone to talk to a human. Star Air canceled the flight. You are supposed to give me an automated refund. But you expect the customer to bounce between IVR and your shit app. What to do?",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 8,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": "PaytmCheckin",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "PaytmCheckin",
+          "name": "Paytm Travel",
+          "id": "864078367535935488"
+        },
+        {
+          "screen_name": "PaytmTravelCare",
+          "name": "Paytm Travel Care",
+          "id": "908182550006292480"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for iPhone",
+      "user": {
+        "user_id": "3170961920",
+        "name": "darsh",
+        "screen_name": "darshmashru",
+        "location": "Mumbai, India",
+        "description": "",
+        "followers": 67,
+        "following": 222,
+        "tweet_count": 212,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1755279916390600704/YMkXGoU6_normal.jpg",
+        "created_at": "Fri Apr 24 15:25:39 +0000 2015"
+      }
+    },
+    {
+      "tweet_id": "2053025409131053458",
+      "conversation_id": "2053025365015331214",
+      "created_at": "Sat May 09 08:12:55 +0000 2026",
+      "full_text": "Sharing this publicly so that other customers are aware of the difficulties faced even after genuine product concerns and repeated follow-ups.\nComplaint References:\n#1499377\n#1499795\n#1502177  \n@BATA_India https://t.co/8UV0GimCna",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 1,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2053025384548233530",
+      "in_reply_to_screen_name": "itsme___Noman",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "BATA_India",
+          "name": "BATA India",
+          "id": "2426723443"
+        }
+      ],
+      "urls": [],
+      "media_urls": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HH3Pt1ebEAEbfmZ.jpg",
+          "display_url": "pic.x.com/8UV0GimCna"
+        },
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HH3Pt5ibYAA3zq2.jpg",
+          "display_url": "pic.x.com/8UV0GimCna"
+        },
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HH3Pt92a4AA1-CZ.jpg",
+          "display_url": "pic.x.com/8UV0GimCna"
+        }
+      ],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "1201747394154516480",
+        "name": "Noman akhtar",
+        "screen_name": "itsme___Noman",
+        "location": "Mirzapur, India",
+        "description": "🌸",
+        "followers": 86,
+        "following": 524,
+        "tweet_count": 2725,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1564685910192852992/0gFJuFkC_normal.jpg",
+        "created_at": "Tue Dec 03 06:18:11 +0000 2019"
+      }
+    },
+    {
+      "tweet_id": "2051775806985449514",
+      "conversation_id": "2051701471989932059",
+      "created_at": "Tue May 05 21:27:27 +0000 2026",
+      "full_text": "@sup24966 Hi, we are pleased to inform you that your concern has been resolved. For any further assistance, our in-app support is at your service (https://t.co/bAR4POUWt0). We are grateful for your trust in us.",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 920,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2051701471989932059",
+      "in_reply_to_screen_name": "sup24966",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "sup24966",
+          "name": "Rahul",
+          "id": "1643407878714449920"
+        }
+      ],
+      "urls": [
+        "https://bit.ly/paytm_care"
+      ],
+      "media_urls": [],
+      "source": "Sprinklr",
+      "user": {
+        "user_id": "144792607",
+        "name": "Paytm",
+        "screen_name": "Paytm",
+        "location": "India",
+        "description": "India’s leading AI-first payments and financial infrastructure platform for consumers, merchants and enterprises. #PaytmKaro 💙",
+        "followers": 1308688,
+        "following": 8,
+        "tweet_count": 43322,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2021525684003409920/XpKLIyFX_normal.jpg",
+        "created_at": "Mon May 17 09:23:32 +0000 2010"
+      }
+    },
+    {
+      "tweet_id": "2053014841619890295",
+      "conversation_id": "2053000567988117792",
+      "created_at": "Sat May 09 07:30:56 +0000 2026",
+      "full_text": "@SandeepMall While I agree, a lot is our own doing. We don't look at what check box we are accepting in detail and that's where the pbm lies. Y'day  in a hotel , I casually opened youtube in the room TV and realised someone has logged in using his credentials and didn't mind logging off ..",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 289,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2053000567988117792",
+      "in_reply_to_screen_name": "SandeepMall",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "SandeepMall",
+          "name": "Sandeep Mall",
+          "id": "22036637"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "85543191",
+        "name": "Karthik",
+        "screen_name": "ramask",
+        "location": "Madras and not Chennai",
+        "description": "Indian first always ; Music, Tradition,Technology ; Sales, Social Causes, Public Sector ; Alumni @SCSVMVUNIV @IMTGhaziabad ; Coordinator @Vaishwadevam",
+        "followers": 221,
+        "following": 430,
+        "tweet_count": 8549,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1600689195705475072/VGlGpzYt_normal.jpg",
+        "created_at": "Tue Oct 27 10:37:40 +0000 2009"
+      }
+    },
+    {
+      "tweet_id": "2053020896152203679",
+      "conversation_id": "2053020671635337445",
+      "created_at": "Sat May 09 07:54:59 +0000 2026",
+      "full_text": "What’s even more frustrating is that no one is answering our calls anymore, and there has been absolutely no progress on the installation. I have already made the payment twice, and nearly ₹3,000 is currently stuck because of this issue.",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 8,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2053020671635337445",
+      "in_reply_to_screen_name": "snehark29",
+      "hashtags": [],
+      "mentions": [],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for iPhone",
+      "user": {
+        "user_id": "2989793774",
+        "name": "Sneha Radhakrishnan",
+        "screen_name": "snehark29",
+        "location": "Bengaluru",
+        "description": "Bored, inter alia.",
+        "followers": 40,
+        "following": 258,
+        "tweet_count": 235,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1909552567194943488/Rk9b9Rdg_normal.jpg",
+        "created_at": "Mon Jan 19 12:01:16 +0000 2015"
+      }
+    },
+    {
+      "tweet_id": "2053014973270634714",
+      "conversation_id": "2053013395671232612",
+      "created_at": "Sat May 09 07:31:27 +0000 2026",
+      "full_text": "@ribhatia Hi Rishi, please let us have this checked on priority. To ensure your information remains confidential, we request you to DM us, so that we can assist you urgently. Looking forward to hearing back from you. https://t.co/5m1Urzh8kc",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 2,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2053013395671232612",
+      "in_reply_to_screen_name": "ribhatia",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "ribhatia",
+          "name": "Rishi Bhatia",
+          "id": "117976297"
+        }
+      ],
+      "urls": [
+        "https://x.com/messages/compose?recipient_id=2475273985"
+      ],
+      "media_urls": [],
+      "source": "Sprinklr",
+      "user": {
+        "user_id": "2475273985",
+        "name": "Paytm Care",
+        "screen_name": "Paytmcare",
+        "location": "India",
+        "description": "We are here 24x7!  Write to us at https://t.co/l6SPQwsVwN",
+        "followers": 416162,
+        "following": 40,
+        "tweet_count": 1187506,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2000825713071677443/DP9kn7GN_normal.jpg",
+        "created_at": "Sat May 03 10:08:31 +0000 2014"
+      }
+    },
+    {
+      "tweet_id": "2053015798793347570",
+      "conversation_id": "2052440757181587951",
+      "created_at": "Sat May 09 07:34:44 +0000 2026",
+      "full_text": "@penguinpjays I made a complain here on same issue earlier today and no one responded to me.   Had no choice but to write to them on their official email at ( fix.trustwallet.support@gmail.com ) which I got a fast response and my issue was resolved",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 2,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2052440757181587951",
+      "in_reply_to_screen_name": "penguinpjays",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "penguinpjays",
+          "name": "obsidian",
+          "id": "2291724011"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "991916622",
+        "name": "Ggz",
+        "screen_name": "Chalogomza",
+        "location": "Lorraine",
+        "description": "Saviez-vous que les éléphants sont d'excellents nageurs et peuvent rester immergés pendant plus de 6 heures ? Une incroyable adaptation à leur environnement aqu",
+        "followers": 108,
+        "following": 5,
+        "tweet_count": 27,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2047361700517625856/U3ILa5Fm_normal.jpg",
+        "created_at": "Wed Dec 05 22:35:52 +0000 2012"
+      }
+    },
+    {
+      "tweet_id": "2053016361501372509",
+      "conversation_id": "2050495773113245970",
+      "created_at": "Sat May 09 07:36:58 +0000 2026",
+      "full_text": "昨日の夜から今日にかけて、またチャレンジや歩数で「広告読み込み中」で止まって動画を見てのptを取れない現象が起きている。\nと書いていたら、なんの前触れもなく直った。けど、システムが不安定過ぎるな～。",
+      "lang": "ja",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": null,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2052310395189330330",
+      "in_reply_to_screen_name": "ichisato0619",
+      "hashtags": [],
+      "mentions": [],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter Web App",
+      "user": {
+        "user_id": "177112685",
+        "name": "いちかわさとし",
+        "screen_name": "ichisato0619",
+        "location": "東京",
+        "description": "他のペンネームを使って、主に小説を書いてる作家です。自分のホームページがあるので、あまり積極的にTwitterを活用するつもりはないのですが、気ままにやっていければと思います。",
+        "followers": 78,
+        "following": 127,
+        "tweet_count": 25501,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1690922110510575616/I6O7oqhY_normal.jpg",
+        "created_at": "Wed Aug 11 08:06:31 +0000 2010"
+      }
+    },
+    {
+      "tweet_id": "2051348665718169844",
+      "conversation_id": "2050630272157467095",
+      "created_at": "Mon May 04 17:10:08 +0000 2026",
+      "full_text": "@ManishGuptgppn Hi, we are pleased to inform you that your concern has been resolved. For any further assistance, our in-app support is at your service (https://t.co/bAR4POUWt0). We are grateful for your trust in us.",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 66,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2050630272157467095",
+      "in_reply_to_screen_name": "ManishGuptgppn",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "ManishGuptgppn",
+          "name": "Manish Gupta",
+          "id": "2047715584998334466"
+        }
+      ],
+      "urls": [
+        "https://bit.ly/paytm_care"
+      ],
+      "media_urls": [],
+      "source": "Sprinklr",
+      "user": {
+        "user_id": "144792607",
+        "name": "Paytm",
+        "screen_name": "Paytm",
+        "location": "India",
+        "description": "India’s leading AI-first payments and financial infrastructure platform for consumers, merchants and enterprises. #PaytmKaro 💙",
+        "followers": 1308688,
+        "following": 8,
+        "tweet_count": 43322,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2021525684003409920/XpKLIyFX_normal.jpg",
+        "created_at": "Mon May 17 09:23:32 +0000 2010"
+      }
+    },
+    {
+      "tweet_id": "2053014587113382053",
+      "conversation_id": "2053005326555742276",
+      "created_at": "Sat May 09 07:29:55 +0000 2026",
+      "full_text": "@Round_Sky_ @webdeveloperUG @DrSerunjogiEmma Paypal policies clearly state you can't receive payments with an account opened in UG. PayPal is basically like email, but with money.If they didn't have sophisticated systems &amp; intelligence,they wouldn't survive a day.The internet is like the wild wild west.",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 21,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2053012606080708992",
+      "in_reply_to_screen_name": "Round_Sky_",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Round_Sky_",
+          "name": "Voice of Round Sky, PhD",
+          "id": "1088870532722900992"
+        },
+        {
+          "screen_name": "webdeveloperUG",
+          "name": "Web Developer UG",
+          "id": "1833393540652576768"
+        },
+        {
+          "screen_name": "DrSerunjogiEmma",
+          "name": "Dr. Sserunjogi Emma",
+          "id": "915083619722563584"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "1853016996151238656",
+        "name": "Akalabanda",
+        "screen_name": "legaltemplates1",
+        "location": "United States",
+        "description": "..",
+        "followers": 261,
+        "following": 179,
+        "tweet_count": 6515,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2003816841408331776/2wKghCTc_normal.jpg",
+        "created_at": "Sun Nov 03 10:11:15 +0000 2024"
+      }
+    },
+    {
+      "tweet_id": "2048632741055611181",
+      "conversation_id": "2048632741055611181",
+      "created_at": "Mon Apr 27 05:18:01 +0000 2026",
+      "full_text": "Really disappointed with Paytm’s service. There’s no proper resolution to issues, and reaching customer support is a struggle. Even when you do get through, they don’t listen they just repeat their scripted responses.\n\n@Paytm @Paytmcare @PaytmBusiness",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 1,
+      "replies": 3,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 91,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        },
+        {
+          "screen_name": "Paytmcare",
+          "name": "Paytm Care",
+          "id": "2475273985"
+        },
+        {
+          "screen_name": "PaytmBusiness",
+          "name": "Paytm For Business",
+          "id": "943088159218311168"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "1102301723907973120",
+        "name": "Abhinav Mishra",
+        "screen_name": "Mr_abhi9",
+        "location": "",
+        "description": "",
+        "followers": 140,
+        "following": 141,
+        "tweet_count": 207,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1206209746786611200/zfWFEgTg_normal.jpg",
+        "created_at": "Sun Mar 03 20:16:25 +0000 2019"
+      }
+    },
+    {
+      "tweet_id": "2051539912365932976",
+      "conversation_id": "2050511954079551627",
+      "created_at": "Tue May 05 05:50:05 +0000 2026",
+      "full_text": "@ankush1681995 Dear ankush, we are pleased to inform you that your concern has been resolved, please feel free to share your valuable feedback with us. If you still need any further assistance do send us the details via DM. We are grateful for your trust in us.",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 41,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2050511954079551627",
+      "in_reply_to_screen_name": "ankush1681995",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "ankush1681995",
+          "name": "ankush",
+          "id": "1005861361"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Sprinklr",
+      "user": {
+        "user_id": "144792607",
+        "name": "Paytm",
+        "screen_name": "Paytm",
+        "location": "India",
+        "description": "India’s leading AI-first payments and financial infrastructure platform for consumers, merchants and enterprises. #PaytmKaro 💙",
+        "followers": 1308688,
+        "following": 8,
+        "tweet_count": 43322,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2021525684003409920/XpKLIyFX_normal.jpg",
+        "created_at": "Mon May 17 09:23:32 +0000 2010"
+      }
+    },
+    {
+      "tweet_id": "2053014594105528614",
+      "conversation_id": "2052974377025892607",
+      "created_at": "Sat May 09 07:29:57 +0000 2026",
+      "full_text": "@KabirulAccount Hi, we have requested additional details via direct message. Kindly provide the required information at your earliest convenience. https://t.co/5m1Urzh8kc",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": null,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2053013142918332754",
+      "in_reply_to_screen_name": "KabirulAccount",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "KabirulAccount",
+          "name": "Kabirul Biswas",
+          "id": "1862102360560111617"
+        }
+      ],
+      "urls": [
+        "https://x.com/messages/compose?recipient_id=2475273985"
+      ],
+      "media_urls": [],
+      "source": "Sprinklr",
+      "user": {
+        "user_id": "2475273985",
+        "name": "Paytm Care",
+        "screen_name": "Paytmcare",
+        "location": "India",
+        "description": "We are here 24x7!  Write to us at https://t.co/l6SPQwsVwN",
+        "followers": 416162,
+        "following": 40,
+        "tweet_count": 1187506,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2000825713071677443/DP9kn7GN_normal.jpg",
+        "created_at": "Sat May 03 10:08:31 +0000 2014"
+      }
+    },
+    {
+      "tweet_id": "2053021266295038172",
+      "conversation_id": "2053016809927036988",
+      "created_at": "Sat May 09 07:56:27 +0000 2026",
+      "full_text": "@PiyushRaj969335 Hi Piyush, we sincerely apologize for the delay and the inconvenience caused. Please be assured that the issue is currently being worked on. The case has been escalated to the concerned team, and we are closely following up to ensure a resolution at the earliest. Thank you for https://t.co/n5jgN7WG8J",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 1,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 2,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2053016809927036988",
+      "in_reply_to_screen_name": "PiyushRaj969335",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "PiyushRaj969335",
+          "name": "Piyush Raj",
+          "id": "1482781487506522116"
+        }
+      ],
+      "urls": [
+        "https://x.com/messages/compose?recipient_id=1667354024"
+      ],
+      "media_urls": [],
+      "source": "Social360",
+      "user": {
+        "user_id": "1667354024",
+        "name": "helpdesk_delhivery",
+        "screen_name": "help_delhivery",
+        "location": "Gurgaon",
+        "description": "India’s largest fully integrated logistics provider, building the operating system for commerce with world-class infrastructure, logistics, and tech innovation.",
+        "followers": 27055,
+        "following": 414,
+        "tweet_count": 354395,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1438055429674655744/zgthVPmp_normal.jpg",
+        "created_at": "Tue Aug 13 09:41:13 +0000 2013"
+      }
+    },
+    {
+      "tweet_id": "1964803982867722364",
+      "conversation_id": "1964803982867722364",
+      "created_at": "Sun Sep 07 21:32:28 +0000 2025",
+      "full_text": "My account is associated with HDFC Bank. How can I resolve this issue? I also contacted HDFC customer care, but I did not get any resolution. @HDFC_Bank @Paytm. Having a lots of issues while making the payment through UPI.",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 2,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 38,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "HDFC_Bank",
+          "name": "HDFC Bank",
+          "id": "183230213"
+        },
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "1962360612690018305",
+        "name": "P K RANA",
+        "screen_name": "k_rana55555",
+        "location": "Chandigarh",
+        "description": "",
+        "followers": 0,
+        "following": 25,
+        "tweet_count": 3,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1962360836233768960/AGhpFtiH_normal.png",
+        "created_at": "Mon Sep 01 03:44:16 +0000 2025"
+      }
+    },
+    {
+      "tweet_id": "2052313128424427705",
+      "conversation_id": "2052273024657916273",
+      "created_at": "Thu May 07 09:02:34 +0000 2026",
+      "full_text": "@Akshayxqjn Hi Akshay, we want to assure you that your issue is being handled and is currently pending with our internal team. We’re prioritizing this and will keep you posted on progress. https://t.co/5m1Urzh8kc",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 78,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2052273024657916273",
+      "in_reply_to_screen_name": "Akshayxqjn",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Akshayxqjn",
+          "name": "Akshay",
+          "id": "2052036583797477376"
+        }
+      ],
+      "urls": [
+        "https://x.com/messages/compose?recipient_id=2475273985"
+      ],
+      "media_urls": [],
+      "source": "Sprinklr",
+      "user": {
+        "user_id": "2475273985",
+        "name": "Paytm Care",
+        "screen_name": "Paytmcare",
+        "location": "India",
+        "description": "We are here 24x7!  Write to us at https://t.co/l6SPQwsVwN",
+        "followers": 416162,
+        "following": 40,
+        "tweet_count": 1187507,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2000825713071677443/DP9kn7GN_normal.jpg",
+        "created_at": "Sat May 03 10:08:31 +0000 2014"
+      }
+    },
+    {
+      "tweet_id": "2052605308137287730",
+      "conversation_id": "2052605308137287730",
+      "created_at": "Fri May 08 04:23:35 +0000 2026",
+      "full_text": "@flipkartsupport @Flipkart\nFlipkart is doing a gimmick by offering 50rs cashback on Paytm . Paytm doesn't issue any cashback but issues some useless vouchers. Just placed an order and no cashback was received. Highly disappointed seeing these standards of reputed brands",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 21,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": "flipkartsupport",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "flipkartsupport",
+          "name": "FlipkartSupport",
+          "id": "951522626"
+        },
+        {
+          "screen_name": "Flipkart",
+          "name": "Flipkart",
+          "id": "57947109"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "1079688274581565441",
+        "name": "Neelu Suri",
+        "screen_name": "NeeluSuri6",
+        "location": "",
+        "description": "Simplicity at its best",
+        "followers": 4,
+        "following": 197,
+        "tweet_count": 191,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1124959352677253121/gHvEuW8U_normal.jpg",
+        "created_at": "Mon Dec 31 10:38:39 +0000 2018"
+      }
+    },
+    {
+      "tweet_id": "2053025825210122246",
+      "conversation_id": "2053021973912121701",
+      "created_at": "Sat May 09 08:14:34 +0000 2026",
+      "full_text": "@arya24194623151 Hi Arya, please let us have this checked on priority. To ensure your information remains confidential, we request you to DM us, so that we can assist you urgently. Looking forward to hearing back from you. https://t.co/5m1Urzh8kc",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 3,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2053021973912121701",
+      "in_reply_to_screen_name": "arya24194623151",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "arya24194623151",
+          "name": "arya",
+          "id": "1671231154186493952"
+        }
+      ],
+      "urls": [
+        "https://x.com/messages/compose?recipient_id=2475273985"
+      ],
+      "media_urls": [],
+      "source": "Sprinklr",
+      "user": {
+        "user_id": "2475273985",
+        "name": "Paytm Care",
+        "screen_name": "Paytmcare",
+        "location": "India",
+        "description": "We are here 24x7!  Write to us at https://t.co/l6SPQwsVwN",
+        "followers": 416162,
+        "following": 40,
+        "tweet_count": 1187507,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2000825713071677443/DP9kn7GN_normal.jpg",
+        "created_at": "Sat May 03 10:08:31 +0000 2014"
+      }
+    },
+    {
+      "tweet_id": "1976923788576276621",
+      "conversation_id": "1976919071171264594",
+      "created_at": "Sat Oct 11 08:12:15 +0000 2025",
+      "full_text": "@Sparsh209 Good!!!\n\nI have Google Pay, Paytm, PhonePe, Amazon Pay.\n\nPaytm was my favorite but due to slowness issues I started using GPay.\n\nBut now again moved to Paytm as I see it's improved now.\n\nFor bigger payments, I use PhonePe.",
+      "lang": "en",
+      "likes": 1,
+      "retweets": 0,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 73,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "1976922085537808600",
+      "in_reply_to_screen_name": "Sparsh209",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Sparsh209",
+          "name": "Sparsh Bhardwaj",
+          "id": "1424580903494324224"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "187460776",
+        "name": "Vanesh Mali",
+        "screen_name": "vaneshmali",
+        "location": "Pune, Maharashtra, India",
+        "description": "Engineering Manager | Leader | PHP |\nFounder: @helloTechnoVans",
+        "followers": 8636,
+        "following": 4047,
+        "tweet_count": 86572,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1782462582043049986/wdhaiGtQ_normal.jpg",
+        "created_at": "Mon Sep 06 08:45:38 +0000 2010"
+      }
+    },
+    {
+      "tweet_id": "2053018155451113730",
+      "conversation_id": "2053015593046229202",
+      "created_at": "Sat May 09 07:44:06 +0000 2026",
+      "full_text": "@Pramodchauhan01 Hi Pramod, we sincerely apologize for the delay and the inconvenience caused. Please be assured that the issue is currently being worked on. The case has been escalated to the concerned team, and we are closely following up to ensure a resolution at the earliest. Thank you for https://t.co/n5jgN7WG8J",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 6,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2053015593046229202",
+      "in_reply_to_screen_name": "Pramodchauhan01",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Pramodchauhan01",
+          "name": "Pramod Chauhan",
+          "id": "1003370307812577281"
+        }
+      ],
+      "urls": [
+        "https://x.com/messages/compose?recipient_id=1667354024"
+      ],
+      "media_urls": [],
+      "source": "Social360",
+      "user": {
+        "user_id": "1667354024",
+        "name": "helpdesk_delhivery",
+        "screen_name": "help_delhivery",
+        "location": "Gurgaon",
+        "description": "India’s largest fully integrated logistics provider, building the operating system for commerce with world-class infrastructure, logistics, and tech innovation.",
+        "followers": 27055,
+        "following": 414,
+        "tweet_count": 354395,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1438055429674655744/zgthVPmp_normal.jpg",
+        "created_at": "Tue Aug 13 09:41:13 +0000 2013"
+      }
+    },
+    {
+      "tweet_id": "2052969783994564747",
+      "conversation_id": "2052589128743850215",
+      "created_at": "Sat May 09 04:31:53 +0000 2026",
+      "full_text": "@ibablumehra Hi! We understand how important this is. Your UPI transaction issue is currently pending with our internal team, and we are actively helping you via DM. We greatly appreciate your patience as we work to resolve it. https://t.co/5m1Urzh8kc",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 9,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2052962145227440199",
+      "in_reply_to_screen_name": "ibablumehra",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "ibablumehra",
+          "name": "Bablu Mehra",
+          "id": "811462101730344960"
+        }
+      ],
+      "urls": [
+        "https://x.com/messages/compose?recipient_id=2475273985"
+      ],
+      "media_urls": [],
+      "source": "Sprinklr",
+      "user": {
+        "user_id": "2475273985",
+        "name": "Paytm Care",
+        "screen_name": "Paytmcare",
+        "location": "India",
+        "description": "We are here 24x7!  Write to us at https://t.co/l6SPQwsVwN",
+        "followers": 416162,
+        "following": 40,
+        "tweet_count": 1187507,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2000825713071677443/DP9kn7GN_normal.jpg",
+        "created_at": "Sat May 03 10:08:31 +0000 2014"
+      }
+    },
+    {
+      "tweet_id": "2051501310240075801",
+      "conversation_id": "2050215068676366569",
+      "created_at": "Tue May 05 03:16:42 +0000 2026",
+      "full_text": "@JR_DesiMverick Hi, We’re truly sorry for the trouble caused. Please don’t worry we’re already on it and our team is actively checking this. We’ll get this sorted for you at the earliest and keep you posted. Thanks for your patience!",
+      "lang": "en",
+      "likes": 1,
+      "retweets": 0,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 18,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2051290971950985395",
+      "in_reply_to_screen_name": "JR_DesiMverick",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "JR_DesiMverick",
+          "name": "JR_The Indian Maverick🇮🇳",
+          "id": "228990655"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Sprinklr",
+      "user": {
+        "user_id": "2475273985",
+        "name": "Paytm Care",
+        "screen_name": "Paytmcare",
+        "location": "India",
+        "description": "We are here 24x7!  Write to us at https://t.co/l6SPQwsVwN",
+        "followers": 416162,
+        "following": 40,
+        "tweet_count": 1187507,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2000825713071677443/DP9kn7GN_normal.jpg",
+        "created_at": "Sat May 03 10:08:31 +0000 2014"
+      }
+    },
+    {
+      "tweet_id": "2047704557678166424",
+      "conversation_id": "2047704557678166424",
+      "created_at": "Fri Apr 24 15:49:45 +0000 2026",
+      "full_text": "PAYTM PAYMENT BANK \n\n• RBI cancels Paytm Payments Bank licence over compliance issues\n• All banking operations banned from 24 /04/ 2026\n• Violations &amp; regulatory lapses flagged\n• RBI says continuation is not in public interest\n\n#PaytmPaymentBank #RBI #latestupdate",
+      "lang": "en",
+      "likes": 1,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 101,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [
+        "PaytmPaymentBank",
+        "RBI",
+        "latestupdate"
+      ],
+      "mentions": [],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "1976678184931450880",
+        "name": "Miral Solanki",
+        "screen_name": "Miral__Solanki",
+        "location": "ahmedabad ",
+        "description": "Researcher at @NewsCapitalMKT",
+        "followers": 15,
+        "following": 59,
+        "tweet_count": 122,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1976678299662262272/yrXACsoh_normal.jpg",
+        "created_at": "Fri Oct 10 15:56:45 +0000 2025"
+      }
+    },
+    {
+      "tweet_id": "2053020665075126460",
+      "conversation_id": "2053005326555742276",
+      "created_at": "Sat May 09 07:54:04 +0000 2026",
+      "full_text": "@DrSerunjogiEmma Your claim isn’t accurate, paypal support in UG is inconsistent depending on your account setup!",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 46,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2053005326555742276",
+      "in_reply_to_screen_name": "DrSerunjogiEmma",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "DrSerunjogiEmma",
+          "name": "Dr. Sserunjogi Emma",
+          "id": "915083619722563584"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for iPhone",
+      "user": {
+        "user_id": "2550629636",
+        "name": "0xPollo ₿",
+        "screen_name": "KFTrust33",
+        "location": "Mars",
+        "description": "💰DeFi farmer | 🌍 Bitcoin native | Wired for the future | Retweets are Not Endorsements.",
+        "followers": 951,
+        "following": 156,
+        "tweet_count": 14912,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2049927732893552641/MhTT3slC_normal.jpg",
+        "created_at": "Fri Jun 06 18:00:37 +0000 2014"
+      }
+    },
+    {
+      "tweet_id": "2051703732874977495",
+      "conversation_id": "2051356950714327384",
+      "created_at": "Tue May 05 16:41:03 +0000 2026",
+      "full_text": "@lionkingmohi Thanks da... paytm banned on May 4...I think u forget mo ru varum nu pesitu erruka...",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 60,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2051356950714327384",
+      "in_reply_to_screen_name": "lionkingmohi",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "lionkingmohi",
+          "name": "𝕷𝖎𝖔𝖓𝖐𝖎𝖓𝖌𝖒𝖔𝖍𝖎",
+          "id": "1474047608"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "2886310548",
+        "name": "vino@vk",
+        "screen_name": "vinodh850",
+        "location": "New Delhi, India",
+        "description": "",
+        "followers": 102,
+        "following": 1877,
+        "tweet_count": 1144,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1149661141963984896/U_gvxpVF_normal.jpg",
+        "created_at": "Sat Nov 01 13:43:53 +0000 2014"
+      }
+    },
+    {
+      "tweet_id": "2052977908189380772",
+      "conversation_id": "2052654784101138690",
+      "created_at": "Sat May 09 05:04:10 +0000 2026",
+      "full_text": "@sachinrathorex @Paytm As communicated earlier, your concern has been noted and shared with our team. We appreciate your patience and request some time to review this further and address the issue appropriately.",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 14,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2052976471636168810",
+      "in_reply_to_screen_name": "sachinrathorex",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "sachinrathorex",
+          "name": "Sachin Rathore",
+          "id": "1859314382355988480"
+        },
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter Web App",
+      "user": {
+        "user_id": "1569959463398043650",
+        "name": "NueGo",
+        "screen_name": "nuegoindia",
+        "location": "",
+        "description": "India’s largest electric AC bus service 🚍 | Asia & India Book of Records 🏆 | Women’s reserved seats 👩🏻 | Sustainable Product | Download the NueGo app!",
+        "followers": 924,
+        "following": 0,
+        "tweet_count": 5955,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1854806600160002048/JLl34ibN_normal.jpg",
+        "created_at": "Wed Sep 14 08:01:49 +0000 2022"
+      }
+    },
+    {
+      "tweet_id": "2053021757045666123",
+      "conversation_id": "2052790445240099261",
+      "created_at": "Sat May 09 07:58:24 +0000 2026",
+      "full_text": "@Purushtq Hi, the issue has been escalated, and our respective teams are actively working on it. We will provide you with an update soon. https://t.co/9GYef5CSWT",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 2,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2052790445240099261",
+      "in_reply_to_screen_name": "Purushtq",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Purushtq",
+          "name": "Purush",
+          "id": "2052787130263547904"
+        }
+      ],
+      "urls": [
+        "https://x.com/messages/compose?recipient_id=1839197522348097537"
+      ],
+      "media_urls": [],
+      "source": "Sprinklr",
+      "user": {
+        "user_id": "1839197522348097537",
+        "name": "OlaEV_Support",
+        "screen_name": "OlaEV_Support",
+        "location": "",
+        "description": "We’re here to keep your ride smooth and hassle-free! Got a question or need help? Just reach out, we’ve got your back.#JoinTheRevolution",
+        "followers": 870,
+        "following": 2,
+        "tweet_count": 61283,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1839240224192237568/2_2Z2Sw3_normal.jpg",
+        "created_at": "Thu Sep 26 06:57:31 +0000 2024"
+      }
+    },
+    {
+      "tweet_id": "2052325931856142690",
+      "conversation_id": "2052295865235312869",
+      "created_at": "Thu May 07 09:53:27 +0000 2026",
+      "full_text": "@SANJEETKUM51207 Hi! We understand how important this is. Your issue is currently pending with our internal team, and we are actively helping you via DM. We greatly appreciate your patience as we work to resolve it. https://t.co/5m1Urzh8kc",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 2,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2052295865235312869",
+      "in_reply_to_screen_name": "SANJEETKUM51207",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "SANJEETKUM51207",
+          "name": "SANJEET KUMAR",
+          "id": "2051923951786602496"
+        }
+      ],
+      "urls": [
+        "https://x.com/messages/compose?recipient_id=2475273985"
+      ],
+      "media_urls": [],
+      "source": "Sprinklr",
+      "user": {
+        "user_id": "2475273985",
+        "name": "Paytm Care",
+        "screen_name": "Paytmcare",
+        "location": "India",
+        "description": "We are here 24x7!  Write to us at https://t.co/l6SPQwsVwN",
+        "followers": 416162,
+        "following": 40,
+        "tweet_count": 1187507,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2000825713071677443/DP9kn7GN_normal.jpg",
+        "created_at": "Sat May 03 10:08:31 +0000 2014"
+      }
+    },
+    {
+      "tweet_id": "2037508173050106347",
+      "conversation_id": "2037508173050106347",
+      "created_at": "Fri Mar 27 12:32:58 +0000 2026",
+      "full_text": "I had done the payment on blinkit through paytm UPI and cashback of 100/- Or 200/- not received yet . Can you help me. This is the second time that I am facing these types of issues\n@Paytm",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 22,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "1894973068176437249",
+        "name": "AMAR RAY",
+        "screen_name": "AMARRAY07",
+        "location": "",
+        "description": "",
+        "followers": 0,
+        "following": 2,
+        "tweet_count": 5,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1894973189966516224/VzPZ92Uc_normal.jpg",
+        "created_at": "Thu Feb 27 04:49:49 +0000 2025"
+      }
+    },
+    {
+      "tweet_id": "2053021934586364033",
+      "conversation_id": "2052795003370664204",
+      "created_at": "Sat May 09 07:59:07 +0000 2026",
+      "full_text": "@Purushtq Hi, the issue has been escalated, and our respective teams are actively working on it. We will provide you with an update soon. https://t.co/9GYef5CSWT",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 2,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2052795003370664204",
+      "in_reply_to_screen_name": "Purushtq",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Purushtq",
+          "name": "Purush",
+          "id": "2052787130263547904"
+        }
+      ],
+      "urls": [
+        "https://x.com/messages/compose?recipient_id=1839197522348097537"
+      ],
+      "media_urls": [],
+      "source": "Sprinklr",
+      "user": {
+        "user_id": "1839197522348097537",
+        "name": "OlaEV_Support",
+        "screen_name": "OlaEV_Support",
+        "location": "",
+        "description": "We’re here to keep your ride smooth and hassle-free! Got a question or need help? Just reach out, we’ve got your back.#JoinTheRevolution",
+        "followers": 870,
+        "following": 2,
+        "tweet_count": 61283,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1839240224192237568/2_2Z2Sw3_normal.jpg",
+        "created_at": "Thu Sep 26 06:57:31 +0000 2024"
+      }
+    },
+    {
+      "tweet_id": "1951146550484185456",
+      "conversation_id": "1951146550484185456",
+      "created_at": "Fri Aug 01 05:02:42 +0000 2025",
+      "full_text": "Hey @AxisBank @AxisBankSupport \nSeeing too many issues with @district_india when booking movie tickets, request you to change My zone credit card offer to @bookmyshow \n\nEarlier it was with @Paytm which is good, now seeing many issues with @district_india app.",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 242,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "AxisBank",
+          "name": "Axis Bank",
+          "id": "714003800"
+        },
+        {
+          "screen_name": "AxisBankSupport",
+          "name": "Axis Bank Support",
+          "id": "886557108"
+        },
+        {
+          "screen_name": "district_india",
+          "name": "District",
+          "id": "2719832768"
+        },
+        {
+          "screen_name": "bookmyshow",
+          "name": "BookMyShow",
+          "id": "10650592"
+        },
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        },
+        {
+          "screen_name": "district_india",
+          "name": "District",
+          "id": "2719832768"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for iPhone",
+      "user": {
+        "user_id": "1243066591383674880",
+        "name": "Satya",
+        "screen_name": "satya_13",
+        "location": "Hyderabad ",
+        "description": "Do everything with so much love in your heart that you would never want to do it any other way!!",
+        "followers": 34,
+        "following": 90,
+        "tweet_count": 1747,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1746802507786096640/haHZRTzm_normal.jpg",
+        "created_at": "Thu Mar 26 06:46:00 +0000 2020"
+      }
+    },
+    {
+      "tweet_id": "2048019505314681157",
+      "conversation_id": "2048019505314681157",
+      "created_at": "Sat Apr 25 12:41:15 +0000 2026",
+      "full_text": "RBI has cancelled Paytm Payments Bank’s banking licence, citing regulatory issues ⚠️\nThe bank can no longer operate under the Banking Regulation Act after years of scrutiny.\nIt had already been restricted from onboarding new customers since March 2022, and is now fully prohibited https://t.co/dCD8U0YRvl",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 23,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [],
+      "urls": [],
+      "media_urls": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HGwG4wvaAAAXcWd.jpg",
+          "display_url": "pic.x.com/dCD8U0YRvl"
+        }
+      ],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "1433695955270791174",
+        "name": "rishu",
+        "screen_name": "Rishu9717",
+        "location": "New Delhi, India",
+        "description": "",
+        "followers": 39,
+        "following": 389,
+        "tweet_count": 380,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1994364694178807808/bCoSaKiK_normal.jpg",
+        "created_at": "Fri Sep 03 07:39:03 +0000 2021"
+      }
+    },
+    {
+      "tweet_id": "2014241108407320742",
+      "conversation_id": "2014241108407320742",
+      "created_at": "Thu Jan 22 07:37:57 +0000 2026",
+      "full_text": "I have been facing issues with my Paytm Soundbox for the past 2 months. Multiple complaints were raised,but no response or resolution was provided\n Now they want to replace it, but I want it permanently cancelled. Agent misled me earlier. Proof attached\n#Paytm\n#paytmforbussiness",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 15,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [
+        "Paytm",
+        "paytmforbussiness"
+      ],
+      "mentions": [],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "1936485452682506240",
+        "name": "Sohel Chauhan 19 9054",
+        "screen_name": "9054_sohel",
+        "location": "",
+        "description": "",
+        "followers": 0,
+        "following": 1,
+        "tweet_count": 10,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1936485601710391296/WN5osBJg_normal.png",
+        "created_at": "Sat Jun 21 18:05:20 +0000 2025"
+      }
+    },
+    {
+      "tweet_id": "2053019567493161444",
+      "conversation_id": "2053003987373391978",
+      "created_at": "Sat May 09 07:49:42 +0000 2026",
+      "full_text": "@TraderParth07 @GoatFunded @EdwardXLreal @Haruna_gft @HafeezGFT @Siya_GFT @traderXverma @goat_funded @OnwukaGFT @deepgft @bintugft @EdwardXLreal @GoatFunded \nLook at this issue...!!\nSolve it as soon as possible",
+      "lang": "en",
+      "likes": 1,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 8,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2053003987373391978",
+      "in_reply_to_screen_name": "TraderParth07",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "TraderParth07",
+          "name": "Parth",
+          "id": "1452229454479175680"
+        },
+        {
+          "screen_name": "GoatFunded",
+          "name": "Goat Funded Trader",
+          "id": "1640729847394648068"
+        },
+        {
+          "screen_name": "EdwardXLreal",
+          "name": "Edward",
+          "id": "1638613486509891598"
+        },
+        {
+          "screen_name": "Haruna_gft",
+          "name": "Haruna | Support",
+          "id": "1774787238229864448"
+        },
+        {
+          "screen_name": "HafeezGFT",
+          "name": "Hafeeez | Support",
+          "id": "1665012619625873410"
+        },
+        {
+          "screen_name": "Siya_GFT",
+          "name": "Siyabonga Supprt",
+          "id": "1615613309289381891"
+        },
+        {
+          "screen_name": "traderXverma",
+          "name": "Kamal Verma",
+          "id": "1771457925313413120"
+        },
+        {
+          "screen_name": "goat_funded",
+          "name": "Goat Funded Trader",
+          "id": "1982004834120458240"
+        },
+        {
+          "screen_name": "OnwukaGFT",
+          "name": "Onwuka | Goat Funded Trader Support",
+          "id": "1951491046950707201"
+        },
+        {
+          "screen_name": "deepgft",
+          "name": "Deep GFT",
+          "id": "2007784121473658880"
+        },
+        {
+          "screen_name": "bintugft",
+          "name": "Hafsat | GFT Customer Support",
+          "id": "1973081502423330816"
+        },
+        {
+          "screen_name": "EdwardXLreal",
+          "name": "Edward",
+          "id": "1638613486509891598"
+        },
+        {
+          "screen_name": "GoatFunded",
+          "name": "Goat Funded Trader",
+          "id": "1640729847394648068"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "1735994958593794048",
+        "name": "ÄñıĶ",
+        "screen_name": "anikdas97",
+        "location": "Earth",
+        "description": "Trying to be better 1% everyday🤍",
+        "followers": 773,
+        "following": 445,
+        "tweet_count": 15797,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2016973928988889089/rb3TVHt-_normal.jpg",
+        "created_at": "Sat Dec 16 12:07:42 +0000 2023"
+      }
+    },
+    {
+      "tweet_id": "2053017682509709441",
+      "conversation_id": "2052762400579850732",
+      "created_at": "Sat May 09 07:42:13 +0000 2026",
+      "full_text": "@NazimERCAN @StationWallet @1Batcave1 @NazimERCAN Hey, this usually happens when your node connection is out of sync. You just need to refresh your network endpoint settings. My inbox is open if you get stuck on the configuration.",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 19,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2053012755704115470",
+      "in_reply_to_screen_name": "NazimERCAN",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "NazimERCAN",
+          "name": "N E",
+          "id": "377859013"
+        },
+        {
+          "screen_name": "StationWallet",
+          "name": "Station 🛰",
+          "id": "1612266286570156034"
+        },
+        {
+          "screen_name": "1Batcave1",
+          "name": "Bruce Wayne 🪝",
+          "id": "393720265"
+        },
+        {
+          "screen_name": "NazimERCAN",
+          "name": "N E",
+          "id": "377859013"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for iPad",
+      "user": {
+        "user_id": "1984380784812441606",
+        "name": "Martins || $LUNC || terra_money",
+        "screen_name": "M_Herbs7",
+        "location": "",
+        "description": "Ecosystem Support $LUNC | Not Financial Advice | All opinions are mine | There's a better way to #Web3",
+        "followers": 2121,
+        "following": 66,
+        "tweet_count": 2306,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2000280099875155970/brrytjqg_normal.jpg",
+        "created_at": "Fri Oct 31 22:04:21 +0000 2025"
+      }
+    },
+    {
+      "tweet_id": "2053017669448650982",
+      "conversation_id": "2052773809896538236",
+      "created_at": "Sat May 09 07:42:10 +0000 2026",
+      "full_text": "@innkybelle I have no idea what happened or what to do, I do have screenshot proof of the payhip taking my money and not giving me the product",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 2,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2053017180145340620",
+      "in_reply_to_screen_name": "VolentaD",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "innkybelle",
+          "name": "innky 🌙",
+          "id": "989286326523510784"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter Web App",
+      "user": {
+        "user_id": "1665369239488700417",
+        "name": "🖤Volenta DAvenir🖤 (Comissions CLOSED)",
+        "screen_name": "VolentaD",
+        "location": "",
+        "description": "🖤Good morning/evening/night ˚ʚ♡ɞ˚ VRC Model ˚ʚ♡ɞ˚ 25˚ʚ♡ɞ˚ She/her ˚ʚ♡ɞ˚🔞˚ʚ♡ɞ˚ Need a model on VRC contact me!🖤 #VRChat",
+        "followers": 569,
+        "following": 243,
+        "tweet_count": 1642,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2019975553382531072/SmJvTw3O_normal.jpg",
+        "created_at": "Sun Jun 04 14:46:03 +0000 2023"
+      }
+    },
+    {
+      "tweet_id": "2051948925247271094",
+      "conversation_id": "2051948925247271094",
+      "created_at": "Wed May 06 08:55:21 +0000 2026",
+      "full_text": "@Paytmcare  I have a kyc issues with paytm gold, which was not resolved since 5 days. Could you help in getting it resolved?",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 44,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": "Paytmcare",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Paytmcare",
+          "name": "Paytm Care",
+          "id": "2475273985"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "1822142100151877633",
+        "name": "Ramakrishna",
+        "screen_name": "Krishram190795",
+        "location": "india",
+        "description": "",
+        "followers": 4,
+        "following": 85,
+        "tweet_count": 746,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2033588532657405953/GyiDuuzr_normal.jpg",
+        "created_at": "Sat Aug 10 05:25:58 +0000 2024"
+      }
+    },
+    {
+      "tweet_id": "2008044007151304705",
+      "conversation_id": "2008044007151304705",
+      "created_at": "Mon Jan 05 05:12:53 +0000 2026",
+      "full_text": "When customer care = only a chatbot that can’t resolve issues, and there’s no phone or email support, it’s a problem. AI should assist humans, not replace access to them. @Paytm @Paytmcare \nJust wondering if the @rbi and other agencies are sleeping over this fact?",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 1,
+      "quotes": 1,
+      "bookmarks": 0,
+      "views": 78,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        },
+        {
+          "screen_name": "Paytmcare",
+          "name": "Paytm Care",
+          "id": "2475273985"
+        },
+        {
+          "screen_name": "RBI",
+          "name": "ReserveBankOfIndia",
+          "id": "478432912"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter Web App",
+      "user": {
+        "user_id": "132998315",
+        "name": "AzzArun",
+        "screen_name": "AzzArun",
+        "location": "Delhi, Haryana",
+        "description": "Proud Indian.",
+        "followers": 285,
+        "following": 462,
+        "tweet_count": 4507,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/3745008224/84d5b99c37ada6091938f77439b55a05_normal.png",
+        "created_at": "Wed Apr 14 19:00:53 +0000 2010"
+      }
+    },
+    {
+      "tweet_id": "2039419564703011181",
+      "conversation_id": "2039419564703011181",
+      "created_at": "Wed Apr 01 19:08:09 +0000 2026",
+      "full_text": "#paytm #paytmcare \n\n@Paytm @Paytmcare\nFacing continuous issues with Paytm Postpaid payments. Transactions are failing with “unexpected error” for quite a long time now. This is affecting daily usage seriously.\nKindly look into this on priority and resolve the issue ASAP.",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 82,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [
+        "paytm",
+        "paytmcare"
+      ],
+      "mentions": [
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        },
+        {
+          "screen_name": "Paytmcare",
+          "name": "Paytm Care",
+          "id": "2475273985"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "454801546",
+        "name": "Saalim",
+        "screen_name": "Saalimkhan1001",
+        "location": "Jaipur, India",
+        "description": "",
+        "followers": 117,
+        "following": 1216,
+        "tweet_count": 528,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1612706452640272385/O4a_d75a_normal.jpg",
+        "created_at": "Wed Jan 04 11:52:03 +0000 2012"
+      }
+    },
+    {
+      "tweet_id": "2053018349286662446",
+      "conversation_id": "2053018349286662446",
+      "created_at": "Sat May 09 07:44:52 +0000 2026",
+      "full_text": "Sorry for the trouble you are experiencing @fadisaaida Large repayments don’t freeze assets. Likely liquidity or tx-state issue.\n\nCan you share the tx hash? What error message are you getting?",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 5,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "fadisaaida",
+          "name": "fadi",
+          "id": "21637885"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for iPhone",
+      "user": {
+        "user_id": "949991409083404288",
+        "name": "Claudia Ceni |Aave",
+        "screen_name": "MHusava",
+        "location": "",
+        "description": "Chief of Communications at Aave. Tech builder | Christian ✝️",
+        "followers": 3267,
+        "following": 513,
+        "tweet_count": 17618,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2046314048971849729/ZQ-L8Tkj_normal.jpg",
+        "created_at": "Sun Jan 07 13:09:36 +0000 2018"
+      }
+    },
+    {
+      "tweet_id": "2051643000011505866",
+      "conversation_id": "2051632736390316305",
+      "created_at": "Tue May 05 12:39:43 +0000 2026",
+      "full_text": "@Paytm My application not working same error no 61007 even after re-installing app. Cannot even search for help because every I time I go for it redirects to the application which is not opening",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 36,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2051632736390316305",
+      "in_reply_to_screen_name": "Paytm",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "599441257",
+        "name": "Prashant Bhadoria",
+        "screen_name": "Prashant_S_Gwl",
+        "location": "Gwalior, Madhya Pradesh",
+        "description": "Graphic Designer by profession\nPrincipal owner of school\nSocial Worker\nComputer & Graphics Trainer\nIT Advisor\nNetwork & wireless technician\nDatabase handler",
+        "followers": 61,
+        "following": 394,
+        "tweet_count": 638,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1654421150821171202/1c6PQ_97_normal.jpg",
+        "created_at": "Mon Jun 04 18:02:23 +0000 2012"
+      }
+    },
+    {
+      "tweet_id": "2039951873822830739",
+      "conversation_id": "2039951873822830739",
+      "created_at": "Fri Apr 03 06:23:21 +0000 2026",
+      "full_text": "Recently facing Cashback issues while doing payments... @rapidobikeapp @letsblinkit are the apps i use frequently and when i'm on the order screen it shows assured cashback in the coupon section using the particular upi @Paytm @NPCI_BHIM app but post payment nothing is received.",
+      "lang": "en",
+      "likes": 1,
+      "retweets": 0,
+      "replies": 2,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 146,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "rapidobikeapp",
+          "name": "Rapido",
+          "id": "3746977993"
+        },
+        {
+          "screen_name": "letsblinkit",
+          "name": "Blinkit",
+          "id": "2357514276"
+        },
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        },
+        {
+          "screen_name": "NPCI_BHIM",
+          "name": "BHIM",
+          "id": "814822978810580992"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter Web App",
+      "user": {
+        "user_id": "1664481169289928704",
+        "name": "YOGYA AGGARWAL",
+        "screen_name": "beingbhavuk02",
+        "location": "HR51",
+        "description": "CS Grad | Trader | Investor| Product Manager | Strategy Planner | Freelancer | NSUT'25",
+        "followers": 48,
+        "following": 41,
+        "tweet_count": 103,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1935051449974611968/YySVxK5__normal.jpg",
+        "created_at": "Fri Jun 02 03:56:59 +0000 2023"
+      }
+    },
+    {
+      "tweet_id": "2051953618547560587",
+      "conversation_id": "2051916854927761631",
+      "created_at": "Wed May 06 09:14:00 +0000 2026",
+      "full_text": "@KovaiNithya Jalra...jalra...I think paytm payment stopped on 4/5/26 still epadi varum...to steel in govt money",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 429,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2051916854927761631",
+      "in_reply_to_screen_name": "KovaiNithya",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "KovaiNithya",
+          "name": "Kovai Nithya",
+          "id": "1665554166595596289"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "2886310548",
+        "name": "vino@vk",
+        "screen_name": "vinodh850",
+        "location": "New Delhi, India",
+        "description": "",
+        "followers": 102,
+        "following": 1877,
+        "tweet_count": 1144,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1149661141963984896/U_gvxpVF_normal.jpg",
+        "created_at": "Sat Nov 01 13:43:53 +0000 2014"
+      }
+    },
+    {
+      "tweet_id": "2037054617746628898",
+      "conversation_id": "2037054617746628898",
+      "created_at": "Thu Mar 26 06:30:42 +0000 2026",
+      "full_text": "Hi @PaytmBusiness I am being a PayTM merchant facing a lot of issues due to your poor services and it's effecting my business as well. I have lost my old registered mobile number and cant get it back hence I had raised the multiple times request in your Paytm Busniess app.",
+      "lang": "en",
+      "likes": 1,
+      "retweets": 0,
+      "replies": 4,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 112,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "PaytmBusiness",
+          "name": "Paytm For Business",
+          "id": "943088159218311168"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter Web App",
+      "user": {
+        "user_id": "1049571698192863232",
+        "name": "Sanjay Tak",
+        "screen_name": "Sanjay_Tak108",
+        "location": "New Delhi, India",
+        "description": "Techie by Profession । @ISKCON_Noida Devotee by Heart । @RSSorg @BJP4India। RT's & Like's aren't Endorsement",
+        "followers": 20430,
+        "following": 254,
+        "tweet_count": 9403,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1930836683077124098/424vFM2L_normal.jpg",
+        "created_at": "Tue Oct 09 08:06:07 +0000 2018"
+      }
+    },
+    {
+      "tweet_id": "1959843796545626251",
+      "conversation_id": "1959843796545626251",
+      "created_at": "Mon Aug 25 05:02:27 +0000 2025",
+      "full_text": "Still NO ACTION from @PaytmCare After my earlier complaint, AGAIN receiving FAKE electricity bill notifications on Paytm app\nThis is a clear security breach &amp; a serious #CustomerSafety risk.Why is Paytm ignoring such FRAUD issues?\nNeed URGENT intervention before cust. face  loss",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 55,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [
+        "CustomerSafety"
+      ],
+      "mentions": [
+        {
+          "screen_name": "PaytmCare",
+          "name": "Paytm Care",
+          "id": "2475273985"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "1271106698909044738",
+        "name": "Sachin Jaadhav",
+        "screen_name": "sachinjaadhav_",
+        "location": "Satara, India",
+        "description": "Service Manager @ TATA Motors 🔧 | Mech. Engineer | RTI Activist ✊ | Social Worker | Fighting Corruption & Empowering Citizens 📜",
+        "followers": 2,
+        "following": 63,
+        "tweet_count": 48,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1774175567128223744/hABk2SDi_normal.jpg",
+        "created_at": "Thu Jun 11 15:47:30 +0000 2020"
+      }
+    },
+    {
+      "tweet_id": "2023293092196241580",
+      "conversation_id": "2023293092196241580",
+      "created_at": "Mon Feb 16 07:07:18 +0000 2026",
+      "full_text": "For the past 24 hours I have been trying to reach @Paytm and still they are not responding not resolving any of my issues. Don't book any flights from their app. Truly the worst experience. #bycott #Paytm",
+      "lang": "en",
+      "likes": 1,
+      "retweets": 0,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 57,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [
+        "bycott",
+        "Paytm"
+      ],
+      "mentions": [
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "1573734922514472960",
+        "name": "A Liberal Man Of India",
+        "screen_name": "ALiberalMan2",
+        "location": "new Zealand ",
+        "description": "",
+        "followers": 7,
+        "following": 35,
+        "tweet_count": 10,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1573736212242010112/13AIcF0w_normal.jpg",
+        "created_at": "Sat Sep 24 18:03:54 +0000 2022"
+      }
+    },
+    {
+      "tweet_id": "2002326986023485655",
+      "conversation_id": "2002326986023485655",
+      "created_at": "Sat Dec 20 10:35:29 +0000 2025",
+      "full_text": "Unnecessary issues loo Pawala gallu Sitara ni lagutunnaru \nIppudu nenu Pawala gadini dengithe Nannu mana co fans Paytm, Jagan fan antaaru \nNenem cheyali 😕",
+      "lang": "in",
+      "likes": 55,
+      "retweets": 9,
+      "replies": 2,
+      "quotes": 0,
+      "bookmarks": 1,
+      "views": 2346,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "909397782380781568",
+        "name": "VINAY PRINCE",
+        "screen_name": "iam_VinayPrince",
+        "location": "",
+        "description": "",
+        "followers": 5322,
+        "following": 758,
+        "tweet_count": 139002,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1857312951755022336/kKucmTtA_normal.jpg",
+        "created_at": "Sun Sep 17 12:45:01 +0000 2017"
+      }
+    },
+    {
+      "tweet_id": "2052059006055989273",
+      "conversation_id": "2052043178426196407",
+      "created_at": "Wed May 06 16:12:47 +0000 2026",
+      "full_text": "@vijayshekhar @Paytm You screwed Paytm with payments bank , even after RBI warnings you kept issuing non kyc accounts and 02 crore users had to transfer there Fastag to other banks , it was RBI mistake that banks like yours were given Fastag approvals",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 254,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2052043178426196407",
+      "in_reply_to_screen_name": "vijayshekhar",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "vijayshekhar",
+          "name": "Vijay Shekhar Sharma",
+          "id": "17239667"
+        },
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for iPhone",
+      "user": {
+        "user_id": "170270410",
+        "name": "sameer dontulwar",
+        "screen_name": "sameerdontulwar",
+        "location": "",
+        "description": "",
+        "followers": 710,
+        "following": 2415,
+        "tweet_count": 31638,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1229025721760309249/OihsJtoD_normal.jpg",
+        "created_at": "Sat Jul 24 11:05:49 +0000 2010"
+      }
+    },
+    {
+      "tweet_id": "2050637028979798509",
+      "conversation_id": "2050637028979798509",
+      "created_at": "Sat May 02 18:02:21 +0000 2026",
+      "full_text": "Kfc is shit \ngoing through a lot of financial issues not eating most days. Today I wanted to treat myself, I ordered through kfc app for the amount of 800 rupees and paid through Paytm. Suddenly the screen went black and payment went through. But no order history. @KFC_India",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 7,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "KFC_India",
+          "name": "KFC India",
+          "id": "112376689"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for iPhone",
+      "user": {
+        "user_id": "2050635777286279168",
+        "name": "Sam Pradhan",
+        "screen_name": "SamPradhanmauz",
+        "location": "",
+        "description": "",
+        "followers": 0,
+        "following": 20,
+        "tweet_count": 5,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png",
+        "created_at": "Sat May 02 17:57:43 +0000 2026"
+      }
+    },
+    {
+      "tweet_id": "2052997421660266616",
+      "conversation_id": "2052993156824944659",
+      "created_at": "Sat May 09 06:21:42 +0000 2026",
+      "full_text": "@iamvs2002 Hi! We understand how important this is. Your Automatic payment issue is currently pending with our internal team, and we are actively helping you via DM. We greatly appreciate your patience as we work to resolve it. https://t.co/5m1Urzh8kc",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 35,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2052993156824944659",
+      "in_reply_to_screen_name": "iamvs2002",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "iamvs2002",
+          "name": "Vaibhavvvvvvvvvvvvv",
+          "id": "1152602965758238720"
+        }
+      ],
+      "urls": [
+        "https://x.com/messages/compose?recipient_id=2475273985"
+      ],
+      "media_urls": [],
+      "source": "Sprinklr",
+      "user": {
+        "user_id": "2475273985",
+        "name": "Paytm Care",
+        "screen_name": "Paytmcare",
+        "location": "India",
+        "description": "We are here 24x7!  Write to us at https://t.co/l6SPQwsVwN",
+        "followers": 416162,
+        "following": 40,
+        "tweet_count": 1187507,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2000825713071677443/DP9kn7GN_normal.jpg",
+        "created_at": "Sat May 03 10:08:31 +0000 2014"
+      }
+    },
+    {
+      "tweet_id": "1933059655280066942",
+      "conversation_id": "1933059655280066942",
+      "created_at": "Thu Jun 12 07:11:50 +0000 2025",
+      "full_text": "🕐 1 Minute Company: Paytm (PAYTM)  \n📲 Fintech Rocket With Engine Issues\n\n💸 30Cr+ wallet users, 4Cr+ merchants  \n🏦 Owns Paytm Payments Bank, Paytm Money  \n📉 RBI ban = revenue hit, bank ops suspended  \n📊 Still posting 25%+ YoY revenue growth  \n\nBUT...  \n⚠️ Trust hit post-RBI https://t.co/Ny3F0fibnF",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 119,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [],
+      "urls": [],
+      "media_urls": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/GtObgoPaQAESmkL.jpg",
+          "display_url": "pic.x.com/Ny3F0fibnF"
+        }
+      ],
+      "source": "Twitter for iPhone",
+      "user": {
+        "user_id": "1691473464279040000",
+        "name": "Lokesh | Money. Mindset. Momentum.",
+        "screen_name": "ThinkWithLokesh",
+        "location": "",
+        "description": "Indian equities, mutual funds, US stocks & ETFs 10x investor | Tech, food, travel & India-focused Visual finance. Money. Mindset. Momentum. Jai Hind 🇮🇳",
+        "followers": 234,
+        "following": 937,
+        "tweet_count": 1116,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1876962080261013504/G1f4PsLS_normal.jpg",
+        "created_at": "Tue Aug 15 15:34:51 +0000 2023"
+      }
+    },
+    {
+      "tweet_id": "1989654937505337424",
+      "conversation_id": "1989654937505337424",
+      "created_at": "Sat Nov 15 11:21:17 +0000 2025",
+      "full_text": "Completed 40–50 days in the Sheroes–Paytm process despite constant system issues.\nNow neither stipend nor salary is being given — and trainees are told to “wait or quit. This is completely unfair and discouraging.\nRequesting @sheroes &amp; @Paytm to take immediate action.",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 14,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "sheroes",
+          "name": "SHEROES",
+          "id": "1341863826"
+        },
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "1457584399260667905",
+        "name": "Gauri Rajpoot",
+        "screen_name": "Gauri821",
+        "location": "India",
+        "description": "Too dead to die.",
+        "followers": 1,
+        "following": 21,
+        "tweet_count": 75,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1859296420114620416/5stibEBL_normal.jpg",
+        "created_at": "Mon Nov 08 05:43:12 +0000 2021"
+      }
+    },
+    {
+      "tweet_id": "2051924033273504182",
+      "conversation_id": "2051607619006263712",
+      "created_at": "Wed May 06 07:16:27 +0000 2026",
+      "full_text": "@Paytm @Paytmcare Very nice fraud technique. Do the fraud and let chatbot play with the customers. Never reply for the tickets raised and if replied try to fool customers with different issues.",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 1,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 32,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2051922865432469674",
+      "in_reply_to_screen_name": "SachinMaheswary",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        },
+        {
+          "screen_name": "Paytmcare",
+          "name": "Paytm Care",
+          "id": "2475273985"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for iPhone",
+      "user": {
+        "user_id": "1095223071525556224",
+        "name": "Sachin M🇮🇳",
+        "screen_name": "SachinMaheswary",
+        "location": "",
+        "description": "Never Give Up Without A Fight👍",
+        "followers": 11,
+        "following": 26,
+        "tweet_count": 1403,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1280918500362473472/Eg4n2vY__normal.jpg",
+        "created_at": "Tue Feb 12 07:28:23 +0000 2019"
+      }
+    },
+    {
+      "tweet_id": "2050506255056417108",
+      "conversation_id": "2050506255056417108",
+      "created_at": "Sat May 02 09:22:42 +0000 2026",
+      "full_text": "@firstpost This is reality of issues faced by @PaytmBank 's AC holders. Our money isn't safe. It is locked &amp; stolen by @Paytm \n@RBI @FinMinIndia @paytmbankcare @FinancialTimes @NDTVProfit @livemint @vijayshekhar @mdeora1 @jagograhakjago @htTweets @newslaundry @thenewsminute https://t.co/4uyRBs2qAE",
+      "lang": "en",
+      "likes": 5,
+      "retweets": 1,
+      "replies": 13,
+      "quotes": 1,
+      "bookmarks": 3,
+      "views": 1283,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": "firstpost",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "firstpost",
+          "name": "Firstpost",
+          "id": "256495314"
+        },
+        {
+          "screen_name": "PaytmBank",
+          "name": "Paytm Payments Bank",
+          "id": "805605326955237376"
+        },
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        },
+        {
+          "screen_name": "RBI",
+          "name": "ReserveBankOfIndia",
+          "id": "478432912"
+        },
+        {
+          "screen_name": "FinMinIndia",
+          "name": "Ministry of Finance",
+          "id": "2613904818"
+        },
+        {
+          "screen_name": "paytmbankcare",
+          "name": "Paytm Bank Care",
+          "id": "836522531972612096"
+        },
+        {
+          "screen_name": "FinancialTimes",
+          "name": "Financial Times",
+          "id": "4898091"
+        },
+        {
+          "screen_name": "NDTVProfit",
+          "name": "NDTV Profit News",
+          "id": "420943164"
+        },
+        {
+          "screen_name": "livemint",
+          "name": "Mint",
+          "id": "17673635"
+        },
+        {
+          "screen_name": "vijayshekhar",
+          "name": "Vijay Shekhar Sharma",
+          "id": "17239667"
+        },
+        {
+          "screen_name": "mdeora1",
+          "name": "Madhur",
+          "id": "743390540"
+        },
+        {
+          "screen_name": "jagograhakjago",
+          "name": "Consumer Affairs",
+          "id": "772674808878342144"
+        },
+        {
+          "screen_name": "htTweets",
+          "name": "Hindustan Times",
+          "id": "36327407"
+        },
+        {
+          "screen_name": "newslaundry",
+          "name": "newslaundry",
+          "id": "372677761"
+        },
+        {
+          "screen_name": "thenewsminute",
+          "name": "TheNewsMinute",
+          "id": "2227695199"
+        }
+      ],
+      "urls": [],
+      "media_urls": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HHTbUzUaoAALEGc.jpg",
+          "display_url": "pic.x.com/4uyRBs2qAE"
+        },
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HHTbwkMbkAACqNk.jpg",
+          "display_url": "pic.x.com/4uyRBs2qAE"
+        },
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HHTbefNbMAEKPZ0.jpg",
+          "display_url": "pic.x.com/4uyRBs2qAE"
+        },
+        {
+          "type": "video",
+          "url": "https://pbs.twimg.com/amplify_video_thumb/2050504669999595520/img/P7_hDK7NyAwGqMty.jpg",
+          "display_url": "pic.x.com/4uyRBs2qAE"
+        }
+      ],
+      "source": "Twitter Web App",
+      "user": {
+        "user_id": "1908492479026126851",
+        "name": "Manish Bhatt",
+        "screen_name": "money_sh_zero",
+        "location": "",
+        "description": "",
+        "followers": 4,
+        "following": 110,
+        "tweet_count": 410,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png",
+        "created_at": "Sat Apr 05 12:10:58 +0000 2025"
+      }
+    },
+    {
+      "tweet_id": "2052265486700990896",
+      "conversation_id": "2052262348292084136",
+      "created_at": "Thu May 07 05:53:15 +0000 2026",
+      "full_text": "@tarunvats33 Paytm app is dead. Nobody use it. It is b2b business they are surviving on.",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 292,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2052262348292084136",
+      "in_reply_to_screen_name": "tarunvats33",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "tarunvats33",
+          "name": "Tarun Vats",
+          "id": "228254936"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "40173061",
+        "name": "Manasvi Sareen",
+        "screen_name": "ManasviSareen",
+        "location": "Bengaluru, India",
+        "description": "Software developer by profession || Love Technology || Some interest in current affairs",
+        "followers": 227,
+        "following": 164,
+        "tweet_count": 4775,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1627477657909886976/w3Ou8Bnq_normal.jpg",
+        "created_at": "Fri May 15 04:12:17 +0000 2009"
+      }
+    },
+    {
+      "tweet_id": "2053019077208338859",
+      "conversation_id": "2053019077208338859",
+      "created_at": "Sat May 09 07:47:45 +0000 2026",
+      "full_text": "Polymarket broke again and refused to issue refunds\n\nThe russia x ukraine market was going to resolve YES because of the ceasefire. Instead of letting it resolve, Polymarket archived the market and didn't let people sell their shares for 8 hours because of a technical issue on https://t.co/L9Ro7MABsn",
+      "lang": "en",
+      "likes": 12,
+      "retweets": 0,
+      "replies": 2,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 97,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [],
+      "urls": [],
+      "media_urls": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HH3Jlj7asAA5S0-.jpg",
+          "display_url": "pic.x.com/L9Ro7MABsn"
+        }
+      ],
+      "source": "Twitter Web App",
+      "user": {
+        "user_id": "1907261580791910400",
+        "name": "GOD",
+        "screen_name": "ithinkthisisgod",
+        "location": "HELL",
+        "description": "i am the worst trader of all time",
+        "followers": 495,
+        "following": 359,
+        "tweet_count": 1200,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1977186314710556673/eFeiaYc6_normal.jpg",
+        "created_at": "Wed Apr 02 02:39:46 +0000 2025"
+      }
+    },
+    {
+      "tweet_id": "2047834883171782815",
+      "conversation_id": "2047834883171782815",
+      "created_at": "Sat Apr 25 00:27:37 +0000 2026",
+      "full_text": "PAYTM BIG BREAKING NEWS\n\n❌ RBI CANCELS PAYTM PAYMENTS BANK LICENSE\n India’s central bank has officially cancelled the licence of Paytm Payments Bank due to serious compliance and KYC issues.\n\n#Paytm #BreakingNews #RBI #DigitalIndia #UPI #FintechNews #V2ursNews #IndiaNews https://t.co/rC5OEz6KSb",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 116,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [
+        "Paytm",
+        "BreakingNews",
+        "RBI",
+        "DigitalIndia",
+        "UPI",
+        "FintechNews",
+        "V2ursNews",
+        "IndiaNews"
+      ],
+      "mentions": [],
+      "urls": [],
+      "media_urls": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HGte9HhbYAAv1uC.jpg",
+          "display_url": "pic.x.com/rC5OEz6KSb"
+        }
+      ],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "44849199",
+        "name": "v2urs_Holidays(V2urs Solution)",
+        "screen_name": "v2urs",
+        "location": "chennai,india",
+        "description": "HR consultant from 2002\nTour agent from 2012",
+        "followers": 626,
+        "following": 2098,
+        "tweet_count": 2467,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1386696027/v2urs-logo_normal.JPG",
+        "created_at": "Fri Jun 05 08:14:37 +0000 2009"
+      }
+    },
+    {
+      "tweet_id": "2050491252349743272",
+      "conversation_id": "2050491252349743272",
+      "created_at": "Sat May 02 08:23:05 +0000 2026",
+      "full_text": "One of the worst experiences with   no proper way to connect with a real customer support Every issue gets stuck with an AI chatbot loop,booked flight and need resuceduling but it's not happens  When it’s your money, you need human help, not endless automation. Fix this! @Paytm",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 47,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "820971057205178368",
+        "name": "Kohlified Gani",
+        "screen_name": "GaneshDompaka",
+        "location": "India",
+        "description": "💙👽 \nGreatest Fanboy @imVkohli 🙇🏽",
+        "followers": 188,
+        "following": 552,
+        "tweet_count": 7444,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1674088362079293440/BuwfWF2B_normal.jpg",
+        "created_at": "Mon Jan 16 12:28:47 +0000 2017"
+      }
+    },
+    {
+      "tweet_id": "2015863599823020492",
+      "conversation_id": "2015863599823020492",
+      "created_at": "Mon Jan 26 19:05:09 +0000 2026",
+      "full_text": "I regret taking a loan via Paytm. Facing serious issues and there is absolutely no after-sales support. Requests are ignored. This is not acceptable. @Paytm @PaytmCare",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 76,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        },
+        {
+          "screen_name": "PaytmCare",
+          "name": "Paytm Care",
+          "id": "2475273985"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "1638318222",
+        "name": "Amit Surti",
+        "screen_name": "SurtiAmit",
+        "location": "vapi",
+        "description": "http://t.co/lgwAVXw0Tc",
+        "followers": 29,
+        "following": 27,
+        "tweet_count": 38,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png",
+        "created_at": "Thu Aug 01 16:29:19 +0000 2013"
+      }
+    },
+    {
+      "tweet_id": "2022375546571886669",
+      "conversation_id": "2022375546571886669",
+      "created_at": "Fri Feb 13 18:21:18 +0000 2026",
+      "full_text": "Unfair treatment at Paytm! 😡 Shifted From Service department  to sales department without consent, abusive manager, no support from upper mgmt. Reported issues, got absconding/Termination letter instead. Screenshots attached. #Paytm #WorkplaceHarassment #UnfairTreatment https://t.co/E1v2CNaVSJ",
+      "lang": "en",
+      "likes": 2,
+      "retweets": 0,
+      "replies": 5,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 88,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [
+        "Paytm",
+        "WorkplaceHarassment",
+        "UnfairTreatment"
+      ],
+      "mentions": [],
+      "urls": [],
+      "media_urls": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HBDp7D_akAQKuJL.jpg",
+          "display_url": "pic.x.com/E1v2CNaVSJ"
+        },
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HBDp_QbakAIEvnh.jpg",
+          "display_url": "pic.x.com/E1v2CNaVSJ"
+        },
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HBDqBF6akAIV629.jpg",
+          "display_url": "pic.x.com/E1v2CNaVSJ"
+        }
+      ],
+      "source": "Twitter Web App",
+      "user": {
+        "user_id": "2013580044858466305",
+        "name": "Amar jeet Singh",
+        "screen_name": "AmarJeet1008199",
+        "location": "",
+        "description": "",
+        "followers": 3,
+        "following": 17,
+        "tweet_count": 10,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2013580214853672960/-DnsW7Rs_normal.jpg",
+        "created_at": "Tue Jan 20 11:51:48 +0000 2026"
+      }
+    },
+    {
+      "tweet_id": "1987752188811309419",
+      "conversation_id": "1987752188811309419",
+      "created_at": "Mon Nov 10 05:20:27 +0000 2025",
+      "full_text": "#Paytm @Paytmcare @Paytm \nWhat scam you are pulling off. Done recharge of Rs.500 in my metro card and got only Rs.273 and your stupid ai chat is having technical issues continuously. How to get this resolved\n#Scam #Paytm #refund https://t.co/Fn8f0cpU7m",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 1,
+      "quotes": 1,
+      "bookmarks": 0,
+      "views": 158,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [
+        "Paytm",
+        "Scam",
+        "Paytm",
+        "refund"
+      ],
+      "mentions": [
+        {
+          "screen_name": "Paytmcare",
+          "name": "Paytm Care",
+          "id": "2475273985"
+        },
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        }
+      ],
+      "urls": [],
+      "media_urls": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/G5XqDDDacAAN4CE.jpg",
+          "display_url": "pic.x.com/Fn8f0cpU7m"
+        }
+      ],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "1241721863979454464",
+        "name": "Share Your Anxiety",
+        "screen_name": "shareuranxiety",
+        "location": "",
+        "description": "#letstalk #youarenotalone  #anxiety #mentalhealth #mentalhealthawareness #stress #recovery #therapy #mentalhealthmatters #life #bipolar #healing #health",
+        "followers": 74,
+        "following": 355,
+        "tweet_count": 108,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1245760712443482112/1tDCQD3R_normal.jpg",
+        "created_at": "Sun Mar 22 13:42:37 +0000 2020"
+      }
+    },
+    {
+      "tweet_id": "2008578666700423353",
+      "conversation_id": "2008578666700423353",
+      "created_at": "Tue Jan 06 16:37:26 +0000 2026",
+      "full_text": "Refund Pending for 20+ Days !!\nOur Air India flight scheduled on 15 Dec (DEL → PNQ) was cancelled\nAir India → “Contact Paytm”\nPaytm → “Not our responsibility”\nAs a customer, why should we suffer due to internal coordination issues?\n@airindia @Paytm @DGCAIndia https://t.co/1SXM0FFwiH",
+      "lang": "en",
+      "likes": 6,
+      "retweets": 4,
+      "replies": 2,
+      "quotes": 1,
+      "bookmarks": 1,
+      "views": 1027,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "airindia",
+          "name": "Air India",
+          "id": "387573617"
+        },
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        },
+        {
+          "screen_name": "DGCAIndia",
+          "name": "DGCA",
+          "id": "1137307520093941760"
+        }
+      ],
+      "urls": [],
+      "media_urls": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/G9_npwba0AARN1e.jpg",
+          "display_url": "pic.x.com/1SXM0FFwiH"
+        },
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/G9_npxHbcAEl1eN.jpg",
+          "display_url": "pic.x.com/1SXM0FFwiH"
+        },
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/G9_npyLbkAAlK0k.jpg",
+          "display_url": "pic.x.com/1SXM0FFwiH"
+        }
+      ],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "1368621554318209026",
+        "name": "Pradhumn Sharma",
+        "screen_name": "Pradhum75770016",
+        "location": "",
+        "description": "SWE  at Dassault Systèmes",
+        "followers": 63,
+        "following": 62,
+        "tweet_count": 9,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2008589875407474688/5BliGqzg_normal.jpg",
+        "created_at": "Sun Mar 07 17:56:36 +0000 2021"
+      }
+    },
+    {
+      "tweet_id": "2051931906640597091",
+      "conversation_id": "2051931196322697619",
+      "created_at": "Wed May 06 07:47:44 +0000 2026",
+      "full_text": "@Paytm The new update showing error 61007 on Android devices",
+      "lang": "en",
+      "likes": 1,
+      "retweets": 0,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 57,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2051931196322697619",
+      "in_reply_to_screen_name": "Paytm",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "173110513",
+        "name": "Varun",
+        "screen_name": "varunbsvr",
+        "location": "The Nilgiris, India",
+        "description": "An Engineer manqué,Future Entrepreneur, #CSK Diligent and Not Vainglorious Indulged in #Blockchain technology #BUIDL & #HODL",
+        "followers": 351,
+        "following": 867,
+        "tweet_count": 30748,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2001180381639532548/hObZeL1o_normal.jpg",
+        "created_at": "Sat Jul 31 13:19:12 +0000 2010"
+      }
+    },
+    {
+      "tweet_id": "2048089642784936178",
+      "conversation_id": "2048089642784936178",
+      "created_at": "Sat Apr 25 17:19:57 +0000 2026",
+      "full_text": "RBI has cancelled the banking licence of Paytm Payments Bank due to compliance issues.\n\nPaytm mgmt says:\n✅ No financial impact on Paytm\n✅ No effect on daily services like UPI, wallet &amp; payments\n✅ All operations will continue normally\nStock fell ~1% on Friday.\n\n#Paytm #Nifty",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 267,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [
+        "Paytm",
+        "Nifty"
+      ],
+      "mentions": [],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "1469255303652732931",
+        "name": "Manu A",
+        "screen_name": "thestockstrader",
+        "location": "Hyderabad",
+        "description": "Financial Markets | Swing & Positional Setups | Sharing daily insights without the noise. Follow for charts, strategies & financial clarity. Let's grow together",
+        "followers": 107,
+        "following": 326,
+        "tweet_count": 3702,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1912390489023627264/YMzYKqA9_normal.jpg",
+        "created_at": "Fri Dec 10 10:40:09 +0000 2021"
+      }
+    },
+    {
+      "tweet_id": "2052369701049971117",
+      "conversation_id": "2052368005594837075",
+      "created_at": "Thu May 07 12:47:22 +0000 2026",
+      "full_text": "@newohuh01 Hi Manisha, As discussed with you over the call, we completely understand your concern regarding this issue. It’s currently pending with our internal team, and we’re assisting you via DM to ensure a quick resolution. Thank you for your patience!",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 8,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2052368005594837075",
+      "in_reply_to_screen_name": "newohuh01",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "newohuh01",
+          "name": "Manisha",
+          "id": "2046936331021082624"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Sprinklr",
+      "user": {
+        "user_id": "2475273985",
+        "name": "Paytm Care",
+        "screen_name": "Paytmcare",
+        "location": "India",
+        "description": "We are here 24x7!  Write to us at https://t.co/l6SPQwsVwN",
+        "followers": 416162,
+        "following": 40,
+        "tweet_count": 1187507,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2000825713071677443/DP9kn7GN_normal.jpg",
+        "created_at": "Sat May 03 10:08:31 +0000 2014"
+      }
+    },
+    {
+      "tweet_id": "2051365950386221061",
+      "conversation_id": "2051324230906831023",
+      "created_at": "Mon May 04 18:18:49 +0000 2026",
+      "full_text": "@Paytmcare I think there was a bug now it's fine working",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 12,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2051329539952046416",
+      "in_reply_to_screen_name": "Paytmcare",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Paytmcare",
+          "name": "Paytm Care",
+          "id": "2475273985"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "46628814",
+        "name": "Ketan Bhandarkar",
+        "screen_name": "ketanaqua",
+        "location": "Mumbai, India",
+        "description": "Social media enthusiast, eager to learn more on Digital Marketing , Enjoys tech, sports & inspirational success stories. Be Yourself, Don't Imitate Others :)",
+        "followers": 663,
+        "following": 910,
+        "tweet_count": 21194,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1573588611874066432/G9SC_OHb_normal.jpg",
+        "created_at": "Fri Jun 12 11:01:44 +0000 2009"
+      }
+    },
+    {
+      "tweet_id": "1961734681394925815",
+      "conversation_id": "1961734681394925815",
+      "created_at": "Sat Aug 30 10:16:09 +0000 2025",
+      "full_text": "Paytm has clarified that UPI payments remain unaffected after Google Play’s alert. Only recurring mandates need updating from Paytm to new bank-linked handles. One-time transactions continue uninterrupted.\n\nRead Here: https://t.co/1LFnXjyvCT https://t.co/R2YzoPa2dA",
+      "lang": "en",
+      "likes": 35,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 11558,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [],
+      "urls": [
+        "https://bit.ly/3UTsBZU"
+      ],
+      "media_urls": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/Gzl596tbEAAfNpS.jpg",
+          "display_url": "pic.x.com/R2YzoPa2dA"
+        }
+      ],
+      "source": "Twitter Web App",
+      "user": {
+        "user_id": "39743812",
+        "name": "Economic Times",
+        "screen_name": "EconomicTimes",
+        "location": "",
+        "description": "The Economic Times (Official) India's No. 1 Destination for Business News, Economy and Politics | A Times Internet Product\n📧:feedback@economictimes.com",
+        "followers": 4311389,
+        "following": 47,
+        "tweet_count": 990362,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1285571205966073857/rE3KyZFW_normal.jpg",
+        "created_at": "Wed May 13 12:54:58 +0000 2009"
+      }
+    },
+    {
+      "tweet_id": "2053022148198023301",
+      "conversation_id": "2052792420027559967",
+      "created_at": "Sat May 09 07:59:58 +0000 2026",
+      "full_text": "@Purushtq Hi, the issue has been escalated, and our respective teams are actively working on it. We will provide you with an update soon. https://t.co/9GYef5CSWT",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 1,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2052792420027559967",
+      "in_reply_to_screen_name": "Purushtq",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Purushtq",
+          "name": "Purush",
+          "id": "2052787130263547904"
+        }
+      ],
+      "urls": [
+        "https://x.com/messages/compose?recipient_id=1839197522348097537"
+      ],
+      "media_urls": [],
+      "source": "Sprinklr",
+      "user": {
+        "user_id": "1839197522348097537",
+        "name": "OlaEV_Support",
+        "screen_name": "OlaEV_Support",
+        "location": "",
+        "description": "We’re here to keep your ride smooth and hassle-free! Got a question or need help? Just reach out, we’ve got your back.#JoinTheRevolution",
+        "followers": 870,
+        "following": 2,
+        "tweet_count": 61283,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1839240224192237568/2_2Z2Sw3_normal.jpg",
+        "created_at": "Thu Sep 26 06:57:31 +0000 2024"
+      }
+    },
+    {
+      "tweet_id": "1993879097269997981",
+      "conversation_id": "1993879097269997981",
+      "created_at": "Thu Nov 27 03:06:35 +0000 2025",
+      "full_text": "Good Morning! Stocks in News – 27 Nov 2025\n\n📍Paytm – RBI issues Certificate of Authorization to Paytm Payments Services, enabling operation as payment aggregator.\n📍Asian Paints – Step-down subsidiary Berger Paints Emirates plans second paint plant in UAE with AED 140 million",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 41,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter Web App",
+      "user": {
+        "user_id": "1546381873055539200",
+        "name": "The Fintelligent Investor",
+        "screen_name": "fintel_investor",
+        "location": "Bengaluru South, India",
+        "description": "Simple tips on Finance, Taxes, Banking and Investing. Business and Startup tips, Share market knowledge and more!",
+        "followers": 114,
+        "following": 50,
+        "tweet_count": 1082,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1569925433965281281/ZdBRkHeZ_normal.jpg",
+        "created_at": "Mon Jul 11 06:32:37 +0000 2022"
+      }
+    },
+    {
+      "tweet_id": "2051499792254308823",
+      "conversation_id": "2051313952035098703",
+      "created_at": "Tue May 05 03:10:40 +0000 2026",
+      "full_text": "@NaveenK34750579 Hi, We’re truly sorry for the trouble caused. Please don’t worry we’re already on it and our team is actively checking this. We’ll get this sorted for you at the earliest and keep you posted. Thanks for your patience! ^AG https://t.co/5m1Urzh8kc",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 19,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2051313952035098703",
+      "in_reply_to_screen_name": "NaveenK34750579",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "NaveenK34750579",
+          "name": "Naveen",
+          "id": "1168048041196015617"
+        }
+      ],
+      "urls": [
+        "https://x.com/messages/compose?recipient_id=2475273985"
+      ],
+      "media_urls": [],
+      "source": "Sprinklr",
+      "user": {
+        "user_id": "2475273985",
+        "name": "Paytm Care",
+        "screen_name": "Paytmcare",
+        "location": "India",
+        "description": "We are here 24x7!  Write to us at https://t.co/l6SPQwsVwN",
+        "followers": 416162,
+        "following": 40,
+        "tweet_count": 1187507,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2000825713071677443/DP9kn7GN_normal.jpg",
+        "created_at": "Sat May 03 10:08:31 +0000 2014"
+      }
+    },
+    {
+      "tweet_id": "2052711321016443258",
+      "conversation_id": "2052703135165198573",
+      "created_at": "Fri May 08 11:24:51 +0000 2026",
+      "full_text": "@AnkitSi82291903 Hi Ankit, We're sorry to hear about your experience and are committed to making it right. Kindly share your merchant details in our DM — we look forward to resolving this for you. Thanks! https://t.co/FOTQ8qt1dT",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 12,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2052703135165198573",
+      "in_reply_to_screen_name": "AnkitSi82291903",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "AnkitSi82291903",
+          "name": "Ankit Singh",
+          "id": "1181623419655245824"
+        }
+      ],
+      "urls": [
+        "https://x.com/messages/compose?recipient_id=943088159218311168"
+      ],
+      "media_urls": [],
+      "source": "Sprinklr",
+      "user": {
+        "user_id": "943088159218311168",
+        "name": "Paytm For Business",
+        "screen_name": "PaytmBusiness",
+        "location": "Noida, India",
+        "description": "Empowering 1.37 crore+ merchants across India with smart payments, loans, and AI business tools. Grow your business online & offline with Paytm.",
+        "followers": 31600,
+        "following": 8,
+        "tweet_count": 82943,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1639228264920096768/fWsWzaLP_normal.jpg",
+        "created_at": "Tue Dec 19 11:58:33 +0000 2017"
+      }
+    },
+    {
+      "tweet_id": "2052600521211724058",
+      "conversation_id": "2052595512642351427",
+      "created_at": "Fri May 08 04:04:34 +0000 2026",
+      "full_text": "@Jitendr65480235 Hi Dharm, we completely understand your concern regarding this issue. It is currently pending with our internal team, and we’re assisting you via DM to ensure a quick resolution. Thank you for your patience! https://t.co/5m1Urzh8kc",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 14,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2052595512642351427",
+      "in_reply_to_screen_name": "Jitendr65480235",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Jitendr65480235",
+          "name": "Dharm sing meena",
+          "id": "1684153534810562561"
+        }
+      ],
+      "urls": [
+        "https://x.com/messages/compose?recipient_id=2475273985"
+      ],
+      "media_urls": [],
+      "source": "Sprinklr",
+      "user": {
+        "user_id": "2475273985",
+        "name": "Paytm Care",
+        "screen_name": "Paytmcare",
+        "location": "India",
+        "description": "We are here 24x7!  Write to us at https://t.co/l6SPQwsVwN",
+        "followers": 416162,
+        "following": 40,
+        "tweet_count": 1187507,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2000825713071677443/DP9kn7GN_normal.jpg",
+        "created_at": "Sat May 03 10:08:31 +0000 2014"
+      }
+    },
+    {
+      "tweet_id": "1993936813787107814",
+      "conversation_id": "1993936813787107814",
+      "created_at": "Thu Nov 27 06:55:56 +0000 2025",
+      "full_text": "Paytm Payment Services has received full RBI approval to operate as an online payment aggregator, strengthening its merchant payments business. This comes after clearing FDI compliance issues and ministry approvals earlier.\n#DigitalPayments #finticks\n\nhttps://t.co/XtLFFuTMam https://t.co/Xy4zTLKuoS",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 19,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [
+        "DigitalPayments",
+        "finticks"
+      ],
+      "mentions": [],
+      "urls": [
+        "https://news.teqmocharts.com/2025/11/paytm-payment-services-secures-full.html"
+      ],
+      "media_urls": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/G6vi2yRa0AESemi.jpg",
+          "display_url": "pic.x.com/Xy4zTLKuoS"
+        }
+      ],
+      "source": "Twitter Web App",
+      "user": {
+        "user_id": "1078955473099866112",
+        "name": "Teqmo Charts - Share Market Malayalam",
+        "screen_name": "ShareMalayalam",
+        "location": "Kerala, India",
+        "description": "Stock market trader, Technical analyst. Trade in equity, FO.\n\n📝 👉 Blog : https://t.co/WnOvqfAg03\n📽️ 👉 Youtube : https://t.co/MlR0kmcj2v",
+        "followers": 213,
+        "following": 42,
+        "tweet_count": 1728,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1208721353689333762/4BFeYxAd_normal.jpg",
+        "created_at": "Sat Dec 29 10:06:45 +0000 2018"
+      }
+    },
+    {
+      "tweet_id": "2053026671914050032",
+      "conversation_id": "2053021843305705594",
+      "created_at": "Sat May 09 08:17:56 +0000 2026",
+      "full_text": "@antam_bawa Hi Antam, we’re truly sorry to hear about this experience, and we completely understand how upsetting this must have been for you. This is certainly not the kind of service we want anyone to go through.\nPlease be assured that we’ve already escalated the query to the concerned",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": null,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2053021843305705594",
+      "in_reply_to_screen_name": "antam_bawa",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "antam_bawa",
+          "name": "Antam Bawa",
+          "id": "733723520346251264"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Social360",
+      "user": {
+        "user_id": "1667354024",
+        "name": "helpdesk_delhivery",
+        "screen_name": "help_delhivery",
+        "location": "Gurgaon",
+        "description": "India’s largest fully integrated logistics provider, building the operating system for commerce with world-class infrastructure, logistics, and tech innovation.",
+        "followers": 27055,
+        "following": 414,
+        "tweet_count": 354396,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1438055429674655744/zgthVPmp_normal.jpg",
+        "created_at": "Tue Aug 13 09:41:13 +0000 2013"
+      }
+    },
+    {
+      "tweet_id": "2052754325844508703",
+      "conversation_id": "2052747858508644551",
+      "created_at": "Fri May 08 14:15:44 +0000 2026",
+      "full_text": "@SaahilBhat6 Hi Saahil, we completely understand your concern regarding this issue. It’s currently pending with our team, and we’re assisting you via DM to ensure a quick resolution. Thank you for your patience!",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 6,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2052751851616145633",
+      "in_reply_to_screen_name": "SaahilBhat6",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "SaahilBhat6",
+          "name": "Saahil",
+          "id": "1517904208850087936"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Sprinklr",
+      "user": {
+        "user_id": "2475273985",
+        "name": "Paytm Care",
+        "screen_name": "Paytmcare",
+        "location": "India",
+        "description": "We are here 24x7!  Write to us at https://t.co/l6SPQwsVwN",
+        "followers": 416162,
+        "following": 40,
+        "tweet_count": 1187507,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2000825713071677443/DP9kn7GN_normal.jpg",
+        "created_at": "Sat May 03 10:08:31 +0000 2014"
+      }
+    },
+    {
+      "tweet_id": "2050816465683742934",
+      "conversation_id": "2050230617686806735",
+      "created_at": "Sun May 03 05:55:22 +0000 2026",
+      "full_text": "@tambe_shrirang Hi! We understand how important this is. Your issue is currently pending with our internal team, and we are actively helping you via DM. We greatly appreciate your patience as we work to resolve it. https://t.co/5m1Urzh8kc",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 13,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2050813429510967543",
+      "in_reply_to_screen_name": "tambe_shrirang",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "tambe_shrirang",
+          "name": "Shrirang Tambe",
+          "id": "1081585944392691713"
+        }
+      ],
+      "urls": [
+        "https://x.com/messages/compose?recipient_id=2475273985"
+      ],
+      "media_urls": [],
+      "source": "Sprinklr",
+      "user": {
+        "user_id": "2475273985",
+        "name": "Paytm Care",
+        "screen_name": "Paytmcare",
+        "location": "India",
+        "description": "We are here 24x7!  Write to us at https://t.co/l6SPQwsVwN",
+        "followers": 416162,
+        "following": 40,
+        "tweet_count": 1187507,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2000825713071677443/DP9kn7GN_normal.jpg",
+        "created_at": "Sat May 03 10:08:31 +0000 2014"
+      }
+    },
+    {
+      "tweet_id": "2052809109297356913",
+      "conversation_id": "2051901021128196359",
+      "created_at": "Fri May 08 17:53:25 +0000 2026",
+      "full_text": "@TurbulentHead Hi Siddharth, we understand how important this is. Your concern regarding this issue is currently pending with our team, and we’re actively helping you via DM. We greatly appreciate your patience as we work to resolve it.",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 7,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2052795700690534792",
+      "in_reply_to_screen_name": "TurbulentHead",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "TurbulentHead",
+          "name": "Siddharth Singh",
+          "id": "577848329"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Sprinklr",
+      "user": {
+        "user_id": "2475273985",
+        "name": "Paytm Care",
+        "screen_name": "Paytmcare",
+        "location": "India",
+        "description": "We are here 24x7!  Write to us at https://t.co/l6SPQwsVwN",
+        "followers": 416162,
+        "following": 40,
+        "tweet_count": 1187507,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2000825713071677443/DP9kn7GN_normal.jpg",
+        "created_at": "Sat May 03 10:08:31 +0000 2014"
+      }
+    },
+    {
+      "tweet_id": "2016171040637169758",
+      "conversation_id": "2016171040637169758",
+      "created_at": "Tue Jan 27 15:26:49 +0000 2026",
+      "full_text": "K Sai Kishore\nMiryalaguda\nDate: 27 Jan 2026\nPaytm Money, New Delhi\nSubject: 3rd withdrawal rejection (Folio 17652160)\nDear Team,\nFacing issues with withdrawals. ₹908 rejected (TXN: NR-MF-KOTMH-C-220126-6166737). Request investigation and resolution ASAP. Are investments safe? https://t.co/44BvxW0i3M",
+      "lang": "en",
+      "likes": 1,
+      "retweets": 0,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 58,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [],
+      "urls": [],
+      "media_urls": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/G_rg4HGbAAI-T3a.jpg",
+          "display_url": "pic.x.com/44BvxW0i3M"
+        }
+      ],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "1470407145405370369",
+        "name": "SAI KISHORE",
+        "screen_name": "SAIKISH47038505",
+        "location": "Hyderabad, India",
+        "description": "https://t.co/SOEy4qdBzX 🎓",
+        "followers": 21,
+        "following": 281,
+        "tweet_count": 1339,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1736800304090460161/sQTTTdDG_normal.jpg",
+        "created_at": "Mon Dec 13 14:56:18 +0000 2021"
+      }
+    },
+    {
+      "tweet_id": "2053024300266045791",
+      "conversation_id": "2052902156064399777",
+      "created_at": "Sat May 09 08:08:31 +0000 2026",
+      "full_text": "@Python_Tweetz Sir, we are happy to inform you that the issue has been resolved. Hope you aren’t facing any more issues. If you’re still facing any issues kindly let us know. Thank You.",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": null,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2052902156064399777",
+      "in_reply_to_screen_name": "Python_Tweetz",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Python_Tweetz",
+          "name": "Omega",
+          "id": "1073234553337085952"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Konnect Insights",
+      "user": {
+        "user_id": "869485414683299840",
+        "name": "TP Central Odisha Distribution Ltd",
+        "screen_name": "TPCentralOdisha",
+        "location": "Bhubaneshwar, India",
+        "description": "Call 1912/ 1800 345 7122 for issue related to supply or billing of Electricity Consumer Base: 30.75 Lakh (approx) Area: 30,000 Sq. KM (approx) Dist. Covered: 8+",
+        "followers": 58469,
+        "following": 24,
+        "tweet_count": 167862,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1712699621108256768/QlVT6DPZ_normal.jpg",
+        "created_at": "Tue May 30 09:27:31 +0000 2017"
+      }
+    },
+    {
+      "tweet_id": "2052406151913087011",
+      "conversation_id": "2052383883178696785",
+      "created_at": "Thu May 07 15:12:13 +0000 2026",
+      "full_text": "@AdyitSngh Hello Aditya, we acknowledge your concerns and empathize with your frustration. The issue is presently with our internal team, and we are supporting you via DM to ensure a swift resolution. Thank you for your patience!",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 12,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2052392835014697133",
+      "in_reply_to_screen_name": "AdyitSngh",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "AdyitSngh",
+          "name": "Aditya",
+          "id": "1631283190500343808"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Sprinklr",
+      "user": {
+        "user_id": "2475273985",
+        "name": "Paytm Care",
+        "screen_name": "Paytmcare",
+        "location": "India",
+        "description": "We are here 24x7!  Write to us at https://t.co/l6SPQwsVwN",
+        "followers": 416162,
+        "following": 40,
+        "tweet_count": 1187507,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2000825713071677443/DP9kn7GN_normal.jpg",
+        "created_at": "Sat May 03 10:08:31 +0000 2014"
+      }
+    },
+    {
+      "tweet_id": "1968611864578822359",
+      "conversation_id": "1968611864578822359",
+      "created_at": "Thu Sep 18 09:43:38 +0000 2025",
+      "full_text": "I am facing lot of issues from last 3 days. Actually My paytm business payment limit crossed 1 lac. And i am not able to recieve payments due to this limit issue. I already request for upgrade the limit but till now my limit not increased @PaytmBusiness @Paytmcare @Paytm",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": null,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "PaytmBusiness",
+          "name": "Paytm For Business",
+          "id": "943088159218311168"
+        },
+        {
+          "screen_name": "Paytmcare",
+          "name": "Paytm Care",
+          "id": "2475273985"
+        },
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "1694339181424885760",
+        "name": "Deepak Saini",
+        "screen_name": "ApkaBhaiDk",
+        "location": "",
+        "description": "",
+        "followers": 0,
+        "following": 9,
+        "tweet_count": 26,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png",
+        "created_at": "Wed Aug 23 13:22:41 +0000 2023"
+      }
+    },
+    {
+      "tweet_id": "2019711498143318064",
+      "conversation_id": "2019711498143318064",
+      "created_at": "Fri Feb 06 09:55:20 +0000 2026",
+      "full_text": "Pathetic and unacceptable service by @Paytmcare @Paytm. I started using the Paytm merchant account and purchased the sound box, but it has had issues since Day 1. Tried contacting the assigned agent multiple times - now he’s not even answering calls. Very unprofessional service.",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 1,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 40,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Paytmcare",
+          "name": "Paytm Care",
+          "id": "2475273985"
+        },
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "3161228286",
+        "name": "Prasad Patange",
+        "screen_name": "_prasad_patange",
+        "location": "",
+        "description": "👑हिंदुराष्ट्र सेना ! \n👑विश्व हिंदू मराठा संघ !\n\nमैं कुछ खास तो नहीं, मगर मेरे जैसे लोग कम है..",
+        "followers": 48,
+        "following": 139,
+        "tweet_count": 218,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1592452014025625600/yyXGcZop_normal.jpg",
+        "created_at": "Fri Apr 17 15:12:07 +0000 2015"
+      }
+    },
+    {
+      "tweet_id": "2028693564767777068",
+      "conversation_id": "2028693564767777068",
+      "created_at": "Tue Mar 03 04:46:51 +0000 2026",
+      "full_text": "We are facing unresolved transaction issues with student fee payments made via Paytm at Thiagarajar College, Madurai. Despite repeated emails with proofs, no resolution has been provided. Request immediate intervention and formal response to address this grievance. @vijayshekhar",
+      "lang": "en",
+      "likes": 1,
+      "retweets": 0,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 53,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "vijayshekhar",
+          "name": "Vijay Shekhar Sharma",
+          "id": "17239667"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter for Android",
+      "user": {
+        "user_id": "1271397884693364736",
+        "name": "Thiagarajar College, Madurai",
+        "screen_name": "Thiagarajar_clg",
+        "location": "Madurai, India",
+        "description": "Welcome to the Official page of Thiagarajar College(Arts & Sciences), Teppakulam Campus, Madurai\n#0452-2311875",
+        "followers": 375,
+        "following": 6,
+        "tweet_count": 567,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1271404878145785856/GkoUtH_W_normal.jpg",
+        "created_at": "Fri Jun 12 11:05:23 +0000 2020"
+      }
+    },
+    {
+      "tweet_id": "2052055295455789129",
+      "conversation_id": "2052022428013044210",
+      "created_at": "Wed May 06 15:58:02 +0000 2026",
+      "full_text": "@2006Madit15082 Hi, we hear your concern Paytm account and understand the frustration. The matter is currently with our internal team, and we’re assisting you through DM to ensure it’s resolved quickly. Thanks for bearing with us!",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 41,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2052022428013044210",
+      "in_reply_to_screen_name": "2006Madit15082",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "2006Madit15082",
+          "name": "MADIT 2006",
+          "id": "2052019023530065920"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Sprinklr",
+      "user": {
+        "user_id": "2475273985",
+        "name": "Paytm Care",
+        "screen_name": "Paytmcare",
+        "location": "India",
+        "description": "We are here 24x7!  Write to us at https://t.co/l6SPQwsVwN",
+        "followers": 416162,
+        "following": 40,
+        "tweet_count": 1187507,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2000825713071677443/DP9kn7GN_normal.jpg",
+        "created_at": "Sat May 03 10:08:31 +0000 2014"
+      }
+    },
+    {
+      "tweet_id": "2053023584243667234",
+      "conversation_id": "2053005005469417575",
+      "created_at": "Sat May 09 08:05:40 +0000 2026",
+      "full_text": "@ManojSh71230353 Dear Manoj, we understand your concern and the inconvenience caused. Thank you for sharing the details. We’ve noted the same and escalated to the relevant team to actively review the issue and working towards a prompt resolution. https://t.co/n5jgN7WG8J",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 4,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2053005005469417575",
+      "in_reply_to_screen_name": "ManojSh71230353",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "ManojSh71230353",
+          "name": "Manoj Sharma",
+          "id": "1079954855844667392"
+        }
+      ],
+      "urls": [
+        "https://x.com/messages/compose?recipient_id=1667354024"
+      ],
+      "media_urls": [],
+      "source": "Social360",
+      "user": {
+        "user_id": "1667354024",
+        "name": "helpdesk_delhivery",
+        "screen_name": "help_delhivery",
+        "location": "Gurgaon",
+        "description": "India’s largest fully integrated logistics provider, building the operating system for commerce with world-class infrastructure, logistics, and tech innovation.",
+        "followers": 27055,
+        "following": 414,
+        "tweet_count": 354396,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1438055429674655744/zgthVPmp_normal.jpg",
+        "created_at": "Tue Aug 13 09:41:13 +0000 2013"
+      }
+    },
+    {
+      "tweet_id": "2052430514175492601",
+      "conversation_id": "2052424747074682901",
+      "created_at": "Thu May 07 16:49:01 +0000 2026",
+      "full_text": "@AdyitSngh Hi Aditya, we understand how important this is. Your issue is currently pending with internal team, and we’re actively helping you via DM. We greatly appreciate your patience as we work to resolve it.",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 7,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2052424747074682901",
+      "in_reply_to_screen_name": "AdyitSngh",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "AdyitSngh",
+          "name": "Aditya",
+          "id": "1631283190500343808"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Sprinklr",
+      "user": {
+        "user_id": "2475273985",
+        "name": "Paytm Care",
+        "screen_name": "Paytmcare",
+        "location": "India",
+        "description": "We are here 24x7!  Write to us at https://t.co/l6SPQwsVwN",
+        "followers": 416162,
+        "following": 40,
+        "tweet_count": 1187507,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2000825713071677443/DP9kn7GN_normal.jpg",
+        "created_at": "Sat May 03 10:08:31 +0000 2014"
+      }
+    },
+    {
+      "tweet_id": "2052670911837532247",
+      "conversation_id": "2052654890363830586",
+      "created_at": "Fri May 08 08:44:16 +0000 2026",
+      "full_text": "@MohdShafiG4 Hi! We understand how important this is. Your issue is currently pending with our internal team, and we are actively helping you via DM. We greatly appreciate your patience as we work to resolve it. https://t.co/5m1Urzh8kc",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 26,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2052654890363830586",
+      "in_reply_to_screen_name": "MohdShafiG4",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "MohdShafiG4",
+          "name": "Mohd Shafi G",
+          "id": "1356171195607998466"
+        }
+      ],
+      "urls": [
+        "https://x.com/messages/compose?recipient_id=2475273985"
+      ],
+      "media_urls": [],
+      "source": "Sprinklr",
+      "user": {
+        "user_id": "2475273985",
+        "name": "Paytm Care",
+        "screen_name": "Paytmcare",
+        "location": "India",
+        "description": "We are here 24x7!  Write to us at https://t.co/l6SPQwsVwN",
+        "followers": 416162,
+        "following": 40,
+        "tweet_count": 1187507,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2000825713071677443/DP9kn7GN_normal.jpg",
+        "created_at": "Sat May 03 10:08:31 +0000 2014"
+      }
+    },
+    {
+      "tweet_id": "2047761045545205930",
+      "conversation_id": "2047761045545205930",
+      "created_at": "Fri Apr 24 19:34:13 +0000 2026",
+      "full_text": "RBI didn't shut Paytm overnight. They warned, audited, and flagged issues for years. Paytm ignored it. The lesson for every fintech: regulatory compliance isn't optional. No matter how big you are. #Paytm #RBI #StartupIndia #Fintech https://t.co/6EX5JwWQZC",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 52,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [
+        "Paytm",
+        "RBI",
+        "StartupIndia",
+        "Fintech"
+      ],
+      "mentions": [],
+      "urls": [],
+      "media_urls": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HGsbtIFaEAAK6Gm.jpg",
+          "display_url": "pic.x.com/6EX5JwWQZC"
+        },
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HGsbtIIbkAA4meK.jpg",
+          "display_url": "pic.x.com/6EX5JwWQZC"
+        },
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HGsbtIWbEAA5KCI.jpg",
+          "display_url": "pic.x.com/6EX5JwWQZC"
+        },
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HGsbtIebYAArhnX.jpg",
+          "display_url": "pic.x.com/6EX5JwWQZC"
+        }
+      ],
+      "source": "Twitter Web App",
+      "user": {
+        "user_id": "1347100238",
+        "name": "Meghna Joshi",
+        "screen_name": "meghnajoshi49",
+        "location": "",
+        "description": "On a journey to find my true self",
+        "followers": 2,
+        "following": 97,
+        "tweet_count": 58,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1987725992597843968/lFFFukF2_normal.jpg",
+        "created_at": "Fri Apr 12 15:40:12 +0000 2013"
+      }
+    },
+    {
+      "tweet_id": "2052406035571486773",
+      "conversation_id": "2052396233038418300",
+      "created_at": "Thu May 07 15:11:45 +0000 2026",
+      "full_text": "@AdyitSngh Hi Aditya, we hear your concern and understand the frustration. The matter is currently with our internal team, and we’re assisting you through DM to ensure it’s resolved quickly. Thanks for bearing with us!",
+      "lang": "en",
+      "likes": 1,
+      "retweets": 0,
+      "replies": 0,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 58,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2052396233038418300",
+      "in_reply_to_screen_name": "AdyitSngh",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "AdyitSngh",
+          "name": "Aditya",
+          "id": "1631283190500343808"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Sprinklr",
+      "user": {
+        "user_id": "2475273985",
+        "name": "Paytm Care",
+        "screen_name": "Paytmcare",
+        "location": "India",
+        "description": "We are here 24x7!  Write to us at https://t.co/l6SPQwsVwN",
+        "followers": 416162,
+        "following": 40,
+        "tweet_count": 1187507,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2000825713071677443/DP9kn7GN_normal.jpg",
+        "created_at": "Sat May 03 10:08:31 +0000 2014"
+      }
+    },
+    {
+      "tweet_id": "2052248939345445334",
+      "conversation_id": "2040340223377510729",
+      "created_at": "Thu May 07 04:47:30 +0000 2026",
+      "full_text": "@aubankindia @RBI I have previously faced issues with other banks as well, including @Paytm  and @abcapital. After raising concerns publicly, both banks responded professionally and resolved the matter promptly.",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 25,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2052247904711278819",
+      "in_reply_to_screen_name": "Sai_0321",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "aubankindia",
+          "name": "AU Small Finance Bank",
+          "id": "342581226"
+        },
+        {
+          "screen_name": "RBI",
+          "name": "ReserveBankOfIndia",
+          "id": "478432912"
+        },
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        },
+        {
+          "screen_name": "abcapital",
+          "name": "Aditya Birla Capital",
+          "id": "847121720691642368"
+        }
+      ],
+      "urls": [],
+      "media_urls": [],
+      "source": "Twitter Web App",
+      "user": {
+        "user_id": "1715365454406205440",
+        "name": "Sai Guthula",
+        "screen_name": "Sai_0321",
+        "location": "",
+        "description": "",
+        "followers": 0,
+        "following": 44,
+        "tweet_count": 15,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1715365577190223872/GiikcyWL_normal.png",
+        "created_at": "Fri Oct 20 13:53:17 +0000 2023"
+      }
+    },
+    {
+      "tweet_id": "2052697545869017438",
+      "conversation_id": "2052697545869017438",
+      "created_at": "Fri May 08 10:30:06 +0000 2026",
+      "full_text": "RBI action against Paytm Payments Bank has raised fresh doubts over Paytm's credibility.\n@sonalch10 Writes: https://t.co/lJOEGqa4Pj https://t.co/kITGBHtbtt",
+      "lang": "en",
+      "likes": 2,
+      "retweets": 1,
+      "replies": 1,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 367,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": null,
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "sonalch10",
+          "name": "Sonal Choudhary",
+          "id": "1618740561707667456"
+        }
+      ],
+      "urls": [
+        "https://themorningcontext.com/internet/a-question-of-trust-at-paytm"
+      ],
+      "media_urls": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HHylibeXkAI9TxB.jpg",
+          "display_url": "pic.x.com/kITGBHtbtt"
+        }
+      ],
+      "source": "CoSchedule - Production 2",
+      "user": {
+        "user_id": "1168433358361116672",
+        "name": "The Morning Context",
+        "screen_name": "MorningContext",
+        "location": "London",
+        "description": "News media daily which publishes detailed stories on startups, large businesses and economic and current affairs.\n\nJoin our community: https://t.co/fRqaHW1IxE.",
+        "followers": 45488,
+        "following": 18,
+        "tweet_count": 34711,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1846146282613886977/53JAugMv_normal.png",
+        "created_at": "Mon Sep 02 08:00:05 +0000 2019"
+      }
+    },
+    {
+      "tweet_id": "2052115143425728628",
+      "conversation_id": "2052115143425728628",
+      "created_at": "Wed May 06 19:55:51 +0000 2026",
+      "full_text": "@Paytm Travel has been unreachable for days over a time-sensitive international booking change. Now they’re telling me to contact Air India, while Air India confirms ONLY Paytm can process it since they issued the ticket. Unacceptable support. https://t.co/CUynsRW4Le",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 4,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 87,
+      "is_reply": false,
+      "in_reply_to_tweet_id": null,
+      "in_reply_to_screen_name": "Paytm",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "Paytm",
+          "name": "Paytm",
+          "id": "144792607"
+        }
+      ],
+      "urls": [],
+      "media_urls": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HHqT2DtXYAEiGA4.jpg",
+          "display_url": "pic.x.com/CUynsRW4Le"
+        },
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HHqT2DYWoAQxT78.jpg",
+          "display_url": "pic.x.com/CUynsRW4Le"
+        }
+      ],
+      "source": "Twitter for iPhone",
+      "user": {
+        "user_id": "1301034307155161089",
+        "name": "A🪐",
+        "screen_name": "unsheeca",
+        "location": "",
+        "description": "Can beat Kartik Aaryan when it comes to ranting",
+        "followers": 145,
+        "following": 80,
+        "tweet_count": 504,
+        "is_verified": false,
+        "is_blue_verified": false,
+        "avatar_url": "https://pbs.twimg.com/profile_images/1750957249940672512/ITTwljNX_normal.jpg",
+        "created_at": "Wed Sep 02 05:48:59 +0000 2020"
+      }
+    },
+    {
+      "tweet_id": "2051514512101253294",
+      "conversation_id": "2051510863111356439",
+      "created_at": "Tue May 05 04:09:09 +0000 2026",
+      "full_text": "@navanil_roy Hi, We’re truly sorry for the trouble caused. Please don’t worry we’re already on it and our team is actively checking this. We’ll get this sorted for you at the earliest and keep you posted. Thanks for your patience! ^AG https://t.co/5m1Urzh8kc",
+      "lang": "en",
+      "likes": 0,
+      "retweets": 0,
+      "replies": 3,
+      "quotes": 0,
+      "bookmarks": 0,
+      "views": 18,
+      "is_reply": true,
+      "in_reply_to_tweet_id": "2051510863111356439",
+      "in_reply_to_screen_name": "navanil_roy",
+      "hashtags": [],
+      "mentions": [
+        {
+          "screen_name": "navanil_roy",
+          "name": "Navanil Roy",
+          "id": "1467421719648370689"
+        }
+      ],
+      "urls": [
+        "https://x.com/messages/compose?recipient_id=2475273985"
+      ],
+      "media_urls": [],
+      "source": "Sprinklr",
+      "user": {
+        "user_id": "2475273985",
+        "name": "Paytm Care",
+        "screen_name": "Paytmcare",
+        "location": "India",
+        "description": "We are here 24x7!  Write to us at https://t.co/l6SPQwsVwN",
+        "followers": 416162,
+        "following": 40,
+        "tweet_count": 1187507,
+        "is_verified": false,
+        "is_blue_verified": true,
+        "avatar_url": "https://pbs.twimg.com/profile_images/2000825713071677443/DP9kn7GN_normal.jpg",
+        "created_at": "Sat May 03 10:08:31 +0000 2014"
+      }
+    }
+  ]
+}
