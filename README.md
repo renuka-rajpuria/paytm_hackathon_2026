@@ -1,167 +1,148 @@
-# Paytm Hackathon 2026
+# Paytm Escalation Monitor — Hackathon 2026
 
-A real-time dashboard for **customer support teams and executives** to monitor social media escalations, analyze sentiment, and prioritize issues based on severity — all in one place.
-
----
-
-## Build Roadmap (0 → 1)
-
-### Phase 1 — Frontend on Vercel
-- [x] Init Next.js app, push to GitHub, run locally → confirmed working on localhost:3000
-- [x] Add a basic dashboard page layout (header, tweet count, critical/high summary)
-
-### Phase 2 — Supabase Connection
-- [ ] Create Supabase project, copy URL + anon key into `.env`
-- [ ] Connect Next.js to Supabase, read from a test table → confirm data appears in UI
-- [ ] Set up FastAPI in `backend/`, add `/health` endpoint → test locally with `uvicorn`
-- [ ] Connect FastAPI to Supabase, write a test row → confirm it appears in Supabase dashboard
-
-### Phase 3 — Scraper Spikes (test each independently)
-- [x] Twitter — 100 tweets fetched via Apify, parsed and displayed in UI
-- [ ] Reddit — fetch top posts from a subreddit using PRAW, print to console
-- [ ] LinkedIn — fetch posts via LinkedIn API or scraper, print to console
-
-### Phase 4 — Data Pipeline
-- [ ] Define Supabase schema (`posts` table with platform, content, author, timestamp, url)
-- [ ] Run each scraper and insert results into Supabase
-- [x] Add sentiment scoring — AI-powered via Paytm AI API (positive / neutral / negative)
-- [x] Add severity ranking logic — AI base + engagement + reach score (0–100), sorted by severity
-- [x] Wire up the dashboard to display live ranked escalations from the API
-
----
-
-## Severity Scoring Model
-
-Each post is scored **0–100** using three components:
-
-### 1. AI Base Score (max 60 pts)
-Assigned by the LLM based on issue criticality:
-
-| Severity Level | Score |
-|----------------|-------|
-| 🔴 Critical    | 60    |
-| 🟠 High        | 40    |
-| 🟡 Medium      | 20    |
-| 🟢 Low         | 5     |
-
-**Severity rules used in the prompt:**
-- **Critical** — security breach, money permanently lost, widespread service outage
-- **High** — payment failed, money stuck, UPI blocked, account inaccessible
-- **Medium** — app crash, slow service, customer support failure, cashback issue
-- **Low** — minor inconvenience, general feedback, positive mention
-
-### 2. Engagement Score (max 25 pts)
-Reflects the interaction volume and amplification potential of a post:
-
-| Signal    | Weight | Rationale                        |
-|-----------|--------|----------------------------------|
-| Retweets  | × 5    | Directly amplifies reach         |
-| Quotes    | × 4    | Reshared with commentary         |
-| Replies   | × 3    | Active complaints / discussion   |
-| Likes     | × 2    | Passive endorsement              |
-| Views     | × 0.01 | Raw impressions (low unit weight)|
-
-Raw score is capped at **25 pts**.
-
-### 3. Reach / Follower Score (max 15 pts)
-A post from a high-follower account has greater viral and reputational risk.
-Uses a **log₁₀ scale** to prevent large accounts from dominating:
-
-```
-follower_score = min(15, floor(log10(followers + 1) × 5))
-```
-
-| Followers  | Score |
-|------------|-------|
-| ~10        | ~5    |
-| ~100       | ~10   |
-| ~1,000+    | 15    |
-
-### Final Score
-```
-Total = AI Base Score + Engagement Score + Follower Score   (capped at 100)
-```
+A real-time dashboard for **customer support teams and executives** to monitor social media escalations, analyze sentiment, and prioritize issues based on severity — all powered by Paytm AI.
 
 ---
 
 ## Features
 
-- [x] Ingest and aggregate social media mentions in real time
-- [x] Sentiment analysis on each post/thread (positive, neutral, negative)
-- [x] Escalation detection — identify posts that signal customer frustration or viral risk
-- [x] Severity scoring and ranking of escalations
-- [x] Unified dashboard view across all connected platforms
-- [ ] Filtering and search by platform, keyword, date range, or severity
-- [ ] Trend and volume charts over time
-- [ ] Alert system for high-severity escalations
-- [x] Executive summary view with key metrics and highlights (critical/high counts in header)
-- [ ] Export reports (CSV / PDF)
+### Escalation Intelligence
+- AI-powered severity classification — Critical / High / Medium / Low — via Paytm AI API
+- Sentiment analysis per tweet (positive / neutral / negative)
+- Segment classification across 10 Paytm product lines: UPI, Wallet, Payment Gateway, B2B, B2B Lending, Gold, Flights, Hotels, Insurance, General
+- Severity scoring model: AI base (max 60) + engagement (max 25) + follower reach (max 15) = total out of 100
+
+### Dashboard & Views
+- Card view and list/table view toggle
+- Summary stat cards: total showing, critical count, high count, negative sentiment %
+- Severity legend and result count with sort-by-score ordering
+- Sticky header and filter bar
+
+### Filtering & Search
+- Full-text search across tweet content and usernames
+- Multi-select filter dropdowns: Platform, Segment, Severity, Sentiment
+- Date filter with presets: Today, Yesterday, Last 7 days, Last 30 days, Custom range
+- Save custom filter presets to localStorage, apply or delete saved presets
+- Clear all filters in one click
+- Active filter count badge
+
+### Competitor Analysis Tab
+- Separate tab for Razorpay and PhonePe tweet monitoring
+- Brand summary cards: critical count, high count, negative %, average score per brand
+- vs-Paytm negative sentiment delta for competitive benchmarking
+- All filters and weights apply identically across Paytm and Competitor tabs
+
+### Score Weights Sidebar
+- User-adjustable weights for all engagement signals: Retweets, Quotes, Replies, Likes, Views, Follower multiplier
+- Scores recalculate live as weights change
+- Reset to defaults button
+
+### Export
+- CSV export with UTF-8 BOM (Excel-compatible), includes all score components and AI analysis fields
+
+### Platforms
+- X / Twitter — live
+- Reddit, LinkedIn — coming soon (UI stubs present)
 
 ---
 
-## Platforms Supported
+## Severity Scoring Model
 
-- [x] Twitter / X
-- [ ] Reddit
-- [ ] LinkedIn
+Each tweet is scored **0–100** across three components:
+
+### 1. AI Base Score (max 60 pts)
+
+| Severity | Score | Trigger |
+|----------|-------|---------|
+| Critical | 60 | Security breach, money permanently lost, widespread outage |
+| High     | 40 | Payment failed, money stuck, UPI blocked, account inaccessible |
+| Medium   | 20 | App crash, slow service, support failure, cashback issue |
+| Low      | 5  | Minor inconvenience, general feedback, positive mention |
+
+### 2. Engagement Score (max 25 pts)
+
+| Signal   | Default Weight | Rationale |
+|----------|---------------|-----------|
+| Retweets | × 5 | Directly amplifies reach |
+| Quotes   | × 4 | Reshared with commentary |
+| Replies  | × 3 | Active complaints / discussion |
+| Likes    | × 2 | Passive endorsement |
+| Views    | × 0.01 | Raw impressions (low unit weight) |
+
+### 3. Reach / Follower Score (max 15 pts)
+
+Uses log₁₀ scale to prevent large accounts from dominating:
+
+```
+follower_score = min(15, floor(log₁₀(followers + 1) × 5))
+```
+
+### Final Score
+```
+Total = AI Base + Engagement + Follower   (capped at 100)
+```
 
 ---
 
 ## Tech Stack
 
-| Layer      | Technology                          |
-|------------|-------------------------------------|
-| Backend    | Python (FastAPI)                    |
-| Frontend   | Next.js (React)                     |
-| Database   | Supabase (PostgreSQL)               |
-| Hosting    | Vercel                              |
-| NLP / AI   | Python (transformers / VADER)       |
-| Auth       | Supabase Auth                       |
+| Layer        | Technology |
+|-------------|------------|
+| Framework   | Next.js 15 (App Router, React Server Components) |
+| Language    | TypeScript |
+| Styling     | Tailwind CSS v4 |
+| Font        | Geist Mono (via next/font/google) |
+| AI / NLP    | Paytm AI API (`openai/gpt-oss-120b`) |
+| Data        | Static JSON (tweets_output.json, competitor_tweets.json) |
+| Persistence | localStorage (saved filter presets) |
+| Hosting     | Vercel |
 
 ---
 
 ## File Structure
 
 ```
-paytm_hackathon_2026/
-│
-├── app/                             # Next.js App Router
-│   ├── layout.tsx                   # Root layout
-│   └── page.tsx                     # Main dashboard page
+paytm_hackathon/
+├── app/
+│   ├── api/
+│   │   └── tweets/
+│   │       └── route.ts          # API route for tweet data
+│   ├── globals.css               # Global styles (Tailwind, Paytm brand colors)
+│   ├── layout.tsx                # Root layout with Geist Mono font
+│   └── page.tsx                  # Server component — loads JSON, runs AI, renders Dashboard
 ├── components/
-│   ├── EscalationCard.tsx           # Single escalation item
-│   ├── SeverityBadge.tsx            # Color-coded severity label
-│   ├── SentimentChart.tsx           # Trend chart
-│   └── PlatformFilter.tsx           # Platform toggle buttons
+│   ├── Dashboard.tsx             # Main client component — all UI, filters, state
+│   └── TweetCard.tsx             # Tweet card with severity, sentiment, score breakdown
 ├── lib/
-│   ├── supabaseClient.ts            # Supabase browser client
-│   └── api.ts                       # Fetch helpers for FastAPI
-├── public/                          # Static assets
-│
-├── backend/                         # Python FastAPI backend
-│   ├── main.py                      # App entry point, mounts routers
-│   ├── routers/
-│   │   ├── escalations.py           # GET /escalations — ranked feed
-│   │   └── health.py                # GET /health — status check
-│   ├── scrapers/
-│   │   ├── twitter.py               # Twitter API v2 scraper
-│   │   ├── reddit.py                # Reddit PRAW scraper
-│   │   └── linkedin.py              # LinkedIn scraper
-│   ├── services/
-│   │   ├── sentiment.py             # VADER sentiment scoring
-│   │   ├── severity.py              # Severity ranking logic
-│   │   └── db.py                    # Supabase client + query helpers
-│   ├── models/
-│   │   └── schemas.py               # Pydantic request/response models
-│   ├── .env                         # SUPABASE_URL, API keys (gitignored)
-│   └── requirements.txt
-│
-├── supabase/
-│   └── schema.sql                   # Table definitions and indexes
-│
-├── .env.local                       # Frontend env vars (gitignored)
-├── .env.example                     # Template for required env vars
-├── .gitignore
-├── vercel.json
+│   └── analyzeTweets.ts          # Paytm AI API integration — batch sentiment/severity/segment
+├── public/
+│   └── Paytm_Logo.png            # Paytm logo (served as static asset)
+├── tweets_output.json            # Paytm tweets dataset (124 tweets)
+├── competitor_tweets.json        # Razorpay + PhonePe tweets dataset (10 tweets)
+├── add_segment_tweets.py         # Script to generate segment-tagged dummy tweets
+├── .env.local                    # PAYTM_AI_API_KEY (gitignored)
+├── next.config.ts
+├── tsconfig.json
 └── README.md
 ```
+
+---
+
+## Environment Variables
+
+```
+PAYTM_AI_API_KEY=your_key_here
+```
+
+Add to `.env.local` (never commit this file).
+
+---
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
