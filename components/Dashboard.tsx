@@ -15,6 +15,7 @@ interface SavedFilter {
   name: string;
   segments: string[]; severities: string[]; sentiments: string[];
   datePreset?: string | null; dateFrom?: string; dateTo?: string;
+  translatedOnly?: boolean;
 }
 
 interface WatchKeyword {
@@ -174,14 +175,16 @@ function scoreAndSort(tweets: Tweet[], aiRecord: Record<string, AIAnalysis>, wei
 function applyFilters(
   scored: ScoredEntry[],
   platforms: string[], segments: string[], severities: string[], sentiments: string[],
-  search: string, dateRange: [Date, Date] | null
+  search: string, dateRange: [Date, Date] | null, translatedOnly: boolean
 ): ScoredEntry[] {
   return scored.filter(({ tweet, ai }) => {
     if (platforms.length  > 0 && !platforms.includes("twitter"))                    return false;
     if (segments.length   > 0 && !segments.includes(ai?.segment    ?? "general"))  return false;
     if (severities.length > 0 && !severities.includes(ai?.severity ?? "low"))      return false;
     if (sentiments.length > 0 && !sentiments.includes(ai?.sentiment ?? "neutral")) return false;
-    if (search && !tweet.full_text.toLowerCase().includes(search.toLowerCase()))   return false;
+    if (translatedOnly && !ai?.is_translated)                                       return false;
+    if (search && !tweet.full_text.toLowerCase().includes(search.toLowerCase()) &&
+        !(ai?.translated_text ?? "").toLowerCase().includes(search.toLowerCase())) return false;
     if (dateRange) {
       const d = new Date(tweet.created_at);
       if (d < dateRange[0] || d > dateRange[1]) return false;
@@ -241,6 +244,14 @@ function ExternalIcon() {
   return (
     <svg width="11" height="11" viewBox="0 0 16 16" fill="none">
       <path d="M3 13L13 3M13 3H7M13 3v6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+function TranslateIcon() {
+  return (
+    <svg width="11" height="11" viewBox="0 0 16 16" fill="none" className="flex-shrink-0">
+      <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.3" />
+      <path d="M8 1.5C8 1.5 5.5 4 5.5 8s2.5 6.5 2.5 6.5M8 1.5C8 1.5 10.5 4 10.5 8S8 14.5 8 14.5M1.5 8h13M2.5 5.5h11M2.5 10.5h11" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
     </svg>
   );
 }
@@ -954,10 +965,11 @@ export default function Dashboard({
   const [severities, setSeverities] = useState<string[]>([]);
   const [sentiments, setSentiments] = useState<string[]>([]);
   const [platforms,  setPlatforms]  = useState<string[]>([]);
-  const [datePreset, setDatePreset] = useState<string | null>(null);
-  const [dateFrom,   setDateFrom]   = useState("");
-  const [dateTo,     setDateTo]     = useState("");
-  const [search,     setSearch]     = useState("");
+  const [datePreset,     setDatePreset]     = useState<string | null>(null);
+  const [dateFrom,       setDateFrom]       = useState("");
+  const [dateTo,         setDateTo]         = useState("");
+  const [search,         setSearch]         = useState("");
+  const [translatedOnly, setTranslatedOnly] = useState(false);
 
   const [savedFilters,  setSavedFilters]  = useState<SavedFilter[]>([]);
   const [saveModalOpen, setSaveModalOpen] = useState(false);
@@ -984,18 +996,18 @@ export default function Dashboard({
 
   const dateRange = useMemo(() => getDateRange(datePreset, dateFrom, dateTo), [datePreset, dateFrom, dateTo]);
 
-  const hasActiveFilter    = segments.length > 0 || severities.length > 0 || sentiments.length > 0 || !!datePreset;
-  const totalActiveFilters = platforms.length + segments.length + severities.length + sentiments.length + (datePreset ? 1 : 0);
+  const hasActiveFilter    = segments.length > 0 || severities.length > 0 || sentiments.length > 0 || !!datePreset || translatedOnly;
+  const totalActiveFilters = platforms.length + segments.length + severities.length + sentiments.length + (datePreset ? 1 : 0) + (translatedOnly ? 1 : 0);
 
   function clearAll() {
     setSegments([]); setSeverities([]); setSentiments([]); setPlatforms([]);
-    setDatePreset(null); setDateFrom(""); setDateTo("");
+    setDatePreset(null); setDateFrom(""); setDateTo(""); setTranslatedOnly(false);
   }
 
   function saveFilter() {
     const name = saveName.trim();
     if (!name) return;
-    const f: SavedFilter = { name, segments, severities, sentiments, datePreset, dateFrom, dateTo };
+    const f: SavedFilter = { name, segments, severities, sentiments, datePreset, dateFrom, dateTo, translatedOnly };
     const updated = [...savedFilters.filter((x) => x.name !== name), f];
     setSavedFilters(updated);
     localStorage.setItem("paytm_saved_filters", JSON.stringify(updated));
@@ -1006,6 +1018,7 @@ export default function Dashboard({
     setSegments(f.segments); setSeverities(f.severities); setSentiments(f.sentiments);
     setDatePreset(f.datePreset ?? null);
     setDateFrom(f.dateFrom ?? ""); setDateTo(f.dateTo ?? "");
+    setTranslatedOnly(f.translatedOnly ?? false);
   }
 
   function deleteFilter(name: string) {
@@ -1062,8 +1075,8 @@ export default function Dashboard({
   const competitorScored = useMemo(() => scoreAndSort(competitorTweets, competitorAiRecord, weights), [competitorTweets, competitorAiRecord, weights]);
   const allScored        = useMemo(() => [...paytmScored, ...competitorScored], [paytmScored, competitorScored]);
 
-  const paytmFiltered      = useMemo(() => applyFilters(paytmScored, platforms, segments, severities, sentiments, search, dateRange), [paytmScored, platforms, segments, severities, sentiments, search, dateRange]);
-  const competitorFiltered = useMemo(() => applyFilters(competitorScored, platforms, segments, severities, sentiments, search, dateRange), [competitorScored, platforms, segments, severities, sentiments, search, dateRange]);
+  const paytmFiltered      = useMemo(() => applyFilters(paytmScored, platforms, segments, severities, sentiments, search, dateRange, translatedOnly), [paytmScored, platforms, segments, severities, sentiments, search, dateRange, translatedOnly]);
+  const competitorFiltered = useMemo(() => applyFilters(competitorScored, platforms, segments, severities, sentiments, search, dateRange, translatedOnly), [competitorScored, platforms, segments, severities, sentiments, search, dateRange, translatedOnly]);
 
   const activeFiltered = tab === "paytm" ? paytmFiltered : competitorFiltered;
   const activeTweets   = tab === "paytm" ? tweets : competitorTweets;
@@ -1080,6 +1093,7 @@ export default function Dashboard({
     severities.length > 0 && `${severities.length} severit${severities.length > 1 ? "ies" : "y"}`,
     sentiments.length > 0 && `${sentiments.length} sentiment${sentiments.length > 1 ? "s" : ""}`,
     datePreset        && fmtDateRange(datePreset, dateFrom, dateTo),
+    translatedOnly    && "translated only",
   ].filter(Boolean).join(" · ");
 
   // Watchlist alert: any keyword with a critical/high match
@@ -1168,6 +1182,17 @@ export default function Dashboard({
                 onPreset={setDatePreset} onFrom={setDateFrom} onTo={setDateTo}
                 onClear={() => { setDatePreset(null); setDateFrom(""); setDateTo(""); }}
               />
+              <button
+                onClick={() => setTranslatedOnly((v) => !v)}
+                className={`flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg border font-medium transition-all flex-shrink-0 ${
+                  translatedOnly
+                    ? "border-violet-400 text-violet-600 bg-violet-50"
+                    : "border-gray-200 text-gray-600 bg-white hover:border-gray-300 hover:text-gray-800"
+                }`}
+              >
+                <TranslateIcon />
+                <span>Translated</span>
+              </button>
               {totalActiveFilters > 0 && (
                 <>
                   <div className="w-px h-4 bg-gray-200 flex-shrink-0" />

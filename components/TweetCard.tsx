@@ -15,6 +15,7 @@ export interface Tweet {
   tweet_id: string;
   full_text: string;
   created_at: string;
+  lang?: string;
   likes: number;
   retweets: number;
   replies: number;
@@ -64,10 +65,25 @@ const SEGMENT_LABEL: Record<string, string> = {
   flights: "Flights", hotels: "Hotels", insurance: "Insurance", general: "General",
 };
 
+const LANG_LABEL: Record<string, string> = {
+  hi: "Hindi", ta: "Tamil", te: "Telugu", bn: "Bengali",
+  mr: "Marathi", kn: "Kannada", gu: "Gujarati", pa: "Punjabi",
+  ur: "Urdu", ml: "Malayalam", or: "Odia",
+};
+
 function fmt(n: number): string {
   if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
   if (n >= 1000) return `${(n / 1000).toFixed(1)}k`;
   return String(n);
+}
+
+function GlobeIcon() {
+  return (
+    <svg width="9" height="9" viewBox="0 0 16 16" fill="none" className="inline-block flex-shrink-0">
+      <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.3" />
+      <path d="M8 1.5C8 1.5 5.5 4.5 5.5 8s2.5 6.5 2.5 6.5M8 1.5C8 1.5 10.5 4.5 10.5 8S8 14.5 8 14.5M1.5 8h13M2 5h12M2 11h12" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+    </svg>
+  );
 }
 
 export default function TweetCard({
@@ -99,6 +115,9 @@ export default function TweetCard({
   const segStyle = SEGMENT_STYLE[segment] ?? SEGMENT_STYLE.general;
   const segLabel = SEGMENT_LABEL[segment] ?? segment;
 
+  const isTranslated = ai?.is_translated && ai.translated_text;
+  const langLabel = ai?.language ? (LANG_LABEL[ai.language] ?? ai.language.toUpperCase()) : null;
+
   return (
     <article className={`bg-white rounded-xl border border-gray-200 border-l-4 ${s.border} flex flex-col overflow-hidden hover:shadow-md transition-shadow duration-200`}>
       {photo && <img src={photo.url} alt="" className="w-full h-32 object-cover" />}
@@ -118,6 +137,12 @@ export default function TweetCard({
                 style={{ backgroundColor: brandStyle.bg, color: brandStyle.text }}
               >
                 {brandStyle.label}
+              </span>
+            )}
+            {isTranslated && (
+              <span className="flex items-center gap-1 text-[10px] rounded-full px-2 py-0.5 font-semibold bg-violet-50 text-violet-600">
+                <GlobeIcon />
+                {langLabel ?? ""}
               </span>
             )}
           </div>
@@ -167,8 +192,19 @@ export default function TweetCard({
           <span className="text-xs text-gray-400 flex-shrink-0">{date}</span>
         </div>
 
-        {/* Tweet text */}
+        {/* Tweet text — original */}
         <p className="text-sm text-gray-700 leading-relaxed line-clamp-4 flex-1">{tweet.full_text}</p>
+
+        {/* Translated text block */}
+        {isTranslated && (
+          <div className="rounded-lg bg-violet-50 border border-violet-100 px-3 py-2.5 flex flex-col gap-1">
+            <div className="flex items-center gap-1.5 text-[10px] font-semibold text-violet-500 uppercase tracking-wider">
+              <GlobeIcon />
+              <span>AI Translation · {langLabel}</span>
+            </div>
+            <p className="text-xs text-gray-700 leading-relaxed">{ai!.translated_text}</p>
+          </div>
+        )}
 
         {/* AI reason */}
         {ai?.reason && (

@@ -8,6 +8,10 @@ export interface AIAnalysis {
   reason: string;
   segment: string;
   ai_base_score: number;
+  // translation fields — only set when the tweet is non-English
+  is_translated?: boolean;
+  translated_text?: string;
+  language?: string;
 }
 
 export const AI_BASE_SCORES: Record<string, number> = {
@@ -28,12 +32,15 @@ async function callPaytmAI(tweets: Tweet[]): Promise<AIAnalysis[]> {
 
   const prompt = `You are a social media monitoring system for Paytm. Analyze each tweet below.
 
-For each tweet return:
+For each tweet return JSON with these fields:
 - sentiment: "positive", "neutral", or "negative"
 - severity: "low" | "medium" | "high" | "critical"
 - category: short issue label (e.g. "payment_failure", "app_bug", "refund_issue", "account_block", "upi_error", "praise", "general")
-- reason: one sentence explanation
-- segment: classify into one of: "upi", "wallet", "payment_gateway", "b2b", "b2b_lending", "gold", "flights", "hotels", "insurance", "general"
+- reason: one sentence explanation (always in English)
+- segment: one of: "upi", "wallet", "payment_gateway", "b2b", "b2b_lending", "gold", "flights", "hotels", "insurance", "general"
+- language: ISO 639-1 language code of the tweet (e.g. "en", "hi", "ta", "te", "bn", "mr", "kn", "gu", "pa")
+- is_translated: true if the tweet is NOT in English, false or omit if English
+- translated_text: if is_translated is true, provide a natural English translation of the full tweet text; omit this field for English tweets
 
 Segment guide:
 - upi: UPI transactions, UPI PIN, NPCI, bank transfer via UPI
@@ -48,13 +55,13 @@ Segment guide:
 - general: unclear or mixed
 
 Severity rules:
-- critical: security breach, money lost permanently, service down for many users
+- critical: security breach, money lost permanently, service down for many users, account blocked with funds trapped
 - high: payment failed, money stuck, UPI blocked, account inaccessible
 - medium: app crash, slow response, customer support failure, cashback issue
 - low: minor inconvenience, general feedback, positive mention
 
 Return ONLY a JSON array — no markdown, no explanation:
-[{"tweet_id":"...","sentiment":"...","severity":"...","category":"...","reason":"...","segment":"..."}]
+[{"tweet_id":"...","sentiment":"...","severity":"...","category":"...","reason":"...","segment":"...","language":"...","is_translated":false}]
 
 Tweets:
 ${tweets.map((t) => `[${t.tweet_id}] ${t.full_text}`).join("\n")}`;
@@ -68,7 +75,7 @@ ${tweets.map((t) => `[${t.tweet_id}] ${t.full_text}`).join("\n")}`;
     body: JSON.stringify({
       model: "openai/gpt-oss-120b",
       messages: [{ role: "user", content: prompt }],
-      max_tokens: 4000,
+      max_tokens: 6000,
       temperature: 0.2,
     }),
     cache: "no-store",
@@ -112,13 +119,16 @@ export async function analyzeTweets(tweets: Tweet[]): Promise<AnalyzeResult> {
     const severity = (ai?.severity ?? "low") as AIAnalysis["severity"];
 
     map.set(tweet.tweet_id, {
-      tweet_id: tweet.tweet_id,
-      sentiment: (ai?.sentiment ?? "neutral") as AIAnalysis["sentiment"],
+      tweet_id:       tweet.tweet_id,
+      sentiment:      (ai?.sentiment ?? "neutral") as AIAnalysis["sentiment"],
       severity,
-      category: ai?.category ?? "general",
-      reason: ai?.reason ?? "",
-      segment: ai?.segment ?? "general",
-      ai_base_score: AI_BASE_SCORES[severity] ?? 5,
+      category:       ai?.category       ?? "general",
+      reason:         ai?.reason         ?? "",
+      segment:        ai?.segment        ?? "general",
+      ai_base_score:  AI_BASE_SCORES[severity] ?? 5,
+      language:       ai?.language       ?? "en",
+      is_translated:  ai?.is_translated  ?? false,
+      translated_text: ai?.translated_text,
     });
   }
 
