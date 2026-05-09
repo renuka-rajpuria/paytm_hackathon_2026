@@ -2,12 +2,13 @@
 
 :root {
   --font-sans: var(--font-geist);
+  --font-mono: var(--font-geist-mono);
   --paytm-blue: #00BAF2;
   --paytm-dark: #002970;
 }
 
 body {
-  font-family: var(--font-geist), system-ui, sans-serif;
+  font-family: var(--font-geist-mono), monospace;
   background: #F7F8FA;
   color: #111827;
 }
