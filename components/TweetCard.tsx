@@ -16,6 +16,9 @@ export interface Tweet {
   full_text: string;
   created_at: string;
   lang?: string;
+  platform?: string;   // "twitter" | "reddit"
+  subreddit?: string;
+  post_url?: string;
   likes: number;
   retweets: number;
   replies: number;
@@ -101,7 +104,10 @@ export default function TweetCard({
 }) {
   const severity = ai?.severity ?? "low";
   const s = SEV[severity];
-  const tweetUrl = `https://x.com/${tweet.user.screen_name}/status/${tweet.tweet_id}`;
+  const isReddit  = tweet.platform === "reddit";
+  const tweetUrl  = isReddit
+    ? (tweet.post_url ?? `https://www.reddit.com/search/?q=paytm`)
+    : `https://x.com/${tweet.user.screen_name}/status/${tweet.tweet_id}`;
   const brandStyle = tweet.brand ? BRAND_STYLE[tweet.brand] : null;
   const photo = tweet.media_urls?.find((m) => m.type === "photo");
 
@@ -138,6 +144,11 @@ export default function TweetCard({
                 style={{ backgroundColor: brandStyle.bg, color: brandStyle.text }}
               >
                 {brandStyle.label}
+              </span>
+            )}
+            {isReddit && (
+              <span className="flex items-center gap-1 text-[10px] rounded-full px-2 py-0.5 font-semibold bg-orange-50 text-orange-600">
+                r/{tweet.subreddit}
               </span>
             )}
             {isTranslated && (
@@ -234,10 +245,19 @@ export default function TweetCard({
             {ai?.sentiment && (
               <span className={`font-medium ${SENT_COLOR[ai.sentiment]}`}>{ai.sentiment}</span>
             )}
-            <span>{fmt(tweet.views ?? 0)} views</span>
-            <span>{tweet.likes} likes</span>
-            <span>{tweet.retweets} RT</span>
-            <span>{tweet.replies} replies</span>
+            {isReddit ? (
+              <>
+                <span>{fmt(tweet.likes ?? 0)} upvotes</span>
+                <span>{fmt(tweet.replies ?? 0)} comments</span>
+              </>
+            ) : (
+              <>
+                <span>{fmt(tweet.views ?? 0)} views</span>
+                <span>{tweet.likes} likes</span>
+                <span>{tweet.retweets} RT</span>
+                <span>{tweet.replies} replies</span>
+              </>
+            )}
           </div>
           <a
             href={tweetUrl} target="_blank" rel="noopener noreferrer"

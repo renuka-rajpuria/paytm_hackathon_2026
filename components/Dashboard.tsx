@@ -125,7 +125,7 @@ function LinkedInIcon() {
 
 const PLATFORM_OPTIONS: DropdownOption[] = [
   { id: "twitter",  label: "X / Twitter", icon: <XIcon /> },
-  { id: "reddit",   label: "Reddit",      icon: <RedditIcon />,   disabled: true, comingSoon: true },
+  { id: "reddit",   label: "Reddit",      icon: <RedditIcon /> },
   { id: "linkedin", label: "LinkedIn",    icon: <LinkedInIcon />, disabled: true, comingSoon: true },
 ];
 const SEGMENT_OPTIONS: DropdownOption[] = [
@@ -178,7 +178,7 @@ function applyFilters(
   search: string, dateRange: [Date, Date] | null, translatedOnly: boolean
 ): ScoredEntry[] {
   return scored.filter(({ tweet, ai }) => {
-    if (platforms.length  > 0 && !platforms.includes("twitter"))                    return false;
+    if (platforms.length  > 0 && !platforms.includes(tweet.platform ?? "twitter"))  return false;
     if (segments.length   > 0 && !segments.includes(ai?.segment    ?? "general"))  return false;
     if (severities.length > 0 && !severities.includes(ai?.severity ?? "low"))      return false;
     if (sentiments.length > 0 && !sentiments.includes(ai?.sentiment ?? "neutral")) return false;
@@ -562,7 +562,10 @@ function ListView({ entries, showBrand }: { entries: ScoredEntry[]; showBrand: b
               const sev      = SEV_MAP[ai?.severity ?? "low"];
               const seg      = ai?.segment ?? "general";
               const sent     = ai?.sentiment ?? "neutral";
-              const tweetUrl = `https://x.com/${tweet.user.screen_name}/status/${tweet.tweet_id}`;
+              const isReddit = tweet.platform === "reddit";
+              const tweetUrl = isReddit
+                ? (tweet.post_url ?? "#")
+                : `https://x.com/${tweet.user.screen_name}/status/${tweet.tweet_id}`;
               const date     = tweet.created_at
                 ? new Date(tweet.created_at).toLocaleString("en-IN", { day: "numeric", month: "short" }) : "";
               return (
@@ -602,8 +605,18 @@ function ListView({ entries, showBrand }: { entries: ScoredEntry[]; showBrand: b
                   <td className="px-3 py-3 max-w-xs"><p className="text-xs text-gray-600 line-clamp-2 leading-relaxed">{tweet.full_text}</p></td>
                   <td className="px-3 py-3 w-36">
                     <div className="flex flex-col gap-0.5 text-[10px] text-gray-400">
-                      <span>👍 {fmt(tweet.likes ?? 0)}  🔁 {fmt(tweet.retweets ?? 0)}</span>
-                      <span>💬 {fmt(tweet.replies ?? 0)}  👁 {fmt(tweet.views ?? 0)}</span>
+                      {isReddit ? (
+                        <>
+                          <span>⬆ {fmt(tweet.likes ?? 0)} upvotes</span>
+                          <span>💬 {fmt(tweet.replies ?? 0)} comments</span>
+                          {tweet.subreddit && <span className="text-orange-400">r/{tweet.subreddit}</span>}
+                        </>
+                      ) : (
+                        <>
+                          <span>👍 {fmt(tweet.likes ?? 0)}  🔁 {fmt(tweet.retweets ?? 0)}</span>
+                          <span>💬 {fmt(tweet.replies ?? 0)}  👁 {fmt(tweet.views ?? 0)}</span>
+                        </>
+                      )}
                     </div>
                   </td>
                   <td className="px-3 py-3 w-20 text-right"><span className="text-[10px] text-gray-400 whitespace-nowrap">{date}</span></td>
