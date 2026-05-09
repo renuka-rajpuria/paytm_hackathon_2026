@@ -7,49 +7,29 @@ import { AIAnalysis, AI_BASE_SCORES } from "@/lib/analyzeTweets";
 // ─── Types ───────────────────────────────────────────────────────────────────
 
 interface Weights {
-  retweets: number;
-  quotes: number;
-  replies: number;
-  likes: number;
-  views: number;
-  followerMultiplier: number;
+  retweets: number; quotes: number; replies: number;
+  likes: number; views: number; followerMultiplier: number;
 }
 
 interface SavedFilter {
   name: string;
-  segments: string[];
-  severities: string[];
-  sentiments: string[];
+  segments: string[]; severities: string[]; sentiments: string[];
+  datePreset?: string | null; dateFrom?: string; dateTo?: string;
 }
 
 interface DropdownOption {
-  id: string;
-  label: string;
-  color?: string;
-  disabled?: boolean;
-  comingSoon?: boolean;
-  icon?: React.ReactNode;
+  id: string; label: string; color?: string;
+  disabled?: boolean; comingSoon?: boolean; icon?: React.ReactNode;
 }
 
 type ScoredEntry = {
-  tweet: Tweet;
-  ai: AIAnalysis | null;
-  aiBase: number;
-  engagement: number;
-  follower: number;
-  total: number;
+  tweet: Tweet; ai: AIAnalysis | null;
+  aiBase: number; engagement: number; follower: number; total: number;
 };
 
 // ─── Constants ───────────────────────────────────────────────────────────────
 
-const DEFAULT_WEIGHTS: Weights = {
-  retweets: 5,
-  quotes: 4,
-  replies: 3,
-  likes: 2,
-  views: 0.01,
-  followerMultiplier: 5,
-};
+const DEFAULT_WEIGHTS: Weights = { retweets: 5, quotes: 4, replies: 3, likes: 2, views: 0.01, followerMultiplier: 5 };
 
 const BRAND_META: Record<string, { label: string; color: string; bg: string }> = {
   razorpay: { label: "Razorpay", color: "#3730A3", bg: "#EEF2FF" },
@@ -64,9 +44,7 @@ const SEV_MAP: Record<string, { text: string; label: string; bar: string }> = {
 };
 
 const SENT_COLOR: Record<string, string> = {
-  negative: "text-red-500",
-  neutral:  "text-gray-400",
-  positive: "text-emerald-500",
+  negative: "text-red-500", neutral: "text-gray-400", positive: "text-emerald-500",
 };
 
 const SEG_LABEL: Record<string, string> = {
@@ -76,25 +54,58 @@ const SEG_LABEL: Record<string, string> = {
 };
 
 const SEG_STYLE: Record<string, string> = {
-  upi:             "bg-blue-50 text-blue-600",
-  wallet:          "bg-purple-50 text-purple-600",
-  payment_gateway: "bg-indigo-50 text-indigo-600",
-  b2b:             "bg-teal-50 text-teal-600",
-  b2b_lending:     "bg-emerald-50 text-emerald-600",
-  gold:            "bg-amber-50 text-amber-700",
-  flights:         "bg-sky-50 text-sky-600",
-  hotels:          "bg-orange-50 text-orange-600",
-  insurance:       "bg-rose-50 text-rose-600",
-  general:         "bg-gray-100 text-gray-500",
+  upi: "bg-blue-50 text-blue-600", wallet: "bg-purple-50 text-purple-600",
+  payment_gateway: "bg-indigo-50 text-indigo-600", b2b: "bg-teal-50 text-teal-600",
+  b2b_lending: "bg-emerald-50 text-emerald-600", gold: "bg-amber-50 text-amber-700",
+  flights: "bg-sky-50 text-sky-600", hotels: "bg-orange-50 text-orange-600",
+  insurance: "bg-rose-50 text-rose-600", general: "bg-gray-100 text-gray-500",
 };
+
+const DATE_PRESETS = [
+  { id: "today",     label: "Today" },
+  { id: "yesterday", label: "Yesterday" },
+  { id: "7d",        label: "Last 7 days" },
+  { id: "30d",       label: "Last 30 days" },
+  { id: "custom",    label: "Custom range" },
+];
 
 function fmt(n: number): string {
   if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
-  if (n >= 1_000) return `${(n / 1_000).toFixed(1)}k`;
+  if (n >= 1_000)     return `${(n / 1_000).toFixed(1)}k`;
   return String(n);
 }
 
-// ─── Platform / Filter options ───────────────────────────────────────────────
+// ─── Date helpers ─────────────────────────────────────────────────────────────
+
+function getDateRange(preset: string | null, from: string, to: string): [Date, Date] | null {
+  if (!preset) return null;
+  const now   = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const eod   = new Date(today.getTime() + 86_400_000 - 1); // end of today
+
+  switch (preset) {
+    case "today":     return [today, eod];
+    case "yesterday": return [new Date(today.getTime() - 86_400_000), new Date(today.getTime() - 1)];
+    case "7d":        return [new Date(today.getTime() - 6  * 86_400_000), eod];
+    case "30d":       return [new Date(today.getTime() - 29 * 86_400_000), eod];
+    case "custom":
+      if (!from || !to) return null;
+      return [new Date(from + "T00:00:00"), new Date(to + "T23:59:59")];
+    default: return null;
+  }
+}
+
+function fmtDateRange(preset: string, from: string, to: string): string {
+  if (preset !== "custom") return DATE_PRESETS.find((p) => p.id === preset)?.label ?? "Date";
+  if (from && to) {
+    const f = new Date(from).toLocaleString("en-IN", { day: "numeric", month: "short" });
+    const t = new Date(to).toLocaleString("en-IN",   { day: "numeric", month: "short" });
+    return `${f} – ${t}`;
+  }
+  return "Custom range";
+}
+
+// ─── Platform / filter options ────────────────────────────────────────────────
 
 function XIcon() {
   return <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>;
@@ -133,17 +144,15 @@ const SENTIMENT_OPTIONS: DropdownOption[] = [
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function calcEngagement(tweet: Tweet, w: Weights): number {
-  const raw =
-    (tweet.retweets ?? 0) * w.retweets + (tweet.quotes ?? 0) * w.quotes +
-    (tweet.replies  ?? 0) * w.replies  + (tweet.likes  ?? 0) * w.likes  +
-    (tweet.views    ?? 0) * w.views;
-  return Math.min(25, Math.round(raw));
+  return Math.min(25, Math.round(
+    (tweet.retweets ?? 0) * w.retweets + (tweet.quotes  ?? 0) * w.quotes +
+    (tweet.replies  ?? 0) * w.replies  + (tweet.likes   ?? 0) * w.likes  +
+    (tweet.views    ?? 0) * w.views
+  ));
 }
-
 function calcFollower(tweet: Tweet, w: Weights): number {
   return Math.min(15, Math.round(Math.log10((tweet.user?.followers ?? 0) + 1) * w.followerMultiplier));
 }
-
 function scoreAndSort(tweets: Tweet[], aiRecord: Record<string, AIAnalysis>, weights: Weights): ScoredEntry[] {
   return tweets
     .map((tweet) => {
@@ -159,7 +168,8 @@ function scoreAndSort(tweets: Tweet[], aiRecord: Record<string, AIAnalysis>, wei
 
 function applyFilters(
   scored: ScoredEntry[],
-  platforms: string[], segments: string[], severities: string[], sentiments: string[], search: string
+  platforms: string[], segments: string[], severities: string[], sentiments: string[],
+  search: string, dateRange: [Date, Date] | null
 ): ScoredEntry[] {
   return scored.filter(({ tweet, ai }) => {
     if (platforms.length  > 0 && !platforms.includes("twitter"))                    return false;
@@ -167,6 +177,10 @@ function applyFilters(
     if (severities.length > 0 && !severities.includes(ai?.severity ?? "low"))      return false;
     if (sentiments.length > 0 && !sentiments.includes(ai?.sentiment ?? "neutral")) return false;
     if (search && !tweet.full_text.toLowerCase().includes(search.toLowerCase()))   return false;
+    if (dateRange) {
+      const d = new Date(tweet.created_at);
+      if (d < dateRange[0] || d > dateRange[1]) return false;
+    }
     return true;
   });
 }
@@ -185,6 +199,14 @@ function CheckIcon() {
 }
 function FilterIcon() {
   return <svg width="13" height="13" viewBox="0 0 16 16" fill="none" className="flex-shrink-0"><path d="M2 4h12M4 8h8M6 12h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg>;
+}
+function CalendarIcon() {
+  return (
+    <svg width="11" height="11" viewBox="0 0 16 16" fill="none" className="flex-shrink-0">
+      <rect x="1.5" y="2.5" width="13" height="12" rx="2" stroke="currentColor" strokeWidth="1.4" />
+      <path d="M1.5 6.5h13M5 1v3M11 1v3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+    </svg>
+  );
 }
 function GridIcon() {
   return (
@@ -218,7 +240,7 @@ function ExternalIcon() {
   );
 }
 
-// ─── FilterDropdown ──────────────────────────────────────────────────────────
+// ─── FilterDropdown (multi-select) ───────────────────────────────────────────
 
 function FilterDropdown({ label, options, selected, onToggle, onClear }: {
   label: string; options: DropdownOption[];
@@ -226,11 +248,8 @@ function FilterDropdown({ label, options, selected, onToggle, onClear }: {
 }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
-    function onDown(e: MouseEvent) {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
-    }
+    function onDown(e: MouseEvent) { if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false); }
     document.addEventListener("mousedown", onDown);
     return () => document.removeEventListener("mousedown", onDown);
   }, []);
@@ -238,8 +257,7 @@ function FilterDropdown({ label, options, selected, onToggle, onClear }: {
   const active = selected.length > 0;
   return (
     <div ref={ref} className="relative flex-shrink-0">
-      <button
-        onClick={() => setOpen((v) => !v)}
+      <button onClick={() => setOpen((v) => !v)}
         className={`flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg border font-medium transition-all ${
           active ? "border-[#00BAF2] text-[#00BAF2] bg-[#EAF9FF]"
                  : "border-gray-200 text-gray-600 bg-white hover:border-gray-300 hover:text-gray-800"
@@ -268,7 +286,8 @@ function FilterDropdown({ label, options, selected, onToggle, onClear }: {
                   }`}
                 >
                   <span className="w-3.5 h-3.5 rounded border flex-shrink-0 flex items-center justify-center"
-                    style={checked ? { backgroundColor: opt.color ?? "#00BAF2", borderColor: opt.color ?? "#00BAF2" } : { borderColor: opt.disabled ? "#E5E7EB" : "#D1D5DB" }}>
+                    style={checked ? { backgroundColor: opt.color ?? "#00BAF2", borderColor: opt.color ?? "#00BAF2" }
+                                   : { borderColor: opt.disabled ? "#E5E7EB" : "#D1D5DB" }}>
                     {checked && <CheckIcon />}
                   </span>
                   {opt.icon ? (
@@ -285,6 +304,96 @@ function FilterDropdown({ label, options, selected, onToggle, onClear }: {
             })}
           </div>
           {selected.length > 0 && (
+            <div className="border-t border-gray-100 px-3 py-1.5">
+              <button onClick={() => { onClear(); setOpen(false); }} className="text-xs text-gray-400 hover:text-gray-600 transition-colors">
+                Clear selection
+              </button>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── DateDropdown (single-select + custom range) ──────────────────────────────
+
+function DateDropdown({ preset, from, to, onPreset, onFrom, onTo, onClear }: {
+  preset: string | null; from: string; to: string;
+  onPreset: (p: string | null) => void; onFrom: (d: string) => void;
+  onTo: (d: string) => void; onClear: () => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    function onDown(e: MouseEvent) { if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false); }
+    document.addEventListener("mousedown", onDown);
+    return () => document.removeEventListener("mousedown", onDown);
+  }, []);
+
+  const active      = !!preset;
+  const buttonLabel = active ? fmtDateRange(preset!, from, to) : "Date";
+
+  return (
+    <div ref={ref} className="relative flex-shrink-0">
+      <button onClick={() => setOpen((v) => !v)}
+        className={`flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg border font-medium transition-all ${
+          active ? "border-[#00BAF2] text-[#00BAF2] bg-[#EAF9FF]"
+                 : "border-gray-200 text-gray-600 bg-white hover:border-gray-300 hover:text-gray-800"
+        }`}
+      >
+        <CalendarIcon />
+        <span className="max-w-[110px] truncate">{buttonLabel}</span>
+        <ChevronIcon open={open} />
+      </button>
+
+      {open && (
+        <div className="absolute top-full mt-1.5 left-0 bg-white border border-gray-200 rounded-xl shadow-lg z-30 overflow-hidden min-w-[200px]">
+          <div className="py-1.5">
+            {DATE_PRESETS.map((p) => {
+              const checked = preset === p.id;
+              return (
+                <button key={p.id}
+                  onClick={() => onPreset(checked ? null : p.id)}
+                  className={`w-full flex items-center gap-2.5 px-3 py-1.5 text-xs transition-colors text-left ${
+                    checked ? "bg-[#F0FBFF] text-gray-800" : "text-gray-600 hover:bg-gray-50 hover:text-gray-800"
+                  }`}
+                >
+                  <span className="w-3.5 h-3.5 rounded-full border flex-shrink-0 flex items-center justify-center"
+                    style={checked ? { backgroundColor: "#00BAF2", borderColor: "#00BAF2" } : { borderColor: "#D1D5DB" }}>
+                    {checked && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-white" />
+                    )}
+                  </span>
+                  <span>{p.label}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Custom range inputs */}
+          {preset === "custom" && (
+            <div className="border-t border-gray-100 p-3 flex flex-col gap-2.5">
+              <div>
+                <label className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider block mb-1">From</label>
+                <input type="date" value={from} onChange={(e) => onFrom(e.target.value)}
+                  className="w-full border border-gray-200 rounded-lg px-2.5 py-1.5 text-xs text-gray-700 outline-none transition-colors"
+                  onFocus={(e) => (e.target.style.borderColor = "#00BAF2")}
+                  onBlur={(e)  => (e.target.style.borderColor = "#E5E7EB")}
+                />
+              </div>
+              <div>
+                <label className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider block mb-1">To</label>
+                <input type="date" value={to} onChange={(e) => onTo(e.target.value)}
+                  className="w-full border border-gray-200 rounded-lg px-2.5 py-1.5 text-xs text-gray-700 outline-none transition-colors"
+                  onFocus={(e) => (e.target.style.borderColor = "#00BAF2")}
+                  onBlur={(e)  => (e.target.style.borderColor = "#E5E7EB")}
+                />
+              </div>
+            </div>
+          )}
+
+          {active && (
             <div className="border-t border-gray-100 px-3 py-1.5">
               <button onClick={() => { onClear(); setOpen(false); }} className="text-xs text-gray-400 hover:text-gray-600 transition-colors">
                 Clear selection
@@ -356,7 +465,6 @@ function BrandSummaryCard({ brand, scored, paytmScored }: {
       </p>
     );
   }
-
   return (
     <div className="bg-white rounded-xl border border-gray-200 p-5 flex flex-col gap-3">
       <div className="flex items-center justify-between">
@@ -368,10 +476,10 @@ function BrandSummaryCard({ brand, scored, paytmScored }: {
       </div>
       <div className="grid grid-cols-4 gap-3">
         {[
-          { val: critical, label: "Critical", color: "#EF4444" },
-          { val: high,     label: "High",     color: "#F97316" },
-          { val: `${negPct}%`, label: "Negative", color: negPct > 60 ? "#EF4444" : "#111827" },
-          { val: avgScore, label: "Avg score", color: "#111827" },
+          { val: critical,     label: "Critical",  color: "#EF4444" },
+          { val: high,         label: "High",      color: "#F97316" },
+          { val: `${negPct}%`, label: "Negative",  color: negPct > 60 ? "#EF4444" : "#111827" },
+          { val: avgScore,     label: "Avg score", color: "#111827" },
         ].map(({ val, label, color }) => (
           <div key={label}>
             <div className="text-2xl font-semibold" style={{ color }}>{val}</div>
@@ -388,26 +496,16 @@ function BrandSummaryCard({ brand, scored, paytmScored }: {
 
 function ListView({ entries, showBrand }: { entries: ScoredEntry[]; showBrand: boolean }) {
   if (entries.length === 0) {
-    return (
-      <div className="py-24 text-center text-sm text-gray-400">
-        No tweets match the current filters.
-      </div>
-    );
+    return <div className="py-24 text-center text-sm text-gray-400">No tweets match the current filters.</div>;
   }
-
   return (
     <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
             <tr className="border-b border-gray-100 bg-gray-50/70">
-              {[
-                "Score", ...(showBrand ? ["Brand"] : []),
-                "Severity", "Segment", "Sentiment", "User", "Tweet", "Engagement", "Date", "",
-              ].map((h) => (
-                <th key={h} className="text-left px-3 py-2.5 text-[10px] font-semibold text-gray-400 uppercase tracking-wider whitespace-nowrap first:pl-4 last:pr-3">
-                  {h}
-                </th>
+              {["Score", ...(showBrand ? ["Brand"] : []), "Severity", "Segment", "Sentiment", "User", "Tweet", "Engagement", "Date", ""].map((h) => (
+                <th key={h} className="text-left px-3 py-2.5 text-[10px] font-semibold text-gray-400 uppercase tracking-wider whitespace-nowrap first:pl-4 last:pr-3">{h}</th>
               ))}
             </tr>
           </thead>
@@ -418,13 +516,9 @@ function ListView({ entries, showBrand }: { entries: ScoredEntry[]; showBrand: b
               const sent     = ai?.sentiment ?? "neutral";
               const tweetUrl = `https://x.com/${tweet.user.screen_name}/status/${tweet.tweet_id}`;
               const date     = tweet.created_at
-                ? new Date(tweet.created_at).toLocaleString("en-IN", { day: "numeric", month: "short" })
-                : "";
-
+                ? new Date(tweet.created_at).toLocaleString("en-IN", { day: "numeric", month: "short" }) : "";
               return (
-                <tr key={tweet.tweet_id} className="hover:bg-gray-50/60 transition-colors group">
-
-                  {/* Score */}
+                <tr key={tweet.tweet_id} className="hover:bg-gray-50/60 transition-colors">
                   <td className="pl-4 pr-3 py-3 w-20">
                     <div className="flex flex-col gap-1">
                       <span className="text-xs font-mono font-semibold text-gray-700">{total}</span>
@@ -433,69 +527,40 @@ function ListView({ entries, showBrand }: { entries: ScoredEntry[]; showBrand: b
                       </div>
                     </div>
                   </td>
-
-                  {/* Brand (competitor tab only) */}
                   {showBrand && (
                     <td className="px-3 py-3 w-24">
-                      {tweet.brand && BRAND_META[tweet.brand] ? (
+                      {tweet.brand && BRAND_META[tweet.brand] && (
                         <span className="text-[10px] rounded-full px-2 py-0.5 font-semibold whitespace-nowrap"
                           style={{ backgroundColor: BRAND_META[tweet.brand].bg, color: BRAND_META[tweet.brand].color }}>
                           {BRAND_META[tweet.brand].label}
                         </span>
-                      ) : null}
+                      )}
                     </td>
                   )}
-
-                  {/* Severity */}
-                  <td className="px-3 py-3 w-20">
-                    <span className={`text-xs font-semibold ${sev.text}`}>{sev.label}</span>
-                  </td>
-
-                  {/* Segment */}
+                  <td className="px-3 py-3 w-20"><span className={`text-xs font-semibold ${sev.text}`}>{sev.label}</span></td>
                   <td className="px-3 py-3 w-28">
                     <span className={`text-[10px] rounded-full px-2 py-0.5 font-medium whitespace-nowrap ${SEG_STYLE[seg] ?? SEG_STYLE.general}`}>
                       {SEG_LABEL[seg] ?? seg}
                     </span>
                   </td>
-
-                  {/* Sentiment */}
-                  <td className="px-3 py-3 w-20">
-                    <span className={`text-xs font-medium capitalize ${SENT_COLOR[sent]}`}>{sent}</span>
-                  </td>
-
-                  {/* User */}
+                  <td className="px-3 py-3 w-20"><span className={`text-xs font-medium capitalize ${SENT_COLOR[sent]}`}>{sent}</span></td>
                   <td className="px-3 py-3 w-36">
                     <div className="flex flex-col gap-0.5">
                       <span className="text-xs font-medium text-gray-800 truncate max-w-[128px]">{tweet.user.name}</span>
                       <span className="text-[10px] text-gray-400">@{tweet.user.screen_name}</span>
-                      {tweet.user.followers != null && (
-                        <span className="text-[10px] text-gray-300">{fmt(tweet.user.followers)} followers</span>
-                      )}
+                      {tweet.user.followers != null && <span className="text-[10px] text-gray-300">{fmt(tweet.user.followers)} followers</span>}
                     </div>
                   </td>
-
-                  {/* Tweet text */}
-                  <td className="px-3 py-3 max-w-xs">
-                    <p className="text-xs text-gray-600 line-clamp-2 leading-relaxed">{tweet.full_text}</p>
-                  </td>
-
-                  {/* Engagement */}
+                  <td className="px-3 py-3 max-w-xs"><p className="text-xs text-gray-600 line-clamp-2 leading-relaxed">{tweet.full_text}</p></td>
                   <td className="px-3 py-3 w-36">
                     <div className="flex flex-col gap-0.5 text-[10px] text-gray-400">
                       <span>👍 {fmt(tweet.likes ?? 0)}  🔁 {fmt(tweet.retweets ?? 0)}</span>
                       <span>💬 {fmt(tweet.replies ?? 0)}  👁 {fmt(tweet.views ?? 0)}</span>
                     </div>
                   </td>
-
-                  {/* Date */}
-                  <td className="px-3 py-3 w-20 text-right">
-                    <span className="text-[10px] text-gray-400 whitespace-nowrap">{date}</span>
-                  </td>
-
-                  {/* Link */}
+                  <td className="px-3 py-3 w-20 text-right"><span className="text-[10px] text-gray-400 whitespace-nowrap">{date}</span></td>
                   <td className="px-3 py-3 w-8 text-right">
-                    <a href={tweetUrl} target="_blank" rel="noopener noreferrer"
-                      className="text-gray-300 hover:text-gray-600 transition-colors inline-flex">
+                    <a href={tweetUrl} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-gray-600 transition-colors inline-flex">
                       <ExternalIcon />
                     </a>
                   </td>
@@ -514,12 +579,9 @@ function ListView({ entries, showBrand }: { entries: ScoredEntry[]; showBrand: b
 export default function Dashboard({
   tweets, aiRecord, competitorTweets, competitorAiRecord, aiAvailable, aiError,
 }: {
-  tweets: Tweet[];
-  aiRecord: Record<string, AIAnalysis>;
-  competitorTweets: Tweet[];
-  competitorAiRecord: Record<string, AIAnalysis>;
-  aiAvailable: boolean;
-  aiError?: string;
+  tweets: Tweet[]; aiRecord: Record<string, AIAnalysis>;
+  competitorTweets: Tweet[]; competitorAiRecord: Record<string, AIAnalysis>;
+  aiAvailable: boolean; aiError?: string;
 }) {
   const [tab,        setTab]        = useState<"paytm" | "competitors">("paytm");
   const [viewMode,   setViewMode]   = useState<"cards" | "list">("cards");
@@ -528,7 +590,11 @@ export default function Dashboard({
   const [severities, setSeverities] = useState<string[]>([]);
   const [sentiments, setSentiments] = useState<string[]>([]);
   const [platforms,  setPlatforms]  = useState<string[]>([]);
+  const [datePreset, setDatePreset] = useState<string | null>(null);
+  const [dateFrom,   setDateFrom]   = useState("");
+  const [dateTo,     setDateTo]     = useState("");
   const [search,     setSearch]     = useState("");
+
   const [savedFilters,  setSavedFilters]  = useState<SavedFilter[]>([]);
   const [saveModalOpen, setSaveModalOpen] = useState(false);
   const [saveName,      setSaveName]      = useState("");
@@ -546,22 +612,31 @@ export default function Dashboard({
     setList(list.includes(id) ? list.filter((x) => x !== id) : [...list, id]);
   }
 
-  const hasActiveFilter    = segments.length > 0 || severities.length > 0 || sentiments.length > 0;
-  const totalActiveFilters = platforms.length + segments.length + severities.length + sentiments.length;
+  const dateRange = useMemo(() => getDateRange(datePreset, dateFrom, dateTo), [datePreset, dateFrom, dateTo]);
 
-  function clearAll() { setSegments([]); setSeverities([]); setSentiments([]); setPlatforms([]); }
+  const hasActiveFilter    = segments.length > 0 || severities.length > 0 || sentiments.length > 0 || !!datePreset;
+  const totalActiveFilters = platforms.length + segments.length + severities.length + sentiments.length + (datePreset ? 1 : 0);
+
+  function clearAll() {
+    setSegments([]); setSeverities([]); setSentiments([]); setPlatforms([]);
+    setDatePreset(null); setDateFrom(""); setDateTo("");
+  }
 
   function saveFilter() {
     const name = saveName.trim();
     if (!name) return;
-    const f: SavedFilter = { name, segments, severities, sentiments };
+    const f: SavedFilter = { name, segments, severities, sentiments, datePreset, dateFrom, dateTo };
     const updated = [...savedFilters.filter((x) => x.name !== name), f];
     setSavedFilters(updated);
     localStorage.setItem("paytm_saved_filters", JSON.stringify(updated));
     setSaveName(""); setSaveModalOpen(false);
   }
 
-  function applyFilter(f: SavedFilter) { setSegments(f.segments); setSeverities(f.severities); setSentiments(f.sentiments); }
+  function applyFilter(f: SavedFilter) {
+    setSegments(f.segments); setSeverities(f.severities); setSentiments(f.sentiments);
+    setDatePreset(f.datePreset ?? null);
+    setDateFrom(f.dateFrom ?? ""); setDateTo(f.dateTo ?? "");
+  }
 
   function deleteFilter(name: string) {
     const updated = savedFilters.filter((f) => f.name !== name);
@@ -579,32 +654,20 @@ export default function Dashboard({
       "AI Score", "Engagement Score", "Follower Score", "Total Score",
     ];
     const rows = activeFiltered.map(({ tweet, ai, aiBase, engagement, follower, total }, i) => [
-      i + 1,
-      tweet.tweet_id,
-      tweet.brand ?? (tab === "paytm" ? "paytm" : ""),
-      tweet.user.screen_name,
-      esc(tweet.user.name),
-      tweet.user.followers ?? 0,
-      tweet.created_at,
-      esc(tweet.full_text),
-      tweet.likes, tweet.retweets, tweet.replies, tweet.quotes, tweet.views ?? 0,
-      ai?.severity ?? "low",
-      ai?.sentiment ?? "neutral",
-      ai?.segment ?? "general",
-      ai?.category ?? "",
-      esc(ai?.reason ?? ""),
+      i + 1, tweet.tweet_id, tweet.brand ?? (tab === "paytm" ? "paytm" : ""),
+      tweet.user.screen_name, esc(tweet.user.name), tweet.user.followers ?? 0, tweet.created_at,
+      esc(tweet.full_text), tweet.likes, tweet.retweets, tweet.replies, tweet.quotes, tweet.views ?? 0,
+      ai?.severity ?? "low", ai?.sentiment ?? "neutral", ai?.segment ?? "general",
+      ai?.category ?? "", esc(ai?.reason ?? ""),
       aiBase, engagement, follower, total,
     ].join(","));
-
     const csv  = [headers.join(","), ...rows].join("\n");
     const blob = new Blob(["﻿" + csv], { type: "text/csv;charset=utf-8;" });
     const url  = URL.createObjectURL(blob);
     const a    = document.createElement("a");
-    a.href     = url;
+    a.href = url;
     a.download = `escalations-${tab}-${new Date().toISOString().slice(0, 10)}.csv`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
     URL.revokeObjectURL(url);
   }
 
@@ -612,8 +675,8 @@ export default function Dashboard({
   const paytmScored      = useMemo(() => scoreAndSort(tweets, aiRecord, weights), [tweets, aiRecord, weights]);
   const competitorScored = useMemo(() => scoreAndSort(competitorTweets, competitorAiRecord, weights), [competitorTweets, competitorAiRecord, weights]);
 
-  const paytmFiltered      = useMemo(() => applyFilters(paytmScored, platforms, segments, severities, sentiments, search), [paytmScored, platforms, segments, severities, sentiments, search]);
-  const competitorFiltered = useMemo(() => applyFilters(competitorScored, platforms, segments, severities, sentiments, search), [competitorScored, platforms, segments, severities, sentiments, search]);
+  const paytmFiltered      = useMemo(() => applyFilters(paytmScored, platforms, segments, severities, sentiments, search, dateRange), [paytmScored, platforms, segments, severities, sentiments, search, dateRange]);
+  const competitorFiltered = useMemo(() => applyFilters(competitorScored, platforms, segments, severities, sentiments, search, dateRange), [competitorScored, platforms, segments, severities, sentiments, search, dateRange]);
 
   const activeFiltered = tab === "paytm" ? paytmFiltered : competitorFiltered;
   const activeTweets   = tab === "paytm" ? tweets : competitorTweets;
@@ -624,10 +687,12 @@ export default function Dashboard({
   const negPct   = activeFiltered.length ? Math.round((negative / activeFiltered.length) * 100) : 0;
 
   const now = new Date().toLocaleString("en-IN", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+
   const filterSummary = [
     segments.length   > 0 && `${segments.length} segment${segments.length > 1 ? "s" : ""}`,
     severities.length > 0 && `${severities.length} severit${severities.length > 1 ? "ies" : "y"}`,
     sentiments.length > 0 && `${sentiments.length} sentiment${sentiments.length > 1 ? "s" : ""}`,
+    datePreset        && fmtDateRange(datePreset, dateFrom, dateTo),
   ].filter(Boolean).join(" · ");
 
   return (
@@ -641,17 +706,14 @@ export default function Dashboard({
             <span className="text-gray-300">·</span>
             <span className="text-sm text-gray-500 font-medium">Escalation Monitor</span>
           </div>
-
           <div className="flex items-center gap-1 bg-gray-100 rounded-lg p-0.5">
             {(["paytm", "competitors"] as const).map((t) => (
               <button key={t} onClick={() => setTab(t)}
-                className={`text-xs px-4 py-1.5 rounded-md font-medium transition-all ${tab === t ? "bg-white text-gray-900 shadow-sm" : "text-gray-500 hover:text-gray-700"}`}
-              >
+                className={`text-xs px-4 py-1.5 rounded-md font-medium transition-all ${tab === t ? "bg-white text-gray-900 shadow-sm" : "text-gray-500 hover:text-gray-700"}`}>
                 {t === "paytm" ? "Paytm" : "Competitors"}
               </button>
             ))}
           </div>
-
           <div className="flex items-center gap-2 text-xs">
             <span className={`w-1.5 h-1.5 rounded-full ${aiAvailable ? "bg-emerald-400" : "bg-amber-400"}`} />
             <span className={aiAvailable ? "text-gray-400" : "text-amber-600"}>
@@ -682,10 +744,17 @@ export default function Dashboard({
                 </span>
               )}
             </div>
+
             <FilterDropdown label="Platform"  options={PLATFORM_OPTIONS}  selected={platforms}  onToggle={(id) => toggle(platforms,  setPlatforms,  id)} onClear={() => setPlatforms([])} />
             <FilterDropdown label="Segment"   options={SEGMENT_OPTIONS}   selected={segments}   onToggle={(id) => toggle(segments,   setSegments,   id)} onClear={() => setSegments([])} />
             <FilterDropdown label="Severity"  options={SEVERITY_OPTIONS}  selected={severities} onToggle={(id) => toggle(severities, setSeverities, id)} onClear={() => setSeverities([])} />
             <FilterDropdown label="Sentiment" options={SENTIMENT_OPTIONS} selected={sentiments} onToggle={(id) => toggle(sentiments, setSentiments, id)} onClear={() => setSentiments([])} />
+            <DateDropdown
+              preset={datePreset} from={dateFrom} to={dateTo}
+              onPreset={setDatePreset} onFrom={setDateFrom} onTo={setDateTo}
+              onClear={() => { setDatePreset(null); setDateFrom(""); setDateTo(""); }}
+            />
+
             {totalActiveFilters > 0 && (
               <>
                 <div className="w-px h-4 bg-gray-200 flex-shrink-0" />
@@ -699,6 +768,7 @@ export default function Dashboard({
               </button>
             )}
           </div>
+
           {savedFilters.length > 0 && (
             <div className="flex items-center gap-2 flex-wrap">
               <span className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider flex-shrink-0">Saved:</span>
@@ -738,10 +808,8 @@ export default function Dashboard({
 
       {/* ── Body ── */}
       <div className="max-w-[1400px] mx-auto w-full px-6 py-6 flex gap-5 items-start">
-
         <div className="flex-1 flex flex-col gap-4 min-w-0">
 
-          {/* Search */}
           <input type="text"
             placeholder={`Search ${tab === "paytm" ? "Paytm" : "competitor"} tweets, keywords, usernames…`}
             value={search} onChange={(e) => setSearch(e.target.value)}
@@ -750,7 +818,6 @@ export default function Dashboard({
             onBlur={(e)  => (e.target.style.borderColor = "#E5E7EB")}
           />
 
-          {/* Competitor comparison */}
           {tab === "competitors" && (
             <div className="flex flex-col gap-3">
               <div className="flex items-center justify-between">
@@ -764,7 +831,6 @@ export default function Dashboard({
             </div>
           )}
 
-          {/* KPIs */}
           <div className="grid grid-cols-4 gap-3">
             <StatCard label="Showing"  value={activeFiltered.length} sub={`of ${activeTweets.length} total`} />
             <StatCard label="Critical" value={critical}              sub="immediate action"   color="#EF4444" />
@@ -772,65 +838,40 @@ export default function Dashboard({
             <StatCard label="Negative" value={`${negPct}%`} sub={`${negative} of ${activeFiltered.length}`} color={negPct > 50 ? "#EF4444" : "#111827"} />
           </div>
 
-          {/* Legend + view toggle + download */}
           <div className="flex items-center justify-between gap-3">
             <p className="text-xs text-gray-400">
               {activeFiltered.length} result{activeFiltered.length !== 1 ? "s" : ""} · sorted by severity score
             </p>
-
             <div className="flex items-center gap-3">
-              {/* Severity legend */}
               <div className="flex items-center gap-3 text-xs text-gray-400">
-                {[
-                  { color: "bg-red-400",     label: "Critical" },
-                  { color: "bg-orange-400",  label: "High" },
-                  { color: "bg-amber-400",   label: "Medium" },
-                  { color: "bg-emerald-400", label: "Low" },
-                ].map(({ color, label }) => (
+                {[{ color: "bg-red-400", label: "Critical" }, { color: "bg-orange-400", label: "High" },
+                  { color: "bg-amber-400", label: "Medium" }, { color: "bg-emerald-400", label: "Low" }].map(({ color, label }) => (
                   <span key={label} className="flex items-center gap-1.5">
                     <span className={`w-2 h-2 rounded-full ${color}`} />{label}
                   </span>
                 ))}
               </div>
-
               <div className="w-px h-4 bg-gray-200" />
-
-              {/* Download CSV */}
-              <button
-                onClick={downloadCSV}
-                className="flex items-center gap-1.5 text-xs px-2.5 py-1.5 rounded-lg border border-gray-200 bg-white text-gray-600 hover:border-gray-300 hover:text-gray-800 transition-all"
-              >
-                <DownloadIcon />
-                CSV
+              <button onClick={downloadCSV} className="flex items-center gap-1.5 text-xs px-2.5 py-1.5 rounded-lg border border-gray-200 bg-white text-gray-600 hover:border-gray-300 hover:text-gray-800 transition-all">
+                <DownloadIcon /> CSV
               </button>
-
-              {/* Layout toggle */}
               <div className="flex items-center border border-gray-200 rounded-lg overflow-hidden">
-                <button
-                  onClick={() => setViewMode("cards")}
-                  title="Card view"
-                  className={`p-1.5 transition-colors ${viewMode === "cards" ? "bg-gray-100 text-gray-800" : "text-gray-400 hover:text-gray-600 bg-white"}`}
-                >
+                <button onClick={() => setViewMode("cards")} title="Card view"
+                  className={`p-1.5 transition-colors ${viewMode === "cards" ? "bg-gray-100 text-gray-800" : "text-gray-400 hover:text-gray-600 bg-white"}`}>
                   <GridIcon />
                 </button>
-                <button
-                  onClick={() => setViewMode("list")}
-                  title="List view"
-                  className={`p-1.5 border-l border-gray-200 transition-colors ${viewMode === "list" ? "bg-gray-100 text-gray-800" : "text-gray-400 hover:text-gray-600 bg-white"}`}
-                >
+                <button onClick={() => setViewMode("list")} title="List view"
+                  className={`p-1.5 border-l border-gray-200 transition-colors ${viewMode === "list" ? "bg-gray-100 text-gray-800" : "text-gray-400 hover:text-gray-600 bg-white"}`}>
                   <ListIcon />
                 </button>
               </div>
             </div>
           </div>
 
-          {/* Cards or List */}
           {viewMode === "cards" ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pb-10">
               {activeFiltered.length === 0 ? (
-                <div className="col-span-3 py-24 text-center text-sm text-gray-400">
-                  No tweets match the current filters.
-                </div>
+                <div className="col-span-3 py-24 text-center text-sm text-gray-400">No tweets match the current filters.</div>
               ) : (
                 activeFiltered.map(({ tweet, ai, engagement, follower, total }) => (
                   <TweetCard key={tweet.tweet_id} tweet={tweet} ai={ai} engagementScore={engagement} followerScore={follower} totalScore={total} />
