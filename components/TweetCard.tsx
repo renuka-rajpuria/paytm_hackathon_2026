@@ -115,8 +115,9 @@ export default function TweetCard({
   const segStyle = SEGMENT_STYLE[segment] ?? SEGMENT_STYLE.general;
   const segLabel = SEGMENT_LABEL[segment] ?? segment;
 
-  const isTranslated = ai?.is_translated && ai.translated_text;
-  const langLabel = ai?.language ? (LANG_LABEL[ai.language] ?? ai.language.toUpperCase()) : null;
+  const sourceLang   = ai?.language ?? tweet.lang ?? "en";
+  const isTranslated = !!(ai?.is_translated && ai.translated_text && sourceLang !== "en");
+  const langLabel    = LANG_LABEL[sourceLang] ?? sourceLang.toUpperCase();
 
   return (
     <article className={`bg-white rounded-xl border border-gray-200 border-l-4 ${s.border} flex flex-col overflow-hidden hover:shadow-md transition-shadow duration-200`}>
