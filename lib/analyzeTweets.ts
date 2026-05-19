@@ -27,10 +27,10 @@ export interface AnalyzeResult {
   aiError?: string;
 }
 
-async function callPaytmAI(tweets: Tweet[]): Promise<AIAnalysis[]> {
-  const apiKey = process.env.PAYTM_AI_API_KEY;
+async function callAI(tweets: Tweet[]): Promise<AIAnalysis[]> {
+  const apiKey = process.env.AI_API_KEY;
 
-  const prompt = `You are a social media monitoring system for Paytm. Analyze each tweet below.
+  const prompt = `You are a social media monitoring system. Analyze each tweet below.
 
 For each tweet return JSON with these fields:
 - sentiment: "positive", "neutral", or "negative"
@@ -44,7 +44,7 @@ For each tweet return JSON with these fields:
 
 Segment guide:
 - upi: UPI transactions, UPI PIN, NPCI, bank transfer via UPI
-- wallet: Paytm wallet balance, add money, wallet transfer
+- wallet: digital wallet balance, add money, wallet transfer
 - payment_gateway: merchant payments, PG, checkout, merchant settlement
 - b2b: business payments, vendor payments, bulk transfers
 - b2b_lending: business loans, working capital, credit line
@@ -103,7 +103,7 @@ export async function analyzeTweets(tweets: Tweet[]): Promise<AnalyzeResult> {
   let aiError: string | undefined;
 
   try {
-    const batchResults = await Promise.all(batches.map((batch) => callPaytmAI(batch)));
+    const batchResults = await Promise.all(batches.map((batch) => callAI(batch)));
     allResults = batchResults.flat();
     aiAvailable = allResults.length > 0;
     if (!aiAvailable) aiError = "AI returned no results — check API key or endpoint.";

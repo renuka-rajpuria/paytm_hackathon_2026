@@ -6,8 +6,8 @@ const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
 
 export const metadata: Metadata = {
-  title: "Paytm · Escalation Monitor",
-  description: "Internal social media escalation dashboard",
+  title: "Intercept",
+  description: "Social media escalation dashboard",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

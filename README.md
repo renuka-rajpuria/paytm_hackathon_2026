@@ -1,15 +1,15 @@
-# Paytm Escalation Monitor — Hackathon 2026
+# Intercept — Social Media Escalation Monitor
 
-A real-time dashboard for **customer support teams and executives** to monitor social media escalations, analyze sentiment, and prioritize issues based on severity — all powered by Paytm AI.
+A real-time dashboard for **customer support teams and executives** to monitor social media escalations, analyze sentiment, and prioritize issues based on severity — powered by an AI API.
 
 ---
 
 ## Features
 
 ### Escalation Intelligence
-- AI-powered severity classification — Critical / High / Medium / Low — via Paytm AI API
-- Sentiment analysis per tweet (positive / neutral / negative)
-- Segment classification across 10 Paytm product lines: UPI, Wallet, Payment Gateway, B2B, B2B Lending, Gold, Flights, Hotels, Insurance, General
+- AI-powered severity classification — Critical / High / Medium / Low
+- Sentiment analysis per post (positive / neutral / negative)
+- Segment classification across 10 product lines: UPI, Wallet, Payment Gateway, B2B, B2B Lending, Gold, Flights, Hotels, Insurance, General
 - Severity scoring model: AI base (max 60) + engagement (max 25) + follower reach (max 15) = total out of 100
 
 ### Dashboard & Views
@@ -19,7 +19,7 @@ A real-time dashboard for **customer support teams and executives** to monitor s
 - Sticky header and filter bar
 
 ### Filtering & Search
-- Full-text search across tweet content and usernames
+- Full-text search across post content and usernames
 - Multi-select filter dropdowns: Platform, Segment, Severity, Sentiment
 - Date filter with presets: Today, Yesterday, Last 7 days, Last 30 days, Custom range
 - Save custom filter presets to localStorage, apply or delete saved presets
@@ -27,10 +27,10 @@ A real-time dashboard for **customer support teams and executives** to monitor s
 - Active filter count badge
 
 ### Competitor Analysis Tab
-- Separate tab for Razorpay and PhonePe tweet monitoring
+- Separate tab for competitor brand tweet monitoring
 - Brand summary cards: critical count, high count, negative %, average score per brand
-- vs-Paytm negative sentiment delta for competitive benchmarking
-- All filters and weights apply identically across Paytm and Competitor tabs
+- vs-Primary negative sentiment delta for competitive benchmarking
+- All filters and weights apply identically across Primary and Competitor tabs
 
 ### Score Weights Sidebar
 - User-adjustable weights for all engagement signals: Retweets, Quotes, Replies, Likes, Views, Follower multiplier
@@ -42,13 +42,14 @@ A real-time dashboard for **customer support teams and executives** to monitor s
 
 ### Platforms
 - X / Twitter — live
-- Reddit, LinkedIn — coming soon (UI stubs present)
+- Reddit — live
+- LinkedIn — coming soon (UI stub present)
 
 ---
 
 ## Severity Scoring Model
 
-Each tweet is scored **0–100** across three components:
+Each post is scored **0–100** across three components:
 
 ### 1. AI Base Score (max 60 pts)
 
@@ -91,8 +92,8 @@ Total = AI Base + Engagement + Follower   (capped at 100)
 | Framework   | Next.js 15 (App Router, React Server Components) |
 | Language    | TypeScript |
 | Styling     | Tailwind CSS v4 |
-| Font        | Geist Mono (via next/font/google) |
-| AI / NLP    | Paytm AI API (`openai/gpt-oss-120b`) |
+| Font        | Geist (via next/font/google) |
+| AI / NLP    | AI API (`openai/gpt-oss-120b`) |
 | Data        | Static JSON (tweets_output.json, competitor_tweets.json) |
 | Persistence | localStorage (saved filter presets) |
 | Hosting     | Vercel |
@@ -102,25 +103,21 @@ Total = AI Base + Engagement + Follower   (capped at 100)
 ## File Structure
 
 ```
-paytm_hackathon/
+intercept/
 ├── app/
-│   ├── api/
-│   │   └── tweets/
-│   │       └── route.ts          # API route for tweet data
-│   ├── globals.css               # Global styles (Tailwind, Paytm brand colors)
-│   ├── layout.tsx                # Root layout with Geist Mono font
+│   ├── globals.css               # Global styles (Tailwind)
+│   ├── layout.tsx                # Root layout with Geist font
 │   └── page.tsx                  # Server component — loads JSON, runs AI, renders Dashboard
 ├── components/
 │   ├── Dashboard.tsx             # Main client component — all UI, filters, state
-│   └── TweetCard.tsx             # Tweet card with severity, sentiment, score breakdown
+│   ├── TweetCard.tsx             # Post card with severity, sentiment, score breakdown
+│   └── ProfileModal.tsx          # User profile / role modal
 ├── lib/
-│   └── analyzeTweets.ts          # Paytm AI API integration — batch sentiment/severity/segment
-├── public/
-│   └── Paytm_Logo.png            # Paytm logo (served as static asset)
-├── tweets_output.json            # Paytm tweets dataset (124 tweets)
-├── competitor_tweets.json        # Razorpay + PhonePe tweets dataset (10 tweets)
-├── add_segment_tweets.py         # Script to generate segment-tagged dummy tweets
-├── .env.local                    # PAYTM_AI_API_KEY (gitignored)
+│   └── analyzeTweets.ts          # AI API integration — batch sentiment/severity/segment
+├── tweets_output.json            # Primary tweets dataset
+├── competitor_tweets.json        # Competitor tweets dataset
+├── reddit_output.json            # Reddit posts dataset
+├── .env.local                    # AI_API_KEY (gitignored)
 ├── next.config.ts
 ├── tsconfig.json
 └── README.md
@@ -131,7 +128,7 @@ paytm_hackathon/
 ## Environment Variables
 
 ```
-PAYTM_AI_API_KEY=your_key_here
+AI_API_KEY=your_key_here
 ```
 
 Add to `.env.local` (never commit this file).

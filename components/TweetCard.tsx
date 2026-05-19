@@ -249,7 +249,7 @@ export default function TweetCard({
   const s        = SEV[severity];
   const isReddit = tweet.platform === "reddit";
   const tweetUrl = isReddit
-    ? (tweet.post_url ?? "https://www.reddit.com/search/?q=paytm")
+    ? (tweet.post_url ?? "https://www.reddit.com")
     : `https://x.com/${tweet.user.screen_name}/status/${tweet.tweet_id}`;
   const brandStyle = tweet.brand ? BRAND_STYLE[tweet.brand] : null;
   const photo      = tweet.media_urls?.find((m) => m.type === "photo");
@@ -270,7 +270,7 @@ export default function TweetCard({
 
   return (
     <article className={`bg-white rounded-xl border border-gray-200 border-l-4 ${s.border} flex flex-col overflow-hidden hover:shadow-md transition-shadow duration-200`}>
-      {photo && <img src={photo.url} alt="" className="w-full h-32 object-cover" />}
+      {photo && <img src={photo.url} alt="" className="w-full h-32 object-cover" onError={(e) => (e.currentTarget.style.display = "none")} />}
 
       <div className="p-4 flex flex-col gap-3 flex-1">
         {/* Top row */}
@@ -318,7 +318,7 @@ export default function TweetCard({
         {/* User row */}
         <div className="flex items-center gap-2.5">
           {tweet.user.avatar_url ? (
-            <img src={tweet.user.avatar_url} alt="" className="w-8 h-8 rounded-full object-cover flex-shrink-0" />
+            <img src={tweet.user.avatar_url} alt="" className="w-8 h-8 rounded-full object-cover flex-shrink-0" onError={(e) => (e.currentTarget.style.display = "none")} />
           ) : (
             <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 text-xs font-bold flex-shrink-0">
               {tweet.user.name?.[0]?.toUpperCase()}

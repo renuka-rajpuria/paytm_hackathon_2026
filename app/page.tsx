@@ -20,22 +20,21 @@ export default async function Home() {
   const redditPosts     = loadJSON("reddit_output.json");
   const competitorTweets = loadJSON("competitor_tweets.json");
 
-  // Combine Twitter + Reddit into one Paytm feed; analyse together for efficiency
-  const paytmAll = [...tweets, ...redditPosts];
+  const primaryAll = [...tweets, ...redditPosts];
 
-  const [paytmResult, competitorResult] = await Promise.all([
-    analyzeTweets(paytmAll),
+  const [primaryResult, competitorResult] = await Promise.all([
+    analyzeTweets(primaryAll),
     analyzeTweets(competitorTweets),
   ]);
 
   return (
     <Dashboard
-      tweets={paytmAll}
-      aiRecord={Object.fromEntries(paytmResult.map.entries())}
+      tweets={primaryAll}
+      aiRecord={Object.fromEntries(primaryResult.map.entries())}
       competitorTweets={competitorTweets}
       competitorAiRecord={Object.fromEntries(competitorResult.map.entries())}
-      aiAvailable={paytmResult.aiAvailable}
-      aiError={paytmResult.aiError}
+      aiAvailable={primaryResult.aiAvailable}
+      aiError={primaryResult.aiError}
     />
   );
 }

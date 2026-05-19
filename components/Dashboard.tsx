@@ -33,7 +33,7 @@ type ScoredEntry = {
   aiBase: number; engagement: number; follower: number; total: number;
 };
 
-type MainTab = "paytm" | "competitors" | "trending";
+type MainTab = "primary" | "competitors" | "trending";
 
 // ─── Constants ───────────────────────────────────────────────────────────────
 
@@ -499,8 +499,8 @@ function StatCard({ label, value, sub, color }: {
 
 // ─── BrandSummaryCard ────────────────────────────────────────────────────────
 
-function BrandSummaryCard({ brand, scored, paytmScored }: {
-  brand: string; scored: ScoredEntry[]; paytmScored?: ScoredEntry[];
+function BrandSummaryCard({ brand, scored, primaryScored }: {
+  brand: string; scored: ScoredEntry[]; primaryScored?: ScoredEntry[];
 }) {
   const meta     = BRAND_META[brand] ?? { label: brand, color: "#6B7280", bg: "#F3F4F6" };
   const tweets   = scored.filter((e) => e.tweet.brand === brand);
@@ -511,14 +511,14 @@ function BrandSummaryCard({ brand, scored, paytmScored }: {
   const avgScore = tweets.length ? Math.round(tweets.reduce((s, e) => s + e.total, 0) / tweets.length) : 0;
 
   let delta: React.ReactNode = null;
-  if (paytmScored && paytmScored.length > 0) {
-    const pNeg  = paytmScored.filter((e) => e.ai?.sentiment === "negative").length;
-    const pPct  = Math.round((pNeg / paytmScored.length) * 100);
+  if (primaryScored && primaryScored.length > 0) {
+    const pNeg  = primaryScored.filter((e) => e.ai?.sentiment === "negative").length;
+    const pPct  = Math.round((pNeg / primaryScored.length) * 100);
     const diff  = negPct - pPct;
     const color = diff < 0 ? "text-emerald-500" : "text-red-500";
     delta = (
       <p className="text-[10px] mt-2 pt-2 border-t border-gray-100 text-gray-400">
-        vs Paytm: <span className={`font-semibold ${color}`}>{diff > 0 ? `+${diff}` : diff}% negative sentiment</span>
+        vs Primary: <span className={`font-semibold ${color}`}>{diff > 0 ? `+${diff}` : diff}% negative sentiment</span>
       </p>
     );
   }
@@ -992,7 +992,7 @@ export default function Dashboard({
   competitorTweets: Tweet[]; competitorAiRecord: Record<string, AIAnalysis>;
   aiAvailable: boolean; aiError?: string;
 }) {
-  const [tab,        setTab]        = useState<MainTab>("paytm");
+  const [tab,        setTab]        = useState<MainTab>("primary");
   const [viewMode,   setViewMode]   = useState<"cards" | "list">("cards");
   const [weights,    setWeights]    = useState<Weights>(DEFAULT_WEIGHTS);
   const [segments,   setSegments]   = useState<string[]>([]);
@@ -1020,23 +1020,23 @@ export default function Dashboard({
 
   useEffect(() => {
     try {
-      const raw = localStorage.getItem("paytm_saved_filters");
+      const raw = localStorage.getItem("intercept_saved_filters");
       if (raw) setSavedFilters(JSON.parse(raw));
     } catch {}
     try {
-      const raw = localStorage.getItem("paytm_watch_keywords");
+      const raw = localStorage.getItem("intercept_watch_keywords");
       if (raw) setWatchKeywords(JSON.parse(raw));
     } catch {}
     try {
-      const raw = localStorage.getItem("paytm_profiles");
+      const raw = localStorage.getItem("intercept_profiles");
       if (raw) setProfiles(JSON.parse(raw));
     } catch {}
     try {
-      const raw = localStorage.getItem("paytm_active_profile");
+      const raw = localStorage.getItem("intercept_active_profile");
       if (raw) setActiveProfileId(raw);
     } catch {}
     try {
-      const raw = localStorage.getItem("paytm_resolutions");
+      const raw = localStorage.getItem("intercept_resolutions");
       if (raw) setResolutions(JSON.parse(raw));
     } catch {}
   }, []);
@@ -1047,14 +1047,14 @@ export default function Dashboard({
   function addProfile(profile: UserProfile) {
     const updated = [...profiles, profile];
     setProfiles(updated);
-    localStorage.setItem("paytm_profiles", JSON.stringify(updated));
+    localStorage.setItem("intercept_profiles", JSON.stringify(updated));
     setActiveProfileId(profile.id);
-    localStorage.setItem("paytm_active_profile", profile.id);
+    localStorage.setItem("intercept_active_profile", profile.id);
   }
 
   function switchProfile(id: string) {
     setActiveProfileId(id);
-    localStorage.setItem("paytm_active_profile", id);
+    localStorage.setItem("intercept_active_profile", id);
   }
 
   function updateResolution(tweetId: string, status: ResolutionStatus, note: string) {
@@ -1065,7 +1065,7 @@ export default function Dashboard({
     };
     const updated = { ...resolutions, [tweetId]: entry };
     setResolutions(updated);
-    localStorage.setItem("paytm_resolutions", JSON.stringify(updated));
+    localStorage.setItem("intercept_resolutions", JSON.stringify(updated));
   }
 
   const setWeight = (key: keyof Weights) => (v: number) => setWeights((w) => ({ ...w, [key]: v }));
@@ -1091,7 +1091,7 @@ export default function Dashboard({
     const f: SavedFilter = { name, segments, severities, sentiments, datePreset, dateFrom, dateTo, translatedOnly };
     const updated = [...savedFilters.filter((x) => x.name !== name), f];
     setSavedFilters(updated);
-    localStorage.setItem("paytm_saved_filters", JSON.stringify(updated));
+    localStorage.setItem("intercept_saved_filters", JSON.stringify(updated));
     setSaveName(""); setSaveModalOpen(false);
   }
 
@@ -1105,7 +1105,7 @@ export default function Dashboard({
   function deleteFilter(name: string) {
     const updated = savedFilters.filter((f) => f.name !== name);
     setSavedFilters(updated);
-    localStorage.setItem("paytm_saved_filters", JSON.stringify(updated));
+    localStorage.setItem("intercept_saved_filters", JSON.stringify(updated));
   }
 
   function addKeyword(kw: string) {
@@ -1115,13 +1115,13 @@ export default function Dashboard({
     const entry: WatchKeyword = { id: crypto.randomUUID(), keyword: trimmed, createdAt: new Date().toISOString() };
     const updated = [...watchKeywords, entry];
     setWatchKeywords(updated);
-    localStorage.setItem("paytm_watch_keywords", JSON.stringify(updated));
+    localStorage.setItem("intercept_watch_keywords", JSON.stringify(updated));
   }
 
   function deleteKeyword(id: string) {
     const updated = watchKeywords.filter((k) => k.id !== id);
     setWatchKeywords(updated);
-    localStorage.setItem("paytm_watch_keywords", JSON.stringify(updated));
+    localStorage.setItem("intercept_watch_keywords", JSON.stringify(updated));
   }
 
   // ── CSV export ──
@@ -1134,7 +1134,7 @@ export default function Dashboard({
       "AI Score", "Engagement Score", "Follower Score", "Total Score",
     ];
     const rows = activeFiltered.map(({ tweet, ai, aiBase, engagement, follower, total }, i) => [
-      i + 1, tweet.tweet_id, tweet.brand ?? (tab === "paytm" ? "paytm" : ""),
+      i + 1, tweet.tweet_id, tweet.brand ?? (tab === "primary" ? "primary" : ""),
       tweet.user.screen_name, esc(tweet.user.name), tweet.user.followers ?? 0, tweet.created_at,
       esc(tweet.full_text), tweet.likes, tweet.retweets, tweet.replies, tweet.quotes, tweet.views ?? 0,
       ai?.severity ?? "low", ai?.sentiment ?? "neutral", ai?.segment ?? "general",
@@ -1152,15 +1152,15 @@ export default function Dashboard({
   }
 
   // ── Scoring + filtering ──
-  const paytmScored      = useMemo(() => scoreAndSort(tweets, aiRecord, weights), [tweets, aiRecord, weights]);
+  const primaryScored    = useMemo(() => scoreAndSort(tweets, aiRecord, weights), [tweets, aiRecord, weights]);
   const competitorScored = useMemo(() => scoreAndSort(competitorTweets, competitorAiRecord, weights), [competitorTweets, competitorAiRecord, weights]);
-  const allScored        = useMemo(() => [...paytmScored, ...competitorScored], [paytmScored, competitorScored]);
+  const allScored        = useMemo(() => [...primaryScored, ...competitorScored], [primaryScored, competitorScored]);
 
-  const paytmFiltered      = useMemo(() => applyFilters(paytmScored, platforms, segments, severities, sentiments, search, dateRange, translatedOnly, ticketStatuses, resolutions), [paytmScored, platforms, segments, severities, sentiments, search, dateRange, translatedOnly, ticketStatuses, resolutions]);
+  const primaryFiltered      = useMemo(() => applyFilters(primaryScored, platforms, segments, severities, sentiments, search, dateRange, translatedOnly, ticketStatuses, resolutions), [primaryScored, platforms, segments, severities, sentiments, search, dateRange, translatedOnly, ticketStatuses, resolutions]);
   const competitorFiltered = useMemo(() => applyFilters(competitorScored, platforms, segments, severities, sentiments, search, dateRange, translatedOnly, ticketStatuses, resolutions), [competitorScored, platforms, segments, severities, sentiments, search, dateRange, translatedOnly, ticketStatuses, resolutions]);
 
-  const activeFiltered = tab === "paytm" ? paytmFiltered : competitorFiltered;
-  const activeTweets   = tab === "paytm" ? tweets : competitorTweets;
+  const activeFiltered = tab === "primary" ? primaryFiltered : competitorFiltered;
+  const activeTweets   = tab === "primary" ? tweets : competitorTweets;
 
   const critical = activeFiltered.filter((e) => e.ai?.severity === "critical").length;
   const high     = activeFiltered.filter((e) => e.ai?.severity === "high").length;
@@ -1192,13 +1192,11 @@ export default function Dashboard({
       <header className="bg-white border-b border-gray-200 sticky top-0 z-20">
         <div className="max-w-[1500px] mx-auto px-6 h-14 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src="/Paytm_Logo.png" alt="Paytm" className="h-7 w-auto object-contain" />
-            <span className="text-gray-300">·</span>
-            <span className="text-sm text-gray-500 font-medium">Escalation Monitor</span>
+            <span className="text-sm font-semibold text-gray-900">Intercept</span>
           </div>
           <div className="flex items-center gap-1 bg-gray-100 rounded-lg p-0.5">
             {([
-              { id: "paytm",       label: "Paytm" },
+              { id: "primary",     label: "Primary" },
               { id: "competitors", label: "Competitors" },
               { id: "trending",    label: "Trending" },
             ] as const).map((t) => (
@@ -1360,11 +1358,11 @@ export default function Dashboard({
             <TrendingTab allScored={allScored} watchKeywords={watchKeywords} />
           )}
 
-          {/* Paytm / Competitors tabs */}
+          {/* Primary / Competitors tabs */}
           {tab !== "trending" && (
             <>
               <input type="text"
-                placeholder={`Search ${tab === "paytm" ? "Paytm" : "competitor"} tweets, keywords, usernames…`}
+                placeholder={`Search ${tab === "primary" ? "primary" : "competitor"} feed — tweets, keywords, usernames…`}
                 value={search} onChange={(e) => setSearch(e.target.value)}
                 className="w-full bg-white border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-800 placeholder-gray-400 outline-none transition-all"
                 onFocus={(e) => (e.target.style.borderColor = "#00BAF2")}
@@ -1375,11 +1373,11 @@ export default function Dashboard({
                 <div className="flex flex-col gap-3">
                   <div className="flex items-center justify-between">
                     <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Brand Comparison</p>
-                    <p className="text-xs text-gray-400">Paytm negative% shown for context</p>
+                    <p className="text-xs text-gray-400">Primary negative% shown for context</p>
                   </div>
                   <div className="grid grid-cols-2 gap-3">
-                    <BrandSummaryCard brand="razorpay" scored={competitorFiltered} paytmScored={paytmFiltered} />
-                    <BrandSummaryCard brand="phonepe"  scored={competitorFiltered} paytmScored={paytmFiltered} />
+                    <BrandSummaryCard brand="razorpay" scored={competitorFiltered} primaryScored={primaryFiltered} />
+                    <BrandSummaryCard brand="phonepe"  scored={competitorFiltered} primaryScored={primaryFiltered} />
                   </div>
                 </div>
               )}
